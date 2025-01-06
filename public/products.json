@@ -1,0 +1,274 @@
+[
+    {
+        "title": "Bashundhara Tissue",
+        "category": "Household",
+        "previousPrice": 120,
+        "recentPrice": 100,
+        "description": "Bashundhara tissue is a premium quality tissue paper suitable for household and office use. It is soft, durable, and highly absorbent, making it an essential item for maintaining hygiene and cleanliness.",
+        "unit": "1 pack",
+        "img": "https://www.bashundharapapermills.com/assets/upload/wallpaper_1610534066.png"
+      },
+      {
+        "title": "ACI Pure Salt",
+        "category": "Grocery",
+        "previousPrice": 35,
+        "recentPrice": 30,
+        "description": "ACI Pure Salt is processed with the latest technology to ensure the highest purity and quality. It contains iodine to help prevent iodine deficiency disorders and enhances the flavor of your dishes.",
+        "unit": "1 kg",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3s5Lq2JbhByt8vGNjw-uGrZ44Xc5_ILxEHA&s"
+      },
+      {
+        "title": "Fresh Milk Powder",
+        "category": "Dairy",
+        "previousPrice": 650,
+        "recentPrice": 620,
+        "description": "Fresh Milk Powder is a nutritious and healthy choice for your daily dairy needs. Packed with essential vitamins and minerals, this milk powder dissolves easily and provides a rich, creamy taste for tea, coffee, or cooking.",
+        "unit": "1 kg",
+        "img": "https://i.chaldn.com/_mpimage/fresh-instant-full-cream-milk-powder-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126002&q=best&v=1"
+      },
+      {
+        "title": "Radhuni Turmeric Powder",
+        "category": "Spices",
+        "previousPrice": 120,
+        "recentPrice": 110,
+        "description": "Radhuni Turmeric Powder is made from the finest turmeric roots, providing a rich color and authentic flavor to your dishes. Known for its health benefits, turmeric is a must-have spice in every kitchen.",
+        "unit": "200 gm",
+        "img": "https://i.chaldn.com/_mpimage/radhuni-turmeric-holud-powder-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132554&q=best&v=1"
+      },
+      {
+        "title": "Pran Juice Mango",
+        "category": "Beverage",
+        "previousPrice": 25,
+        "recentPrice": 20,
+        "description": "Pran Mango Juice is a refreshing drink made from real mango pulp. It is a perfect choice for quenching your thirst and enjoying the authentic taste of mango in every sip.",
+        "unit": "250 ml",
+        "img": "https://images.othoba.com/images/thumbs/0513008_pran-mango-fruit-drink-200ml.webp"
+      },
+      {
+        "title": "Teer Miniket Rice",
+        "category": "Grocery",
+        "previousPrice": 75,
+        "recentPrice": 72,
+        "description": "Teer Miniket Rice is a premium quality rice, perfect for making pulao, fried rice, and other delicious dishes. It is clean, aromatic, and packed with natural goodness.",
+        "unit": "1 kg",
+        "img": "https://s3-ap-southeast-1.amazonaws.com/com.meenabazaronline.v1.01/product/2023/5/11/s2nxA7yN8DWr6q4NaqPNRJ6D6nchsXStNI1D0ktb___2xl.webp"
+      },
+      {
+        "title": "Lux Soap",
+        "category": "Personal Care",
+        "previousPrice": 40,
+        "recentPrice": 38,
+        "description": "Lux Soap is enriched with floral extracts to leave your skin feeling soft, smooth, and fragrant after every use. Its creamy lather provides a luxurious bathing experience.",
+        "unit": "100 gm",
+        "img": "https://nrbshop.com/wp-content/uploads/2021/02/LUX-BAR-FRESH-SPLASH-100gr.png"
+      },
+      {
+        "title": "Nestle Nido Milk Powder",
+        "category": "Dairy",
+        "previousPrice": 1050,
+        "recentPrice": 1000,
+        "description": "Nestle Nido Milk Powder is specially formulated to meet the nutritional needs of children and adults. It is rich in calcium, protein, and essential vitamins for strong bones and overall health.",
+        "unit": "1.2 kg",
+        "img": "https://i.chaldn.com/_mpimage/nestle-nido-fortigrow-full-cream-milk-powder-350-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131367&q=best&v=1"
+      },
+      {
+        "title": "Horlicks Health Drink",
+        "category": "Beverage",
+        "previousPrice": 550,
+        "recentPrice": 520,
+        "description": "Horlicks is a health drink designed to provide essential nutrients and energy for all ages. It is fortified with vitamins and minerals to support growth and overall well-being.",
+        "unit": "500 gm",
+        "img": "https://cdn2.arogga.com/eyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJtZWRpY2luZVwvMzNcLzMzNDcyLUhvcmxpY2tzLTI1MC0yNTBnbS0xOHJmLmpwZWciLCJlZGl0cyI6W119"
+      },
+      {
+        "title": "Fair & Lovely Cream",
+        "category": "Personal Care",
+        "previousPrice": 250,
+        "recentPrice": 230,
+        "description": "Fair & Lovely Cream is a fairness cream enriched with multivitamins that brighten the skin and protect it from UV rays. It helps achieve a radiant and even-toned complexion.",
+        "unit": "50 gm",
+        "img": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa97a8d61902ef23080578_Fair-Lovely-Men-Instant-Brightness-Cream-25gm_1.webp"
+      },
+      {
+        "title": "Vim Dishwash Liquid",
+        "category": "Household",
+        "previousPrice": 200,
+        "recentPrice": 180,
+        "description": "Vim Dishwash Liquid removes tough grease and food residues from dishes, leaving them sparkling clean and germ-free.",
+        "unit": "500 ml",
+        "img": "https://lavendersuperstore.com.bd/public/uploads/all/Mc3koYlh1FUNqd8CqILNI6ABYhgMXh4w6cOiXXHL.jpg"
+    },
+    {
+        "title": "Harpic Toilet Cleaner",
+        "category": "Household",
+        "previousPrice": 140,
+        "recentPrice": 130,
+        "description": "Harpic Toilet Cleaner kills 99.9% of germs and removes stains, leaving your toilet fresh and clean.",
+        "unit": "1 bottle",
+        "img": "https://i.chaldn.com/_mpimage/harpic-liquid-toilet-cleaner-750-ml-lizol-floral-floor-cleaner-500-ml-combo-offer-2-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D159732&q=best&v=1"
+    },
+    {
+        "title": "Bashundhara Kitchen Towel",
+        "category": "Household",
+        "previousPrice": 220,
+        "recentPrice": 200,
+        "description": "Premium kitchen towels with superior absorption for cleaning and wiping surfaces.",
+        "unit": "1 roll",
+        "img": "https://images.othoba.com/images/thumbs/0481793_bashundhara-kitchen-towel-1-roll.jpeg"
+    },
+
+    {
+        "title": "Hit Mosquito Spray",
+        "category": "Household",
+        "previousPrice": 250,
+        "recentPrice": 220,
+        "description": "Hit Mosquito Spray is effective for eliminating mosquitoes and flies, ensuring a safe and comfortable environment.",
+        "unit": "400 ml",
+        "img": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa957b115075f231ecc66a_Hit-Lime-Mosquitoes-Flies-Aerosol-625ml_1.webp"
+      },
+      {
+        "title": "Rin Power White Detergent",
+        "category": "Household",
+        "previousPrice": 55,
+        "recentPrice": 50,
+        "description": "Rin Power White Detergent Powder provides superior cleaning and leaves your clothes sparkling white.",
+        "unit": "500 gm",
+        "img": "https://images.othoba.com/images/thumbs/0053959_rin-power-white-500gm.jpeg"
+      },
+      {
+        "title": "Surf Excel Washing Powder",
+        "category": "Household",
+        "previousPrice": 210,
+        "recentPrice": 200,
+        "description": "Surf Excel Washing Powder removes tough stains and keeps your clothes fresh and clean.",
+        "unit": "1 kg",
+        "img": "https://i.chaldn.com/_mpimage/surf-excel-washing-powder-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128343&q=best&v=1"
+      },
+      {
+        "title": "Savlon Antiseptic Liquid",
+        "category": "Household",
+        "previousPrice": 150,
+        "recentPrice": 140,
+        "description": "Savlon Antiseptic Liquid ensures protection against germs and infections, making it essential for first aid.",
+        "unit": "500 ml",
+        "img": "https://www.savlon.co.za/sites/savlon_za/files/styles/product_image/public/product-images/anticeptic-75ml.jpg"
+      },
+      {
+        "title": "Good Knight Refill",
+        "category": "Household",
+        "previousPrice": 150,
+        "recentPrice": 130,
+        "description": "Good Knight Refill offers effective protection against mosquitoes for a peaceful sleep.",
+        "unit": "45 nights",
+        "img": "https://nagadhat.com.bd/storage/media/products/images/1661064444_(Godrej)Good%20Knight%20Refill%20Power%20Active+.jpg"
+      },
+      {
+        "title": "Comfort Fabric Conditioner",
+        "category": "Household",
+        "previousPrice": 170,
+        "recentPrice": 150,
+        "description": "Comfort Fabric Conditioner keeps your clothes soft and fresh with a long-lasting fragrance.",
+        "unit": "500 ml",
+        "img": "https://www.comfortworld.co.uk/images/h0nadbhvm6m4/6q6qbR10Oivh677dUQ32H0/f03493884f33bb2a652e41e1a591496d/Ymx1ZV9za2llc18yLnBuZw/1200w-1200h/comfort-blue-skies-fabric-conditioner-packshot.jpg"
+      },
+      {
+        "title": "Harpic Flushmatic",
+        "category": "Household",
+        "previousPrice": 90,
+        "recentPrice": 80,
+        "description": "Harpic Flushmatic ensures continuous cleanliness and freshness of your toilet after every flush.",
+        "unit": "50 gm",
+        "img": "https://i.chaldn.com/_mpimage/harpic-flushmatic-marine-in-cistern-toilet-cleaner-block-50-gm-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132767&q=best&v=1"
+      },
+      {
+        "title": "Vanish Stain Remover",
+        "category": "Household",
+        "previousPrice": 350,
+        "recentPrice": 330,
+        "description": "Vanish Stain Remover removes tough stains from clothes without damaging the fabric.",
+        "unit": "500 gm",
+        "img": "https://i.chaldn.com/_mpimage/vanish-colour-safe-detergent-booster-10x-oxi-power-400-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136671&q=best&v=1"
+      },
+      {
+        "title": "Domex Toilet Cleaner",
+        "category": "Household",
+        "previousPrice": 140,
+        "recentPrice": 130,
+        "description": "Domex Toilet Cleaner provides superior protection against germs and keeps your toilet sparkling clean.",
+        "unit": "750 ml",
+        "img": "https://i.chaldn.com/_mpimage/domex-toilet-cleaning-liquid-ocean-fresh-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128250&q=best&v=1"
+      },
+      {
+        "title": "Lizol Floor Cleaner",
+        "category": "Household",
+        "previousPrice": 220,
+        "recentPrice": 200,
+        "description": "Lizol Floor Cleaner ensures 99.9% germ protection and leaves your floor fresh and clean.",
+        "unit": "500 ml",
+        "img": "https://i.chaldn.com/_mpimage/lizol-floor-cleaner-citrus-free-bucket-4-ltr-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130317&q=best&v=1"
+      },
+      {
+        "title": "Dettol Handwash",
+        "category": "Household",
+        "previousPrice": 140,
+        "recentPrice": 130,
+        "description": "Dettol Handwash protects against 99.9% of germs and keeps your hands clean and fresh.",
+        "unit": "200 ml",
+        "img": "https://i.chaldn.com/_mpimage/dettol-handwash-re-energize-liquid-pump-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D112097&q=best&v=1"
+      },
+      {
+        "title": "Colin Glass Cleaner",
+        "category": "Household",
+        "previousPrice": 120,
+        "recentPrice": 110,
+        "description": "Colin Glass Cleaner removes dirt and stains, leaving your glass surfaces spotless and shiny.",
+        "unit": "500 ml",
+        "img": "https://wisycart.com/wp-content/uploads/2023/06/194-colin-concentrate-2-ltr-1-jpg.webp"
+      },
+      {
+        "title": "Steel Scrubber",
+        "category": "Household",
+        "previousPrice": 30,
+        "recentPrice": 25,
+        "description": "Steel Scrubber removes tough stains and grease from utensils, ensuring spotless cleanliness.",
+        "unit": "1 piece",
+        "img": "https://i.chaldn.com/_mpimage/aci-wonder-stainless-steel-scrubber-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D122526&q=best&v=1"
+      },
+      {
+        "title": "Naphthalene Balls",
+        "category": "Household",
+        "previousPrice": 40,
+        "recentPrice": 35,
+        "description": "Naphthalene Balls protect clothes and cupboards from insects and ensure a fresh fragrance.",
+        "unit": "100 gm",
+        "img": "https://enozhome.com/wp-content/uploads/product/585/e68_old-fashioned-moth-balls-24-oz_01.jpg"
+      },
+      {
+        "title": "Tide Detergent Powder",
+        "category": "Household",
+        "previousPrice": 80,
+        "recentPrice": 75,
+        "description": "Tide Detergent Powder removes stains and provides superior cleaning for your clothes.",
+        "unit": "500 gm",
+        "img": "https://www.mawolatraders.com/wp-content/uploads/2021/04/12002248-01.jpg"
+      },
+      {
+        "title": "Plastic Dustbin",
+        "category": "Household",
+        "previousPrice": 300,
+        "recentPrice": 270,
+        "description": "Plastic Dustbin is durable and easy to clean, suitable for home or office use.",
+        "unit": "1 piece",
+        "img": "https://image.made-in-china.com/2f0j00PbgpNkLlCocV/Outdoor-Waste-Container-120L-Plastic-Dustbin-Pedal-Trash-Can.webp"
+      },
+      {
+        "title": "Hanger Set",
+        "category": "Household",
+        "previousPrice": 120,
+        "recentPrice": 100,
+        "description": "Hanger Set keeps your clothes organized and wrinkle-free in the wardrobe.",
+        "unit": "6 pieces",
+        "img": "https://www.rflhouseware.com/uploads/1700365274.jpg"
+      }
+   
+]
