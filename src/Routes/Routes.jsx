@@ -12,6 +12,7 @@ import Review from "../Pages/Services/Review/Review";
 import Users from "../Pages/AllUsers/Users";
 import AdminRoute from "./AdminRoute";
 import Contact from "../Pages/Contact/Contact";
+import DetailsProducts from "../Pages/DetailsProduct/DetailsProduct";
 const Router = createBrowserRouter([
   {
     path: '/',
@@ -57,6 +58,10 @@ const Router = createBrowserRouter([
         path: '/contact',
         element: <Contact></Contact>
       },
+      {
+        path:'/detailsProducts/:id',
+        element: <DetailsProducts></DetailsProducts>
+      }
 
     ]
   }
