@@ -282,6 +282,9 @@ const DetailsProducts = () => {
 
 
       {/* Related Product */}
+      <div>
+        <h1 className="text-xl font-bold">Related Products</h1>
+      </div>
     </div>
     </div>
 
