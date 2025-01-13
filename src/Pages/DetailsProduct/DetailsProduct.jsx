@@ -32,7 +32,9 @@ import axios from "axios";
 import Loading from "../Loading/Loading";
 import { FaFacebook, FaHome, FaLinkedin, FaTwitter, FaWhatsapp } from "react-icons/fa";
 import { MdOutlineBrowserNotSupported } from "react-icons/md";
-// import Review from "./Review/Review";
+import OurStore from "../Home/OurStore/OurStore";
+import Review from "../Services/Review/Review";
+
 
 const DetailsProducts = () => {
   const { user } = useContext(AuthContext);
@@ -282,16 +284,19 @@ const DetailsProducts = () => {
 
 
       {/* Related Product */}
-      <div>
-        <h1 className="text-xl font-bold">Related Products</h1>
-      </div>
+      
     </div>
+
+    <div className="container mx-auto mt-16">
+        <h1 className="text-2xl font-semibold">Related Products</h1>
+      </div>
     </div>
 
 
       {/* Review */}
-      {/* <Review id={id}></Review> */}
+      <Review id={id}></Review>
 
+      <OurStore></OurStore>
       {/* <Shipping></Shipping> */}
     </>
   );
