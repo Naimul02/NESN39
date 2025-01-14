@@ -286,6 +286,10 @@ const DetailsProducts = () => {
       {/* Related Product */}
       
     </div>
+      
+    <div>
+    <Review id={id}></Review>    
+  </div>
 
     <div className="container mx-auto mt-16">
         <h1 className="text-2xl font-semibold">Related Products</h1>
@@ -294,7 +298,6 @@ const DetailsProducts = () => {
 
 
       {/* Review */}
-      <Review id={id}></Review>
 
       <OurStore></OurStore>
       {/* <Shipping></Shipping> */}
