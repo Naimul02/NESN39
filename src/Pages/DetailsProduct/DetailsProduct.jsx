@@ -34,6 +34,7 @@ import { FaFacebook, FaHome, FaLinkedin, FaTwitter, FaWhatsapp } from "react-ico
 import { MdOutlineBrowserNotSupported } from "react-icons/md";
 import OurStore from "../Home/OurStore/OurStore";
 import Review from "../Services/Review/Review";
+import RelatedProducts from "./RelatedProducts/RelatedProducts";
 
 
 const DetailsProducts = () => {
@@ -49,7 +50,7 @@ const DetailsProducts = () => {
     queryKey : ['product'],
     queryFn : async()=> {
           // const res = await axiosSecure(`/especipicproduct/${id}`);
-            const res = await axios.get(`http://localhost:5000/milkProduct/${id}`)
+            const res = await axios.get(`http://localhost:5000/product/${id}`)
             console.log(res);
             return res.data
     }
@@ -78,11 +79,11 @@ const DetailsProducts = () => {
     };
 
     const cartItem = {
-      image: data?.img,
-      productName: data?.product_name,
+      img: data?.img,
+      title: data?.product_name,
       quantity: value,
-      recentPrice: data?.recent_price,
-      previousPrice: data?.prvious_price,
+      recentPrice: data?.recentPrice,
+      previousPrice: data?.previousPrice,
       userName: userInfo.userName,
       email: userInfo.email,
     };
@@ -132,7 +133,7 @@ const DetailsProducts = () => {
       >
         <SwiperSlide className="lg:w-[351px] lg:h-[351px]">
           <div className="swiper-zoom-container lg:w-[351px] lg:h-[351px]">
-            <img src={data?.image}  className="lg:w-[351px] lg:h-[351px]" />
+            <img src={data?.img}  className="lg:w-[351px] lg:h-[351px]" />
           </div>
         </SwiperSlide>
         
@@ -148,23 +149,23 @@ const DetailsProducts = () => {
           </h2>
           <span className="bg-base-200 rounded px-2 font-semibold  text-[#5fa800]">Stock : Available </span>
           <div className="flex items-center gap-2  mt-2">
-            <p className="font-semibold text-[#5fa800] bg-base-200 px-2 rounded">Category : {data?.category ? data?.category : 'Fruits'} <span className="underline"></span></p>
+            <p className="font-semibold text-[#5fa800] bg-base-200 px-2 rounded">Category : {data?.category} <span className="underline"></span></p>
             <p className="font-semibold text-[#5fa800] bg-base-200 px-2 rounded">
-              Weight : {data?.weight}
+              Weight : {data?.unit}
             </p>
           </div>
           <div className="flex mt-3">
             <h3 className="lg:text-2xl text-xl font-semibold">
-              ৳{data?.price}
+              ৳{data?.recentPrice}
             </h3>
             <del className="bg-[#5fa800] ml-3 px-3  text-white lg:text-2xl font-semibold text-xl">
-              ৳{data?.originalprice}
+              ৳{data?.previousPrice}
             </del>
             
           </div>
           
           <div className="mt-3">
-            <p className="text-justify">{data?.des} Most fresh product are low in calories and have a water content in excess of 70 percent, with only about 3.5 percent protein and less than 1 percent fat.The root vegetables include beets, carrots, radishes, sweet potatoes</p>
+            <p className="text-justify">{data?.description} Most fresh product are low in calories and have a water content in excess of 70 percent, with only about 3.5 percent protein and less than 1 percent fat.The root vegetables include beets, carrots, radishes, sweet potatoes</p>
           </div>
           
 
@@ -283,7 +284,7 @@ const DetailsProducts = () => {
       </div>
 
 
-      {/* Related Product */}
+      
       
     </div>
       
@@ -291,8 +292,9 @@ const DetailsProducts = () => {
     <Review id={id}></Review>    
   </div>
 
+{/* Related Product */}
     <div className="container mx-auto mt-16">
-        <h1 className="text-2xl font-semibold">Related Products</h1>
+            <RelatedProducts category={data?.category}></RelatedProducts>
       </div>
     </div>
 

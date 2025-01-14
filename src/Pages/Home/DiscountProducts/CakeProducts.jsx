@@ -6,9 +6,11 @@ const CakeProducts = () => {
   const { isLoading, refetch, data: products = [] } = useQuery({
     queryKey: ["cakes"],
     queryFn: async () => {
-      const res = await fetch("products.json")
-      const data = await res.json()
-      return data
+      const res = await fetch("http://localhost:5000/products")
+      const data = await res.json();
+      console.log("data : " , data);
+      const result = data?.slice(10)
+      return result
 
     }
   })

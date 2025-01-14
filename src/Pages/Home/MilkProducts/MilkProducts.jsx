@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const MilkProducts = ({ product }) => {
 
-  const { image, productName, des, price } = product;
+  const { img, title,  recentPrice } = product;
 
   const [openModal, setopenModal] = useState(false);
 
@@ -49,13 +49,13 @@ const MilkProducts = ({ product }) => {
   </div>
   
   <div className="w-[176px] h-[176px] object-cover mx-auto">
-  <figure><img  src={image} alt="Shoes" className="w-[176px] h-[176px]" /></figure>
+  <figure><img  src={img} alt="Shoes" className="w-[176px] h-[176px]" /></figure>
   </div>
   
   <div className="px-3 space-y-1 pb-3 flex justify-between items-center">
   <div>
-  <h1 className='text-sm font-medium text-gray-600'>{productName.slice(0 , 22)}</h1>
-  <h1 className='text-lg font-semibold text-gray-800'>${price}</h1>
+  <h1 className='text-sm font-medium text-gray-600'>{title.slice(0 , 22)}</h1>
+  <h1 className='text-lg font-semibold text-gray-800'>${recentPrice}</h1>
   </div>
     
     <div className='border rounded-md hover:text-white  hover:bg-[#5fa800] w-[36px] h-[36px] flex justify-center items-center text-[#5fa800]'>

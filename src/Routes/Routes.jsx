@@ -5,7 +5,6 @@ import AddService from "../Pages/Dasboard/AddService";
 import Dashboard from "../Pages/Dasboard/Dashboard";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
-import Services from "../Pages/Services/Services";
 import Signup from "../Signup/Signup";
 
 import Review from "../Pages/Services/Review/Review";
@@ -41,10 +40,6 @@ const Router = createBrowserRouter([
       {
         path: '/services',
         element: <AdminRoute><AddService></AddService></AdminRoute>
-      },
-      {
-        path: '/addingservice',
-        element: <Services></Services>
       },
       {
         path: '/review',

@@ -45,15 +45,13 @@ const Review = ({id}) => {
             e.preventDefault();
             const form = e.target;
             const name = form.name.value;
-            const email =form.email.value;
             const review = form.review.value;
             const ratings = data?.ratings;
             
             
-            console.log( name , email , review , ratings);
+            console.log( name ,  review , ratings);
             const info = {
                     name,
-                    email,
                     review,
                     ratings,
                     productId : id
@@ -87,7 +85,7 @@ const Review = ({id}) => {
                 {   reviews?.length ? 
                 
                   reviews?.length === 1 ? <>
-                  <div className="w-full">
+                  <div className="w-full border">
                  <div className="flex items-center px-5 py-10 gap-8">
                  <div>
              <FaCircleUser className="text-5xl"/>
@@ -103,6 +101,7 @@ const Review = ({id}) => {
              :
                 <Slider {...settings}>
                     
+                         
                          {reviews?.map(review =>
                               <>
                                    <div className="w-full border">
@@ -120,6 +119,7 @@ const Review = ({id}) => {
                               </>
                           )
                       }
+                         
 
                     
                        
@@ -165,20 +165,14 @@ const Review = ({id}) => {
           </label>
           <textarea className="textarea textarea-bordered w-full h-[150px]" placeholder="Review"name="review"required></textarea>
         </div>
-        <div className="flex gap-3 flex-col md:flex-row">
+        <div>
         <div className="w-full border-none">
           <label className="label text-lg font-semibold">
             <span className="label-text">Name</span>
           </label>
           <input type="text"name="name"defaultValue={user?.displayName} placeholder="Name" className="input input-bordered w-full" required />
         </div>
-        <div className="w-full border-none">
-          <label className="label text-lg font-semibold">
-            <span className="label-text">Email</span>
-          </label>
-          <input type="email" placeholder="Email"defaultValue={user?.email} className="input input-bordered w-full" required name="email" />
-          
-        </div>
+        
         </div>
         <div className="form-control border-none p-0 mt-3">
           <button className="btn rounded-none bg-[#5fa800] hover:bg-[#4f8606] text-white">Submit</button>

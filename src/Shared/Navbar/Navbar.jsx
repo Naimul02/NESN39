@@ -7,6 +7,7 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { toast } from 'react-hot-toast';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { BiSearch } from 'react-icons/bi';
+import { RxChevronDown } from "react-icons/rx";
 
 
 const Navbar = () => {
@@ -82,26 +83,32 @@ const Navbar = () => {
         <div className="dropdown lg:hidden block">
           <label tabIndex={0} className="btn m-1"><GiHamburgerMenu className='text-2xl  mt-2' /></label>
           <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-            <li><Link to="/" className=' ancor  text-lg font-bold ml-0 mr-2 border-r pr-3'>Home</Link></li>
+            <li><Link to="/" className=' ancor  text-lg font-semibold ml-0 mr-2 border-r pr-3'>Home</Link></li>
             <li>
-              <Link to="/addingservice" className='ancor  text-lg font-bold mx-2 border-r pr-3'>Services</Link>
+              <Link to="/addingservice" className='ancor  text-lg font-semibold mx-2 border-r pr-3'>Services</Link>
             </li>
             <li>
-              <Link to="/home" className='border-r pr-3 ancor  text-lg font-bold mx-2'>Blogs</Link>
+              <Link to="/home" className='border-r pr-3 ancor  text-lg font-semibold mx-2'>Blogs</Link>
             </li>
-            <li><Link to="/dashboard" className='border-r pr-3 ancor  text-lg font-bold mx-2'>Dashboard</Link></li>
+            <li><Link to="/dashboard" className='border-r pr-3 ancor  text-lg font-semibold mx-2'>Dashboard</Link></li>
             <li>
-              <Link to="/contact" className='text-black text-lg font-bold mx-2 ancor '>Contact</Link>
+              <Link to="/contact" className='text-black text-lg font-semibold mx-2 ancor '>Contact</Link>
             </li>
           </ul>
         </div>
 
         <div className="lg:block hidden">
-          <Link to="/" className='border-r pr-3 ancor  text-lg font-bold ml-0 mr-2'>Home</Link>
-          <Link to="/addingservice" className='ancor border-r pr-3  text-lg font-bold mx-2'>Services</Link>
-          <Link to="/home" className=' ancor  text-lg font-bold border-r pr-3 mx-2'>Blogs</Link>
-          <Link to="/dashboard" className=' ancor border-r pr-3  text-lg font-bold mx-2'>Dashboard</Link>
-          <Link to="/contact" className=' text-lg font-bold mx-2 ancor '>Contact</Link>
+          <Link to="/" className='border-r pr-3 ancor  text-lg font-semibold ml-0 mr-2'>Home</Link>
+<div className="dropdown dropdown-bottom  ancor  text-lg font-semibold border-r pr-3 mx-2">
+  <div tabIndex={0} role="button" className="flex items-center"><span className="mr-1">Categories</span> <RxChevronDown /></div>
+  <ul tabIndex={0} className="dropdown-content bg-white mt-[14px] menu  rounded-md z-[1] w-[300px] p-2 shadow">
+    <li><a>Item 1</a></li>
+    <li><a>Item 2</a></li>
+  </ul>
+</div>
+          <Link to="/home" className=' ancor  text-lg font-semibold border-r pr-3 mx-2'>Blogs</Link>
+          <Link to="/dashboard" className=' ancor border-r pr-3  text-lg font-semibold mx-2'>Dashboard</Link>
+          <Link to="/contact" className=' text-lg font-semibold mx-2 ancor '>Contact</Link>
 
         </div>
 
