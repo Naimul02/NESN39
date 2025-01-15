@@ -46,8 +46,8 @@ const DetailsProducts = () => {
   const [disabled , setDisabled] = useState(false);
   const navigate = useNavigate()
   
-  const {data : data  , isLoading } = useQuery({
-    queryKey : ['product'],
+  const {data : data  , isLoading , refetch } = useQuery({
+    queryKey : ['product'], 
     queryFn : async()=> {
           // const res = await axiosSecure(`/especipicproduct/${id}`);
             const res = await axios.get(`http://localhost:5000/product/${id}`)

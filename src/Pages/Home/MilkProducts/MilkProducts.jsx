@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const MilkProducts = ({ product }) => {
 
-  const { img, title,  recentPrice } = product;
+  const { img, title,  recentPrice , category} = product;
 
   const [openModal, setopenModal] = useState(false);
 
@@ -45,7 +45,7 @@ const MilkProducts = ({ product }) => {
       </div>
     </div>
   <div className="absolute bg-base-200  px-3 top-2 left-2 rounded">
-    <h1 className="text-sm text-[#5fa800] font-medium">Stock : 150 </h1>
+    <h1 className="text-sm text-[#5fa800] font-medium">Stock : Available </h1>
   </div>
   
   <div className="w-[176px] h-[176px] object-cover mx-auto">
@@ -54,7 +54,8 @@ const MilkProducts = ({ product }) => {
   
   <div className="px-3 space-y-1 pb-3 flex justify-between items-center">
   <div>
-  <h1 className='text-sm font-medium text-gray-600'>{title.slice(0 , 22)}</h1>
+  <h1 className='text-sm  font-medium text-gray-600'>{title.slice(0 , 22)}..</h1>
+  <h1 className='text-sm  font-medium text-gray-600'>{category}</h1>
   <h1 className='text-lg font-semibold text-gray-800'>${recentPrice}</h1>
   </div>
     

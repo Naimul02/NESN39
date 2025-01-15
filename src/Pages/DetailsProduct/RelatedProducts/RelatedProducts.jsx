@@ -5,12 +5,13 @@ import MilkProducts from '../../Home/MilkProducts/MilkProducts';
 
 const RelatedProducts = ({category}) => {
 
-    const {data } = useQuery({
+    const {data  } = useQuery({
         queryKey : ['relatedProducts'],
         queryFn : async() => {
             const res = await axios.get(`http://localhost:5000/relatedProducts/${category}`)
             const data = res.data;
             console.log(data)
+            refetch()
             return data;
         }
     })

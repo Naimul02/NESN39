@@ -101,9 +101,37 @@ const Navbar = () => {
           <Link to="/" className='border-r pr-3 ancor  text-lg font-semibold ml-0 mr-2'>Home</Link>
 <div className="dropdown dropdown-bottom  ancor  text-lg font-semibold border-r pr-3 mx-2">
   <div tabIndex={0} role="button" className="flex items-center"><span className="mr-1">Categories</span> <RxChevronDown /></div>
-  <ul tabIndex={0} className="dropdown-content bg-white mt-[14px] menu  rounded-md z-[1] w-[300px] p-2 shadow">
-    <li><a>Item 1</a></li>
-    <li><a>Item 2</a></li>
+  <ul tabIndex={0} className="dropdown-content bg-white mt-[14px] menu rounded-md z-[1] w-[300px] p-2 shadow h-[200px] overflow-auto">
+    <li><a>Tea Leaves</a></li>
+    <li><a>Soap</a></li>
+    <li><a>Chanachur</a></li>
+    <li><a>Detergent</a></li>
+    <li><a>Milk Powder</a></li>
+    <li><a>Soap</a></li>
+    <li><a>Tissue</a></li>
+    <li><a>Salt</a></li>
+    <li><a>Turmeric Powder</a></li>
+    <li><a>Juice</a></li>
+    <li><a>Turmeric Powder</a></li>
+    <li><a>Miniket Rice</a></li>
+    <li><a>Health Drink</a></li>
+    <li><a>Face cream</a></li>
+    <li><a>Dishwash Liquid</a></li>
+    <li><a>Toilet Cleaner</a></li>
+    <li><a>Kitchen Towel</a></li>
+    <li><a>Mosquito Spray</a></li>
+    <li><a>Washing Powder</a></li>
+    <li><a>Antiseptic Liquid</a></li>
+    <li><a>Refill</a></li>
+    <li><a>Conditionar</a></li>
+    <li><a>Stain Remover</a></li>
+    <li><a>Floor Cleaner</a></li>
+    <li><a>Glass Cleaner</a></li>
+    <li><a>Handwash</a></li>
+    <li><a>Steel Scrubber</a></li>
+    <li><a>Nephthalene Balls</a></li>
+    <li><a>Dustbin</a></li>
+    <li><a>Hanger</a></li>
   </ul>
 </div>
           <Link to="/home" className=' ancor  text-lg font-semibold border-r pr-3 mx-2'>Blogs</Link>

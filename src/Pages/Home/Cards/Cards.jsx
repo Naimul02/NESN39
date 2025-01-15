@@ -1,9 +1,11 @@
 import React from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Cards = ({product}) => {
 
   return (
+    <Link to={`/detailsProducts/${product?._id}`}>
     <div className="rounded  bg-base-100 hover:shadow-lg border-none relative transition-all duration-500 transform hover:scale-105 overflow-hidden  shadow-gray-600 ">
 
     <div className='absolute top-1 right-3'>
@@ -15,7 +17,7 @@ const Cards = ({product}) => {
           </div>
         </div>
       <div className="absolute bg-base-200  px-3 top-2 left-2 rounded">
-        <h1 className="text-sm text-[#5fa800] font-medium">Stock : 150 </h1>
+        <h1 className="text-sm text-[#5fa800] font-medium">Stock : Available </h1>
       </div>
       
       <div className="w-[176px] h-[176px] object-cover mx-auto">
@@ -25,6 +27,7 @@ const Cards = ({product}) => {
       <div className="px-3 space-y-1 pb-3 flex justify-between items-center">
       <div>
       <h1 className='text-sm font-medium text-gray-600'>{product?.title.slice(0 , 22)}</h1>
+      <h1 className='text-sm font-medium text-gray-600'>{product?.category}</h1>
       <h1 className='text-lg font-semibold text-gray-800'>${product?.recentPrice}</h1>
       </div>
         
@@ -34,6 +37,7 @@ const Cards = ({product}) => {
       
       </div>
     </div>
+    </Link>
   );
 };
 

@@ -102,7 +102,7 @@
         },
   {
         "title": "Bashundhara Tissue",
-        "category": "Household",
+        "category": "Tissue",
         "previousPrice": 120,
         "recentPrice": 100,
         "description": "Bashundhara tissue is a premium quality tissue paper suitable for household and office use. It is soft, durable, and highly absorbent, making it an essential item for maintaining hygiene and cleanliness.",
@@ -111,7 +111,7 @@
       },
       {
         "title": "ACI Pure Salt",
-        "category": "Grocery",
+        "category": "Salt",
         "previousPrice": 35,
         "recentPrice": 30,
         "description": "ACI Pure Salt is processed with the latest technology to ensure the highest purity and quality. It contains iodine to help prevent iodine deficiency disorders and enhances the flavor of your dishes.",
@@ -120,7 +120,7 @@
       },
       {
         "title": "Fresh Milk Powder",
-        "category": "Dairy",
+        "category": "Milk Powder",
         "previousPrice": 650,
         "recentPrice": 620,
         "description": "Fresh Milk Powder is a nutritious and healthy choice for your daily dairy needs. Packed with essential vitamins and minerals, this milk powder dissolves easily and provides a rich, creamy taste for tea, coffee, or cooking.",
@@ -129,7 +129,7 @@
       },
       {
         "title": "Radhuni Turmeric Powder",
-        "category": "Spices",
+        "category": "Turmeric Powder",
         "previousPrice": 120,
         "recentPrice": 110,
         "description": "Radhuni Turmeric Powder is made from the finest turmeric roots, providing a rich color and authentic flavor to your dishes. Known for its health benefits, turmeric is a must-have spice in every kitchen.",
@@ -138,7 +138,7 @@
       },
       {
         "title": "Pran Juice Mango",
-        "category": "Beverage",
+        "category": "Juice",
         "previousPrice": 25,
         "recentPrice": 20,
         "description": "Pran Mango Juice is a refreshing drink made from real mango pulp. It is a perfect choice for quenching your thirst and enjoying the authentic taste of mango in every sip.",
@@ -147,7 +147,7 @@
       },
       {
         "title": "Teer Miniket Rice",
-        "category": "Grocery",
+        "category": "Miniket Rice",
         "previousPrice": 75,
         "recentPrice": 72,
         "description": "Teer Miniket Rice is a premium quality rice, perfect for making pulao, fried rice, and other delicious dishes. It is clean, aromatic, and packed with natural goodness.",
@@ -156,7 +156,7 @@
       },
       {
         "title": "Lux Soap",
-        "category": "Personal Care",
+        "category": "Soap",
         "previousPrice": 40,
         "recentPrice": 38,
         "description": "Lux Soap is enriched with floral extracts to leave your skin feeling soft, smooth, and fragrant after every use. Its creamy lather provides a luxurious bathing experience.",
@@ -165,7 +165,7 @@
       },
       {
         "title": "Nestle Nido Milk Powder",
-        "category": "Dairy",
+        "category": "Milk Powder",
         "previousPrice": 1050,
         "recentPrice": 1000,
         "description": "Nestle Nido Milk Powder is specially formulated to meet the nutritional needs of children and adults. It is rich in calcium, protein, and essential vitamins for strong bones and overall health.",
@@ -174,7 +174,7 @@
       },
       {
         "title": "Horlicks Health Drink",
-        "category": "Beverage",
+        "category": "Health Drink",
         "previousPrice": 550,
         "recentPrice": 520,
         "description": "Horlicks is a health drink designed to provide essential nutrients and energy for all ages. It is fortified with vitamins and minerals to support growth and overall well-being.",
@@ -183,7 +183,7 @@
       },
       {
         "title": "Fair & Lovely Cream",
-        "category": "Personal Care",
+        "category": "Face cream",
         "previousPrice": 250,
         "recentPrice": 230,
         "description": "Fair & Lovely Cream is a fairness cream enriched with multivitamins that brighten the skin and protect it from UV rays. It helps achieve a radiant and even-toned complexion.",
@@ -192,7 +192,7 @@
       },
       {
         "title": "Vim Dishwash Liquid",
-        "category": "Household",
+        "category": "Dishwash Liquid",
         "previousPrice": 200,
         "recentPrice": 180,
         "description": "Vim Dishwash Liquid removes tough grease and food residues from dishes, leaving them sparkling clean and germ-free.",
@@ -201,7 +201,7 @@
     },
     {
         "title": "Harpic Toilet Cleaner",
-        "category": "Household",
+        "category": "Toilet Cleaner",
         "previousPrice": 140,
         "recentPrice": 130,
         "description": "Harpic Toilet Cleaner kills 99.9% of germs and removes stains, leaving your toilet fresh and clean.",
@@ -210,7 +210,7 @@
     },
     {
         "title": "Bashundhara Kitchen Towel",
-        "category": "Household",
+        "category": "Kitchen Towel",
         "previousPrice": 220,
         "recentPrice": 200,
         "description": "Premium kitchen towels with superior absorption for cleaning and wiping surfaces.",
@@ -220,7 +220,7 @@
 
     {
         "title": "Hit Mosquito Spray",
-        "category": "Household",
+        "category": "Mosquito Spray",
         "previousPrice": 250,
         "recentPrice": 220,
         "description": "Hit Mosquito Spray is effective for eliminating mosquitoes and flies, ensuring a safe and comfortable environment.",
@@ -229,7 +229,7 @@
       },
       {
         "title": "Rin Power White Detergent",
-        "category": "Household",
+        "category": "Detergent",
         "previousPrice": 55,
         "recentPrice": 50,
         "description": "Rin Power White Detergent Powder provides superior cleaning and leaves your clothes sparkling white.",
@@ -238,7 +238,7 @@
       },
       {
         "title": "Surf Excel Washing Powder",
-        "category": "Household",
+        "category": "Washing Powder",
         "previousPrice": 210,
         "recentPrice": 200,
         "description": "Surf Excel Washing Powder removes tough stains and keeps your clothes fresh and clean.",
@@ -247,7 +247,7 @@
       },
       {
         "title": "Savlon Antiseptic Liquid",
-        "category": "Household",
+        "category": "Antiseptic Liquid",
         "previousPrice": 150,
         "recentPrice": 140,
         "description": "Savlon Antiseptic Liquid ensures protection against germs and infections, making it essential for first aid.",
@@ -256,7 +256,7 @@
       },
       {
         "title": "Good Knight Refill",
-        "category": "Household",
+        "category": "Refill",
         "previousPrice": 150,
         "recentPrice": 130,
         "description": "Good Knight Refill offers effective protection against mosquitoes for a peaceful sleep.",
@@ -265,7 +265,7 @@
       },
       {
         "title": "Comfort Fabric Conditioner",
-        "category": "Household",
+        "category": "Conditioner",
         "previousPrice": 170,
         "recentPrice": 150,
         "description": "Comfort Fabric Conditioner keeps your clothes soft and fresh with a long-lasting fragrance.",
@@ -274,7 +274,7 @@
       },
       {
         "title": "Harpic Flushmatic",
-        "category": "Household",
+        "category": "Toilet Cleaner",
         "previousPrice": 90,
         "recentPrice": 80,
         "description": "Harpic Flushmatic ensures continuous cleanliness and freshness of your toilet after every flush.",
@@ -283,7 +283,7 @@
       },
       {
         "title": "Vanish Stain Remover",
-        "category": "Household",
+        "category": "Stain Remover",
         "previousPrice": 350,
         "recentPrice": 330,
         "description": "Vanish Stain Remover removes tough stains from clothes without damaging the fabric.",
@@ -292,7 +292,7 @@
       },
       {
         "title": "Domex Toilet Cleaner",
-        "category": "Household",
+        "category": "Toilet Cleaner",
         "previousPrice": 140,
         "recentPrice": 130,
         "description": "Domex Toilet Cleaner provides superior protection against germs and keeps your toilet sparkling clean.",
@@ -301,7 +301,7 @@
       },
       {
         "title": "Lizol Floor Cleaner",
-        "category": "Household",
+        "category": "Floor Cleaner",
         "previousPrice": 220,
         "recentPrice": 200,
         "description": "Lizol Floor Cleaner ensures 99.9% germ protection and leaves your floor fresh and clean.",
@@ -310,7 +310,7 @@
       },
       {
         "title": "Dettol Handwash",
-        "category": "Household",
+        "category": "Handwash",
         "previousPrice": 140,
         "recentPrice": 130,
         "description": "Dettol Handwash protects against 99.9% of germs and keeps your hands clean and fresh.",
@@ -319,7 +319,7 @@
       },
       {
         "title": "Colin Glass Cleaner",
-        "category": "Household",
+        "category": "Glass Cleaner",
         "previousPrice": 120,
         "recentPrice": 110,
         "description": "Colin Glass Cleaner removes dirt and stains, leaving your glass surfaces spotless and shiny.",
@@ -328,7 +328,7 @@
       },
       {
         "title": "Steel Scrubber",
-        "category": "Household",
+        "category": "Steel Scrubber",
         "previousPrice": 30,
         "recentPrice": 25,
         "description": "Steel Scrubber removes tough stains and grease from utensils, ensuring spotless cleanliness.",
@@ -337,7 +337,7 @@
       },
       {
         "title": "Naphthalene Balls",
-        "category": "Household",
+        "category": "Naphthalene Balls",
         "previousPrice": 40,
         "recentPrice": 35,
         "description": "Naphthalene Balls protect clothes and cupboards from insects and ensure a fresh fragrance.",
@@ -346,7 +346,7 @@
       },
       {
         "title": "Tide Detergent Powder",
-        "category": "Household",
+        "category": "Detergent",
         "previousPrice": 80,
         "recentPrice": 75,
         "description": "Tide Detergent Powder removes stains and provides superior cleaning for your clothes.",
@@ -355,7 +355,7 @@
       },
       {
         "title": "Plastic Dustbin",
-        "category": "Household",
+        "category": "Dustbin",
         "previousPrice": 300,
         "recentPrice": 270,
         "description": "Plastic Dustbin is durable and easy to clean, suitable for home or office use.",
@@ -364,7 +364,7 @@
       },
       {
         "title": "Hanger Set",
-        "category": "Household",
+        "category": "Hanger",
         "previousPrice": 120,
         "recentPrice": 100,
         "description": "Hanger Set keeps your clothes organized and wrinkle-free in the wardrobe.",
