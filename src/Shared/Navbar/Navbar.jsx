@@ -105,36 +105,221 @@ const Navbar = () => {
   <div className="w-[300px] h-[300px] overflow-y-auto dropdown-content  bg-white mt-[14px] rounded-md z-[1]  shadow">
 
   <ul tabIndex={0} className="menu   p-2">
-    <li className="items-center gap-2"><a>Tea Leaves</a><img src="https://png.pngtree.com/png-vector/20241105/ourmid/pngtree-tea-leaf-image-png-image_14287414.png"className='w-16 h-16 rounded-full object-cover' alt="" /></li>
-    <li><a>Soap</a></li>
-    <li><a>Chanachur</a></li>
-    <li><a>Detergent</a></li>
-    <li><a>Milk Powder</a></li>
-    <li><a>Soap</a></li>
-    <li><a>Tissue</a></li>
-    <li><a>Salt</a></li>
-    <li><a>Turmeric Powder</a></li>
-    <li><a>Juice</a></li>
-    <li><a>Turmeric Powder</a></li>
-    <li><a>Miniket Rice</a></li>
-    <li><a>Health Drink</a></li>
-    <li><a>Face cream</a></li>
-    <li><a>Dishwash Liquid</a></li>
-    <li><a>Toilet Cleaner</a></li>
-    <li><a>Kitchen Towel</a></li>
-    <li><a>Mosquito Spray</a></li>
-    <li><a>Washing Powder</a></li>
-    <li><a>Antiseptic Liquid</a></li>
-    <li><a>Refill</a></li>
-    <li><a>Conditionar</a></li>
-    <li><a>Stain Remover</a></li>
-    <li><a>Floor Cleaner</a></li>
-    <li><a>Glass Cleaner</a></li>
-    <li><a>Handwash</a></li>
-    <li><a>Steel Scrubber</a></li>
-    <li><a>Nephthalene Balls</a></li>
-    <li><a>Dustbin</a></li>
-    <li><a>Hanger</a></li>
+    <li>
+      <div  className="flex items-center justify-between px-12">
+      <a>Tea Leaves</a><img src="https://png.pngtree.com/png-vector/20241105/ourmid/pngtree-tea-leaf-image-png-image_14287414.png"className='w-8 h-8 rounded-full object-cover' alt="" />
+      </div>
+      </li>
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Soap</a>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbEGKyx6VdNDLATQAQ6N0cRMSRxGWJAN8jAA&s"className='w-8 h-8 rounded-full object-cover' alt="" />
+      </div>
+    </li>
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Chanachur</a>
+      <img src="https://img.freepik.com/premium-photo/chanachur-mix-with-nut-white-background-chanachur-food_732066-19.jpg?semt=ais_hybrid" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+      </li>
+      <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Detergent</a>
+      <img src="https://5.imimg.com/data5/SELLER/Default/2023/10/349396520/WW/AN/EB/71975281/loose-detergent-washing-powder-500x500.jpg" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+      
+    
+    </li>
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Milk Powder</a>
+      <img src="https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa9511115075f231ec75ba_Fresh-Instant-Full-Cream-Milk-Powder-1000gm_1.webp" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+      
+    
+    </li>
+    
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Tissue</a>
+      <img src="https://www.northwood.co.uk/wp-content/uploads/2024/02/FT2W24.png" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+      
+    
+    </li>
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Salt</a>
+      <img src="https://ohmyfacts.com/wp-content/uploads/2024/10/23-facts-about-salt-1730311890.jpg" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+      
+    
+    </li>
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Turmeric Powder</a>
+      <img src="https://domf5oio6qrcr.cloudfront.net/medialibrary/15065/conversions/fa246ce0-054b-4892-bf30-5eb43cd938aa-thumb.jpg" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+      
+    
+    </li>
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Juice</a>
+      <img src="https://theallnaturalvegan.com/wp-content/uploads/2023/08/mango-juice-featured-image.jpg" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+      
+    
+    </li>
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Miniket Rice</a>
+      <img src="https://sdlgradiant.com/wp-content/uploads/Minikethead1-1.jpg" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+      
+    
+    </li>
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Health Drink</a>
+      <img src="https://tandobeverage.com/wp-content/uploads/2021/08/kind-of-healthy-drinks-to-do-sell.jpg" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+      
+    
+    </li>
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Face Cream</a>
+      <img src="https://www.banglashoppers.com/media/catalog/product/cache/bc88681de0f284d41e3ecc10556443c6/r/e/retinol-face-cream-1_1280x.jpg" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+      
+    
+    </li>
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Dishwash Liquid</a>
+      <img src="https://vitacare.com.bd/wp-content/uploads/2023/11/jpj-scaled.jpg" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+      
+    
+    </li>
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Toilet Cleaner</a>
+      <img src="https://image.made-in-china.com/2f0j00PaGYEyNtqQbm/Character-Toilet-Blue-Bubble-Cleaner-Auto-Toilet-Bowl-Cleaner.jpg" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+      
+    
+    </li>
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Kitchen Towel</a>
+      <img src="https://static-01.daraz.com.bd/p/4a700e6fe016fa6d85ab0686d24ee8ee.jpg" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+      
+    
+    </li>
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Mosquito Spray</a>
+      <img src="https://squaretoiletries.com/wp-content/uploads/2022/10/Xpel-Natural-Mosquito-Repellent-Spray-Jul24.png" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+      
+    
+    </li>
+    
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Washing Powder</a>
+      <img src="https://www.neareshop.com/wp-content/uploads/2023/07/Best-Detergent-Powder-Brands-in-India.webp" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+      
+    
+    </li>
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Antiseptic Liquid</a>
+      <img src="https://www.keyaseth.com/cdn/shop/products/ankush-ayurvedic-antiseptic-liquid-no-burning-sensation-for-first-aid-personal-hygiene-enriched-with-neem-tulsi-lavender-rose-essential-oil-29703386595488.jpg?v=1727405188" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+      
+    
+    </li>
+    
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Refill</a>
+      <img src="https://resparkle.com/cdn/shop/collections/resparkle-refill.jpg?v=1670563996" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+      
+    
+    </li>
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Conditionar</a>
+      <img src="https://www.skinplusbd.com/public/uploads/all/d6GVPxpyEjlEy5R7F53r6jhF25wkJGGuB2OfA1X1.jpg" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+      
+    
+    </li>
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Stain Remover</a>
+      <img src="https://delphiseco.com/cdn/shop/files/delphis-eco-stain-remover-fgr-partnership_1024x684.jpg?v=1714470642" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+      
+    
+    </li>
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Floor Cleaner</a>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRudNUlxMA9N4dPEWZ8Xv2WyhiWWXb0YPdRPA&s" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+      
+    
+    </li>
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Glass Cleaner</a>
+      <img src="https://vitacare.com.bd/wp-content/uploads/2023/12/website-1.jpg" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+      
+    
+    </li>
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Handwash</a>
+      <img src="https://static.vecteezy.com/system/resources/previews/006/921/756/non_2x/washing-hand-cartoon-icon-illustration-people-medical-icon-concept-isolated-premium-flat-cartoon-style-vector.jpg" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+      
+    
+    </li>
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Steel Scrubber</a>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfo2zHe1GY-3DMC7EyUPF6N3rF34eSn8yt8Q&s" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+      
+    
+    </li>
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Nephthalene Balls</a>
+      <img src="https://nepalchemical.com/wp-content/uploads/2019/07/pure-naphthalene-balls-500x500.jpg" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+    </li>
+    
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Dustbin</a>
+      <img src="https://nilkamalfurniture.com/cdn/shop/files/TDB10LPGR-BLU-IBK.jpg?v=1697614010&width=1080" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+    </li>
+    <li>
+      <div className="flex items-center justify-between  px-12">
+      <a>Hanger</a>
+      <img src="https://admin.regalfurniturebd.com/storage/uploads/fullsize/2022-09/hch-202----.jpg" alt=""className='w-8 h-8 rounded-full object-cover'/>
+        </div>
+    </li>
   </ul>
   </div>
 </div>
