@@ -101,8 +101,11 @@ const Navbar = () => {
           <Link to="/" className='border-r pr-3 ancor  text-lg font-semibold ml-0 mr-2'>Home</Link>
 <div className="dropdown dropdown-bottom  ancor  text-lg font-semibold border-r pr-3 mx-2">
   <div tabIndex={0} role="button" className="flex items-center"><span className="mr-1">Categories</span> <RxChevronDown /></div>
-  <ul tabIndex={0} className="dropdown-content bg-white mt-[14px] menu rounded-md z-[1] w-[300px] p-2 shadow h-[200px] overflow-auto">
-    <li><a>Tea Leaves</a></li>
+
+  <div className="w-[300px] h-[300px] overflow-y-auto dropdown-content  bg-white mt-[14px] rounded-md z-[1]  shadow">
+
+  <ul tabIndex={0} className="menu   p-2">
+    <li className="items-center gap-2"><a>Tea Leaves</a><img src="https://png.pngtree.com/png-vector/20241105/ourmid/pngtree-tea-leaf-image-png-image_14287414.png"className='w-16 h-16 rounded-full object-cover' alt="" /></li>
     <li><a>Soap</a></li>
     <li><a>Chanachur</a></li>
     <li><a>Detergent</a></li>
@@ -133,6 +136,7 @@ const Navbar = () => {
     <li><a>Dustbin</a></li>
     <li><a>Hanger</a></li>
   </ul>
+  </div>
 </div>
           <Link to="/home" className=' ancor  text-lg font-semibold border-r pr-3 mx-2'>Blogs</Link>
           <Link to="/dashboard" className=' ancor border-r pr-3  text-lg font-semibold mx-2'>Dashboard</Link>
