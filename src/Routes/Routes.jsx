@@ -12,6 +12,7 @@ import Users from "../Pages/AllUsers/Users";
 import AdminRoute from "./AdminRoute";
 import Contact from "../Pages/Contact/Contact";
 import DetailsProducts from "../Pages/DetailsProduct/DetailsProduct";
+import CategoriesProducts from "../Pages/CategoriesProducts/CategoriesProducts"
 const Router = createBrowserRouter([
   {
     path: '/',
@@ -56,6 +57,10 @@ const Router = createBrowserRouter([
       {
         path:'/detailsProducts/:id',
         element: <DetailsProducts></DetailsProducts>
+      },
+      {
+        path : '/categoriesProducts/:category',
+        element : <CategoriesProducts></CategoriesProducts>
       }
 
     ]
