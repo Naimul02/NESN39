@@ -278,7 +278,7 @@ const Navbar = () => {
     
     </li>
     <li>
-      <Link to={`/categoriesProducts/`} className="flex items-center justify-between  px-12">
+      <Link to={`/categoriesProducts/Glass Cleaner`} className="flex items-center justify-between  px-12">
       <a>Glass Cleaner</a>
       <img src="https://vitacare.com.bd/wp-content/uploads/2023/12/website-1.jpg" alt=""className='w-8 h-8 rounded-full object-cover'/>
         </Link>
@@ -286,7 +286,7 @@ const Navbar = () => {
     
     </li>
     <li>
-      <Link to={`/categoriesProducts/`} className="flex items-center justify-between  px-12">
+      <Link to={`/categoriesProducts/Handwash`} className="flex items-center justify-between  px-12">
       <a>Handwash</a>
       <img src="https://static.vecteezy.com/system/resources/previews/006/921/756/non_2x/washing-hand-cartoon-icon-illustration-people-medical-icon-concept-isolated-premium-flat-cartoon-style-vector.jpg" alt=""className='w-8 h-8 rounded-full object-cover'/>
         </Link>
@@ -294,7 +294,7 @@ const Navbar = () => {
     
     </li>
     <li>
-      <Link to={`/categoriesProducts/`} className="flex items-center justify-between  px-12">
+      <Link to={`/categoriesProducts/Steel Scrubber`} className="flex items-center justify-between  px-12">
       <a>Steel Scrubber</a>
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfo2zHe1GY-3DMC7EyUPF6N3rF34eSn8yt8Q&s" alt=""className='w-8 h-8 rounded-full object-cover'/>
         </Link>
@@ -302,20 +302,20 @@ const Navbar = () => {
     
     </li>
     <li>
-      <Link to={`/categoriesProducts/`} className="flex items-center justify-between  px-12">
+      <Link to={`/categoriesProducts/Nephthalene Balls`} className="flex items-center justify-between  px-12">
       <a>Nephthalene Balls</a>
       <img src="https://nepalchemical.com/wp-content/uploads/2019/07/pure-naphthalene-balls-500x500.jpg" alt=""className='w-8 h-8 rounded-full object-cover'/>
         </Link>
     </li>
     
     <li>
-      <Link to={`/categoriesProducts/`} className="flex items-center justify-between  px-12">
+      <Link to={`/categoriesProducts/Dustbin`} className="flex items-center justify-between  px-12">
       <a>Dustbin</a>
       <img src="https://nilkamalfurniture.com/cdn/shop/files/TDB10LPGR-BLU-IBK.jpg?v=1697614010&width=1080" alt=""className='w-8 h-8 rounded-full object-cover'/>
         </Link>
     </li>
     <li>
-      <Link to={`/categoriesProducts/`} className="flex items-center justify-between  px-12">
+      <Link to={`/categoriesProducts/Hanger`} className="flex items-center justify-between  px-12">
       <a>Hanger</a>
       <img src="https://admin.regalfurniturebd.com/storage/uploads/fullsize/2022-09/hch-202----.jpg" alt=""className='w-8 h-8 rounded-full object-cover'/>
         </Link>

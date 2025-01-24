@@ -47,7 +47,7 @@ const DetailsProducts = () => {
   const navigate = useNavigate()
   
   const {data : data  , isLoading , refetch } = useQuery({
-    queryKey : ['product'], 
+    queryKey : ['product' , id], 
     queryFn : async()=> {
           // const res = await axiosSecure(`/especipicproduct/${id}`);
             const res = await axios.get(`http://localhost:5000/product/${id}`)

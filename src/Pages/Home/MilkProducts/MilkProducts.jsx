@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 const MilkProducts = ({ product }) => {
+  console.log("product : " , product)
 
   const { img, title,  recentPrice , category} = product;
 
@@ -55,7 +56,7 @@ const MilkProducts = ({ product }) => {
   <div className="px-3 space-y-1 pb-3 flex justify-between items-center">
   <div>
   <h1 className='text-sm  font-medium text-gray-600'>{title.slice(0 , 22)}..</h1>
-  <h1 className='text-sm  font-medium text-gray-600'>{category}</h1>
+  {/* <h1 className='text-sm  font-medium text-gray-600'>{category}</h1> */}
   <h1 className='text-lg font-semibold text-gray-800'>${recentPrice}</h1>
   </div>
     
