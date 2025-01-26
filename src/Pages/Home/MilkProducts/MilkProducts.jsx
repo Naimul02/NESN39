@@ -34,8 +34,8 @@ const MilkProducts = ({ product }) => {
       {/* Put this part before </body> tag */}
 
 
-     <Link to={`/detailsProducts/${product?._id}`}>
-     <div className="rounded  bg-base-100 hover:shadow-lg border-none relative transition-all duration-500 transform hover:scale-105 overflow-hidden  shadow-gray-600 ">
+     <Link to={`/detailsProducts/${product?._id}`} className="h-[260px]">
+     <div className="rounded  bg-base-100 hover:shadow-lg border-none relative transition-all duration-500 transform hover:scale-105 overflow-hidden h-[260px] shadow-gray-600 ">
 
 <div className='absolute top-1 right-3'>
       <img className="py-2" src="https://departmental-store-02.web.app/images/wish.svg" alt="" />

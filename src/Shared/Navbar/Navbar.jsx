@@ -8,6 +8,10 @@ import { toast } from 'react-hot-toast';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { BiSearch } from 'react-icons/bi';
 import { RxChevronDown } from "react-icons/rx";
+import { MdOutlineShoppingCart } from 'react-icons/md';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import { RiShoppingBagFill } from "react-icons/ri";
 
 
 const Navbar = () => {
@@ -20,6 +24,15 @@ const Navbar = () => {
       })
       .catch(() => { })
   }
+
+
+  const {data  } = useQuery({
+     queryKey : ['carts'],
+     queryFn : async() => {
+      const res = await axios.get(`http://localhost:5000/carts?email=${user?.email}`)
+      console.log(res.data)
+     }
+  })
   return (
     <>
       <div className="shadow-md bg-white shadow-slate-400 fixed z-10 w-full">
@@ -329,12 +342,32 @@ const Navbar = () => {
 
         </div>
 
-        <div className='mb-3'>
+        <div className='mb-4'>
           <div className="avatar">
 
           </div>
-          <div className="avatar flex ">
-            <h1 className=' text-lg pr-3 font-bold'>{user?.displayName}</h1>
+          <div className="avatar flex  items-center gap-3">
+          <div className="drawer w-[24px] h-[24px] drawer-end">
+  <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
+  <div className="drawer-content w-[24px] h-[24px]">
+    {/* Page content here */}
+    <label htmlFor="my-drawer-4" className="drawer-button"><MdOutlineShoppingCart className="text-2xl hover:cursor-pointer"/></label>
+  </div>
+  <div className="drawer-side">
+    <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
+
+
+    <div className="flex items-center justify-between bg-slate-100">
+              <div className="flex-items-center gap-2"><RiShoppingBagFill /><h1 className="text-xl font-bold">Shopping Cart</h1></div>
+
+    </div>
+    <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+      {/* Sidebar content here */}
+      <li><a>Sidebar Item 1</a></li>
+      <li><a>Sidebar Item 2</a></li>
+    </ul>
+  </div>
+</div>
             <div className="w-10 rounded-full mb-1 mr-2">
               <img src={user?.photoURL} alt="" />
             </div>

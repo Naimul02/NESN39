@@ -35,11 +35,11 @@ const Login = () => {
   return (
     <>
 
-      <form onSubmit={handleSubmit(handleSignIn)} className="hero min-h-screen ">
+      <form onSubmit={handleSubmit(handleSignIn)} className="hero min-h-screen pt-[200px] pb-[50px]">
 
-        <div className="hero-content flex-col lg:flex-row">
-          <div className="text-center lg:text-left">
-            <img className='login' src="https://static.vecteezy.com/system/resources/previews/005/879/539/original/cloud-computing-modern-flat-concept-for-web-banner-design-man-enters-password-and-login-to-access-cloud-storage-for-uploading-and-processing-files-illustration-with-isolated-people-scene-free-vector.jpg" alt="" />
+        <div className="hero-content flex-col gap-40 p-30  lg:flex-row">
+          <div className="text-center lg:text-left max-w-lg">
+            <img className='login' src="https://irtrd.com/wp-content/uploads/2018/08/login.gif" alt="" />
           </div>
 
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -62,7 +62,7 @@ const Login = () => {
                 </label>
               </div>
               <div className="form-control" style={{ border: 'none', width: '100%' }}>
-                <button className="btn btn-active btn-secondary w-full">Login</button>
+                <button className="btn btn-active text-white bg-[#65ad07] hover:bg-[#549401] w-full">Login</button>
               </div>
             </div>
           </div>

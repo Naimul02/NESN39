@@ -3,16 +3,19 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import MilkProducts from '../Home/MilkProducts/MilkProducts';
-import { RxChevronDown } from 'react-icons/rx';
+import { AiOutlineAppstore } from "react-icons/ai";
+
+
 
 const CategoriesProducts = () => {
 
-    const [menuValue, setMenuValue] = useState("3");
+    const [menuValue, setMenuValue] = useState("4");
+    console.log(menuValue)
 
     const {category} = useParams();
     console.log("category : " , category)
     const {data } = useQuery({
-        queryKey : ['CategoriesProducts' , category], 
+        queryKey : [ 'CategoriesProducts' , category ], 
         queryFn : async() => {
             const res = await axios.get(`http://localhost:5000/categoryProducts/${category}`)
             console.log(res.data);
@@ -28,18 +31,7 @@ const CategoriesProducts = () => {
         setMenuValue(value);
       };
     return (
-        // <div className='bg-slate-100'>
-
-        // <div className="container px-auto pt-40 pb-16">
-        //     <h1 className="text-xl font-semibold">Category</h1>
-            
-        //     <div className="grid grid-cols-5 gap-3">
-        //         {
-        //             data?.map(product => <MilkProducts product={product}></MilkProducts>)
-        //         }
-        //     </div>
-        // </div>
-        // </div>
+        
 
 
         <div className="bg-base-200">
@@ -49,21 +41,16 @@ const CategoriesProducts = () => {
             Home / Category Products{" "}
           </h1>
         </div>
-        <div className="mt-10 container mx-auto flex flex-col lg:flex-row lg:gap-12 pb-16">
+        <div className="mt-10 mx-2 lg:mx-5 flex flex-col lg:flex-row lg:gap-3 pb-16">
           <div>
             <div className="sticky lg:top-36">
-              <div className="bg-white flex flex-row justify-between lg:justify-normal lg:flex-col mx-4 lg:mx-0 lg:w-[350px]  rounded p-5">
+              <div className="bg-white   lg:w-[300px]  rounded">
                 
 
-                {/* category */}
-                {/* <div className="dropdown dropdown-bottom  ancor  text-lg font-semibold border-r pr-3 mx-2">
-  <div tabIndex={0} role="button" className="flex items-center"><span className="mr-1">Categories</span> <RxChevronDown /></div>
+                
+<div className="h-[400px] w-full overflow-y-auto dropdown-content   z-[1]  shadow">
 
-  
-</div> */}
-<div className="w-[300px] h-[300px] overflow-y-auto dropdown-content  bg-white mt-[14px] rounded-md z-[1]  shadow">
-
-  <ul tabIndex={0} className="menu   p-2">
+  <ul tabIndex={0} className="menu p-2">
     <li>
       <Link to={`/categoriesProducts/${'Tea Leaves'}`} className="flex items-center justify-between px-12">
       <a>Tea Leaves</a><img src="https://png.pngtree.com/png-vector/20241105/ourmid/pngtree-tea-leaf-image-png-image_14287414.png"className='w-8 h-8 rounded-full object-cover' alt="" />
@@ -284,8 +271,8 @@ const CategoriesProducts = () => {
 
                 
               </div>
-              <div className="w-[350px] mt-4 hidden lg:block">
-                <h1 className="text-2xl rounded heebo bg-white py-4 font-bold px-3 mb-3">
+              <div className="w-[300px] mt-4 hidden lg:block">
+                <h1 className="text-xl rounded  bg-white py-4 font-bold px-3 mb-3">
                   Sponsors
                 </h1>
                 <img
@@ -298,19 +285,31 @@ const CategoriesProducts = () => {
           </div>
 
           <div className="w-full">
-            <div className="flex flex-col  lg:flex-row justify-center items-center md:justify-between mx-3 md:mx-0 md:px-6 py-4 rounded  lg:bg-white  mb-10">
+            <div className="flex flex-col  lg:flex-row justify-center items-center md:justify-between mx-3 md:mx-0 px-6 py-3 rounded  lg:bg-white  mb-10">
               <div className="hidden lg:block  w-full">
                 <div className="flex justify-between items-center w-full">
-                  <h1 className="text-xl md:text-2xl font-bold heebo text-[#4A4A4A]">
+                  <h1 className="text-xl  font-bold  text-[#4A4A4A]">
                     Products
                   </h1>
+
+                  <select className="select font-semibold select-bordered w-full max-w-xs">
+  <option disabled selected className='font-semibold'>Price Range</option>
+  <option className="font-semibold">Low to high</option>
+  <option className='font-semibold'>High to low</option>
+</select>
+
                   <div className="flex flex-row-reverse md:flex-row lg:gap-10 items-center">
                     <div className="flex items-center gap-4">
+                      <div className="hover:cursor-pointer hidden lg:block" onClick={() => handleMenu("4")}>
+                        <div className="w-[30px] h-[35px] bg-base-200 p-1 flex items-center rounded">
+                            <AiOutlineAppstore className="text-3xl" />                       
+                        </div>
+                      </div>
                       <div className="hover:cursor-pointer hidden lg:block">
                         <img
                           src="https://departmental-store-02.web.app/images/gr3.svg"
                           alt="nai"
-                          className="w-[40px] h-[40px] bg-base-200 p-2 rounded"
+                          className="w-[30px] h-[35px] bg-base-200 p-2 rounded"
                           onClick={() => handleMenu("3")}
                         />
                       </div>
@@ -318,7 +317,7 @@ const CategoriesProducts = () => {
                         <img
                           src="https://departmental-store-02.web.app/images/gr2.svg"
                           alt="nai"
-                          className="w-[40px] h-[40px] bg-base-200 p-2 rounded"
+                          className="w-[30px] h-[35px] bg-base-200 p-2 rounded"
                           onClick={() => handleMenu("2")}
                         />
                       </div>
@@ -326,7 +325,7 @@ const CategoriesProducts = () => {
                         <img
                           src="https://departmental-store-02.web.app/images/gr.svg"
                           alt="nai"
-                          className="w-[40px] h-[40px] bg-base-200 p-2 rounded"
+                          className="w-[30px] h-[35px] bg-base-200 p-2 rounded"
                           onClick={() => handleMenu("1")}
                         />
                       </div>
@@ -338,37 +337,16 @@ const CategoriesProducts = () => {
             <div className="mx-4 lg:mx-0">
               {data?.length > 0 ? (
                 <div
-                  className={`grid grid-cols-1 md:grid-cols-${menuValue} gap-8 -z-10`}
+                  className={`grid grid-cols-1 ${menuValue === '4' ? "md:grid-cols-4" :
+    menuValue === '3' ? "md:grid-cols-3" : menuValue === '2' ? "md:grid-cols-2"  : "md:grid-cols-1"
+  } gap-8 -z-10`}
                 >
                   {data?.map(
                     (product) =>
                       
                       <Link to={`/detailsProducts/${product?._id}`}>
-                        <div
-                        key={product._id}
-                           className="mx-4 md:mx-0 bg-white transition-all duration-500 transform hover:scale-105 overflow-hidden  lg:h-[252px] shadow-md shadow-gray-700"
-                         >
-                           <div className="flex flex-col lg:flex-row gap-2 lg:gap-3 md:h-full relative">
-                             <div className="w-full lg:w-[35%] h-[220px] lg:h-full p-3 rounded relative">
-                               <img
-                                 src={product?.img}
-                                 alt="product"
-                                 className="h-full object-cover w-full"
-                               />
-                               <h1 className="text-lg text-white bg-[#005689] py-1 px-3 absolute top-6 font-bold right-6">
-                                 {product?.category}
-                               </h1>
-                             </div>
-                             <div className="space-y-3 p-5 lg:w-[65%] heebo">
-                               <h3 className="text-lg md:text-xl text-[#4A4A4A] font-medium">
-                                 {product?.title.slice(0, 30)}...
-                               </h3>
-                               <p>{product?.description.slice(0, 100)}</p>
-                        
-                        
-                             </div>
-                           </div>
-                         </div>
+                      
+                         <MilkProducts product={product}></MilkProducts>
                         </Link>
                       
                   )}
@@ -376,12 +354,12 @@ const CategoriesProducts = () => {
               ) : (
                 <div className="px-8 py-3 flex justify-center text-center my-10  w-full">
                   <div>
-                    <h1 className="text-2xl font-bold mb-4">
+                    <h1 className="text-xl font-bold mb-4">
                       Sorry ! No Products found related this category
                     </h1>
 
-                    <div className="max-w-sm mx-auto rounded-xl mt-6">
-                      <img
+                    <div className="max-w-md  mx-auto rounded-xl mt-8">
+                      <img className="rounded-xl"
                         src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwfdPYGzbsKc3NPMtKVF-Jd7JLkVQU_OuGJIvPCqtH-G-Hw1joSiRdVBZKv9rMcfCFWiENy02Ba85I_CbKZjJDqcLBqE5OZRKyk78aN40Qq0qGiHREjpKGgcnxUilh3lZVi9i6cVxEWpz0/s1600/giphy.gif"
                         alt="nai"
                       />

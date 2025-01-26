@@ -74,12 +74,12 @@ const Signup = () => {
 
   }
   return (
-    <form onSubmit={handleSubmit(handleSignUp)} className="hero min-h-screen ">
+    <form onSubmit={handleSubmit(handleSignUp)} className="hero pt-[200px] pb-[50px] min-h-screen ">
 
-      <div className="hero-content flex-col lg:flex-row">
-        <div className="text-center lg:text-left">
-          <img className='login' src="https://static.vecteezy.com/system/resources/previews/005/879/539/original/cloud-computing-modern-flat-concept-for-web-banner-design-man-enters-password-and-login-to-access-cloud-storage-for-uploading-and-processing-files-illustration-with-isolated-people-scene-free-vector.jpg" alt="" />
-        </div>
+      <div className="hero-content flex-col lg:gap-40 lg:flex-row">
+      <div className="text-center lg:text-left max-w-lg">
+            <img className='login' src="https://irtrd.com/wp-content/uploads/2018/08/login.gif" alt="" />
+          </div>
 
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <h1 className='text-2xl font-bold text-center mt-4'>SignUp</h1>
@@ -102,11 +102,11 @@ const Signup = () => {
 
               <input {...register("password", { required: true })} type="password" placeholder="password" className="input input-bordered w-full" />
               <label className="label">
-                <h1 className="label-text-alt link link-hover text-lg">Forgot password? <Link to="/login" className='text-lg font-semibold text-red-500'>Login</Link></h1>
+                <h1 className="label-text-alt link link-hover text-lg">Already have an account ? <Link to="/login" className='text-lg font-semibold text-red-500'>Login</Link></h1>
               </label>
             </div>
             <div className="form-control" style={{ border: 'none', width: '100%' }}>
-              <button className="btn btn-active btn-secondary w-full ">Signup</button>
+            <button className="btn btn-active text-white bg-[#65ad07] hover:bg-[#549401] w-full">Signup</button>
             </div>
           </div>
         </div>

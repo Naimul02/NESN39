@@ -51,7 +51,7 @@ const DetailsProducts = () => {
     queryFn : async()=> {
           // const res = await axiosSecure(`/especipicproduct/${id}`);
             const res = await axios.get(`http://localhost:5000/product/${id}`)
-            console.log(res);
+            console.log(res.data);
             return res.data
     }
   })
@@ -80,8 +80,12 @@ const DetailsProducts = () => {
 
     const cartItem = {
       img: data?.img,
-      title: data?.product_name,
+      title: data?.title,
+      description : data?.description,
+      category : data?.category,
+      unit : data?.unit,
       quantity: value,
+      id : data?._id,
       recentPrice: data?.recentPrice,
       previousPrice: data?.previousPrice,
       userName: userInfo.userName,
@@ -90,20 +94,20 @@ const DetailsProducts = () => {
 
     // const totalPrice = info.quantity * info.recentPrice;
     // setTotal(totalPrice);
-    // console.log("information : ", cartItem);
-    // axiosSecure.post('/carts' , cartItem)
-    // .then(res => {
-    //   console.log(res.data)
-    //   if(res.data.insertedId){
-    //     toast.success("add to cart successful");
-    //     refetch();
-    //     setDisabled(true);
-    //     navigate('/orders')
-    //   }
-    // })
-    // .catch((error) => {
-    //   toast.error(error.message)
-    // })
+    console.log("information : ", cartItem);
+    axios.post('http://localhost:5000/carts' , cartItem)
+    .then(res => {
+      console.log(res.data)
+      if(res.data.insertedId){
+        toast.success("add to cart successful");
+        refetch();
+        setDisabled(true);
+        // navigate('/orders')
+      }
+    })
+    .catch((error) => {
+      toast.error(error.message)
+    })
   };
 
   return (
@@ -189,15 +193,15 @@ const DetailsProducts = () => {
 
               {user ? (
                 disabled ? <button
-                className="btn hover:bg-[#4d8801] lg:w-[315px] w-[195px] bg-[#5fa800] text-white flex items-center gap-3"
-                onClick={() => handleProduct()}disabled
+                className="btn hover:bg-[#4d8801] lg:w-[315px] lg:ml-5 w-[195px] bg-[#5fa800] text-white flex items-center gap-3"
+                onClick={() => handleProduct()} disabled
               >
                 <FaBagShopping className="text-xl text-white"/> Add To Cart
               </button>
               :
 
                <button
-                className="btn hover:bg-[#4d8801] lg:w-[315px] w-[195px] bg-[#5fa800] text-white flex items-center gap-3"
+                className="btn hover:bg-[#4d8801] lg:w-[315px] w-[195px] bg-[#5fa800] text-white flex items-center lg:ml-5 gap-3"
                 onClick={() => handleProduct()}
               >
                 <FaBagShopping className="text-xl text-white"/> Add To Cart
