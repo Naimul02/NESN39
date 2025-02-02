@@ -438,9 +438,12 @@ const Navbar = () => {
 </div>
 
 
-<div className="p-4 border absolute bottom-2 w-full">
+<div className="px-2 py-3 mx-2 my-3 rounded-lg bg-[#5fa800]  absolute bottom-2 w-full flex items-center justify-around">
   <h2 className="text-base font-semibold">Procced to checkout</h2>
 
+    <div className="bg-white p-3  rounded-lg">
+      Total Price : ৳ {carts?.reduce((sum , cart) => sum + (cart?.recentPrice * cart?.quantity) , 0)}
+    </div>
 </div>
       
     </ul>
