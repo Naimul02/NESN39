@@ -405,15 +405,18 @@ const Navbar = () => {
           carts?.length > 0 ? 
             carts?.map(cart => <li className=""> <div className="block w-full rounded-none px-4" >
                 <div className="flex justify-between w-full items-center">
-                    <Link to={`/detailsProducts/${cart?.id}`} className="flex items-center gap-2">
+              
+                    <Link to={`/detailsProducts/${cart?.id}`} onClick={()=> document.getElementById('my-drawer-4').checked = false}>
+                    <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay flex items-center gap-3">
                     <div className="w-16 h-16">
                   <img src={cart?.img} alt="" className='w-16 h-16 rounded-full'/>
                 </div>
                 <div>
-                  <h2 className="text-base font-bold">{cart?.title}</h2>
+                  <h2 className="text-sm font-bold">{cart?.title}</h2>
                   <p className="text-gray-500">Item Price : {cart?.recentPrice}</p>
-                  <p className="text-base font-semibold text-gray-500">Total Price : {cart.recentPrice} * {cart?.quantity} = ৳ {cart.recentPrice * cart?.quantity}</p>
+                  <p className="text-sm font-semibold text-gray-500">Total Price : {cart.recentPrice} * {cart?.quantity} = ৳ {cart.recentPrice * cart?.quantity}</p>
                 </div>
+                    </label>
                     </Link>
                 <div className="hover:bg-white rounded-full p-1"onClick={() => handleDelete(cart?._id)}>
                 <MdDeleteForever className="text-red-600 text-3xl"/>
@@ -438,12 +441,14 @@ const Navbar = () => {
 </div>
 
 
-<div className="px-2 py-3 mx-2 my-3 rounded-lg bg-[#5fa800]  absolute bottom-2 w-full flex items-center justify-around">
-  <h2 className="text-base font-semibold">Procced to checkout</h2>
+<div className="  absolute bottom-2 w-full ">
+  <div className="flex items-center justify-evenly py-2  bg-[#5fa800] mx-3 rounded-lg">
+  <h2 className="text-base  text-white font-medium">Procced to checkout</h2>
 
-    <div className="bg-white p-3  rounded-lg">
-      Total Price : ৳ {carts?.reduce((sum , cart) => sum + (cart?.recentPrice * cart?.quantity) , 0)}
-    </div>
+<div className="bg-white p-2 text-lg m-2 text-[#5fa800] font-semibold  rounded-lg">
+  Total Price : <span className="text-lg font-semibold">৳</span> {carts?.reduce((sum , cart) => sum + (cart?.recentPrice * cart?.quantity) , 0)}
+</div>
+  </div>
 </div>
       
     </ul>
