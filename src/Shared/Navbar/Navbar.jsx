@@ -1,22 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Marquee from 'react-fast-marquee';
 import { Link } from 'react-router-dom';
 import { BiUser } from 'react-icons/bi';
 import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
-import { toast } from 'react-hot-toast';
+import {toast} from 'react-toastify';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { BiSearch } from 'react-icons/bi';
 import { RxChevronDown } from "react-icons/rx";
 import { MdOutlineShoppingCart } from 'react-icons/md';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { RiShoppingBagFill } from "react-icons/ri";
+import { FaShoppingBag } from "react-icons/fa";
+import { RxCross2 } from "react-icons/rx";
+import { MdDeleteForever } from "react-icons/md";
+
+
 
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  // console.log(user)
+  const [carts , setCarts] = useState([]);
+
+  const {data , refetch  , isLoading } = useQuery({
+    queryKey : ['carts' , user?.email],
+    queryFn : async() => {
+     const res = await axios.get(`http://localhost:5000/carts?email=${user?.email}`)
+     
+     setCarts(res.data)
+    }
+ })
+
+  const handleDelete = (id) => {
+    axios.delete(`http://localhost:5000/product?id=${id}`)
+    .then(res => {
+      console.log(res.data)
+      if(res.data.deletedCount > 0){
+        toast.success('Product Deleted Successfully')
+        refetch()
+      }
+    })
+    .catch(error => {
+      console.log(error.message)
+    })
+  }
   const handleLogOut = () => {
     logOut()
       .then(() => {
@@ -26,13 +53,7 @@ const Navbar = () => {
   }
 
 
-  const {data  } = useQuery({
-     queryKey : ['carts'],
-     queryFn : async() => {
-      const res = await axios.get(`http://localhost:5000/carts?email=${user?.email}`)
-      console.log(res.data)
-     }
-  })
+  
   return (
     <>
       <div className="shadow-md bg-white shadow-slate-400 fixed z-10 w-full">
@@ -351,20 +372,77 @@ const Navbar = () => {
   <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
   <div className="drawer-content w-[24px] h-[24px]">
     {/* Page content here */}
-    <label htmlFor="my-drawer-4" className="drawer-button"><MdOutlineShoppingCart className="text-2xl hover:cursor-pointer"/></label>
+    <label htmlFor="my-drawer-4" onClick={refetch}className="drawer-button"><MdOutlineShoppingCart className="text-2xl hover:cursor-pointer"/></label>
   </div>
   <div className="drawer-side">
     <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
 
 
-    <div className="flex items-center justify-between bg-slate-100">
-              <div className="flex-items-center gap-2"><RiShoppingBagFill /><h1 className="text-xl font-bold">Shopping Cart</h1></div>
+    
+    <ul className="menu relative bg-white text-base-content min-h-full lg:w-[420px]  p-0">
+    <div className="flex items-center justify-between bg-slate-200 p-4">
+              <div className="flex items-center gap-2">
+                <FaShoppingBag className="text-xl" />
+              
+              <h1 className="text-xl font-bold">Shopping Cart</h1></div>
+
+
+              <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay">
+              <div className="pr-6 hover:bg-base-200 p-1 hover:cursor-pointer rounded-full">
+              <RxCross2 className='text-2xl font-semibold'/>
+              </div>
+              </label>
+              
 
     </div>
-    <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
-      {/* Sidebar content here */}
-      <li><a>Sidebar Item 1</a></li>
-      <li><a>Sidebar Item 2</a></li>
+
+
+
+<div className="overflow-y-auto max-h-[calc(100vh-4rem)] pb-8">
+
+      <div>
+        {
+          carts?.length > 0 ? 
+            carts?.map(cart => <li className=""> <div className="block w-full rounded-none px-4" >
+                <div className="flex justify-between w-full items-center">
+                    <Link to={`/detailsProducts/${cart?.id}`} className="flex items-center gap-2">
+                    <div className="w-16 h-16">
+                  <img src={cart?.img} alt="" className='w-16 h-16 rounded-full'/>
+                </div>
+                <div>
+                  <h2 className="text-base font-bold">{cart?.title}</h2>
+                  <p className="text-gray-500">Item Price : {cart?.recentPrice}</p>
+                  <p className="text-base font-semibold text-gray-500">Total Price : {cart.recentPrice} * {cart?.quantity} = ৳ {cart.recentPrice * cart?.quantity}</p>
+                </div>
+                    </Link>
+                <div className="hover:bg-white rounded-full p-1"onClick={() => handleDelete(cart?._id)}>
+                <MdDeleteForever className="text-red-600 text-3xl"/>
+                </div>
+                </div>
+                </div>
+              </li>)
+           : 
+          <div className="flex justify-center pt-[70px]">
+           <div className=''>
+           <img src="https://img.freepik.com/free-vector/removing-goods-from-basket-refusing-purchase-changing-decision-item-deletion-emptying-trash-online-shopping-app-laptop-user-cartoon-character_335657-2566.jpg" className="max-w-[200px] mx-auto max-h-[200px]" alt=""/>
+
+<div className='px-5'>
+  <h1 className="text-xl font-semibold text-center">There are no products in your shopping cart.</h1>
+</div>
+           </div>
+
+          </div>
+        }
+              
+      </div>
+</div>
+
+
+<div className="p-4 border absolute bottom-2 w-full">
+  <h2 className="text-base font-semibold">Procced to checkout</h2>
+
+</div>
+      
     </ul>
   </div>
 </div>
