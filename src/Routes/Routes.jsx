@@ -13,6 +13,7 @@ import AdminRoute from "./AdminRoute";
 import Contact from "../Pages/Contact/Contact";
 import DetailsProducts from "../Pages/DetailsProduct/DetailsProduct";
 import CategoriesProducts from "../Pages/CategoriesProducts/CategoriesProducts"
+import Checkout from "../Pages/Checkout/Checkout";
 const Router = createBrowserRouter([
   {
     path: '/',
@@ -61,6 +62,10 @@ const Router = createBrowserRouter([
       {
         path : '/categoriesProducts/:category',
         element : <CategoriesProducts></CategoriesProducts>
+      },
+      {
+        path : '/checkout',
+        element : <Checkout></Checkout>
       }
 
     ]

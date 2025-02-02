@@ -440,6 +440,7 @@ const Navbar = () => {
       </div>
 </div>
 
+<Link to={'/checkout'}>
 
 <div className="  absolute bottom-2 w-full ">
   <div className="flex items-center justify-evenly py-2  bg-[#5fa800] mx-3 rounded-lg">
@@ -450,6 +451,7 @@ const Navbar = () => {
 </div>
   </div>
 </div>
+</Link>
       
     </ul>
   </div>
