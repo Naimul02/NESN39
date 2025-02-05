@@ -1,71 +1,58 @@
-import React , {useRef} from "react";
-import { useForm } from "react-hook-form";
-import { useQuery } from "@tanstack/react-query";
-import toast from "react-hot-toast";
-import { TbShoppingCartOff } from "react-icons/tb";
-import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { AuthContext } from "../../AuthProvider/AuthProvider";
-import Loading from "../Loading/Loading";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
-import useCart from "../../hooks/useCart/useCart";
-import emailjs from '@emailjs/browser';
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
+import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
+import {Link} from 'react-router-dom';
+import { MdDeleteForever, MdRemoveShoppingCart } from "react-icons/md";
 
 const Checkout = () => {
-  const { user } = useContext(AuthContext);
-  
-  
-  
-  // console.log("carts  vai vai : " , carts)
-  
-  const sum = carts?.reduce((accu , currentValue) => accu + currentValue.recentPrice * currentValue.quantity , 0)
 
+    const { user, } = useContext(AuthContext);
+    const [carts , setCarts] = useState([]);
+    // console.log("carts" , carts)
   
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    // console.log("data" , data);
-    const info = {
-      email : user?.email,
-      data,
-      carts,
-      cartsId : carts?.map(cart => cart._id),
-      
-    }
-    axiosSecure.post('/confirmorder' , info)
-    .then(res => {
-      
-      if(res.data.result.insertedId){
+    const {data , refetch  , isLoading } = useQuery({
+      queryKey : ['carts' , user?.email],
+      queryFn : async() => {
+       const res = await axios.get(`http://localhost:5000/carts?email=${user?.email}`)
+       console.log('carts' , carts)
+       setCarts(res.data)
+      }
+   })
+    return (
+        <div className="bg-slate-100">
 
-        toast.success("Your order has been confirmed");
-        refetch();
-}
-    })
-    
-  };
-
-  
-
-  return (
-    <div className="flex lg:flex-row flex-col lg:gap-16 lg:mx-[104px] lg:px-0 px-4 justify-between">
+<div className="flex lg:flex-row flex-col lg:gap-24 justify-center lg:px-0 px-4  pt-[130px] pb-16">
       {carts.length ? (
-        <form ref={form} onSubmit={handleSubmit(onSubmit)}>
+        <form>
           <h1 className="text-2xl font-bold mt-10">
             Billing & Shipping
           </h1>
+          <div className="flex items-center gap-3">
           <div className="mt-3">
-            <label className="text-lg font-semibold">Your Name</label>
+            <label className="text-lg font-semibold">Your First Name</label>
             <input
-              {...register("name")}
-              className="border border-solid border-red-600 block rounded lg:w-[619px] w-full h-[40px] pl-3 lg:text-lg text-base font-semibold"
-              placeholder="Enter Your Name"
+              name="firstName"
+              className="border border-solid border-red-600 block rounded lg:max-w-[619px] w-full h-[40px] pl-3  text-base font-medium"
+              placeholder="Enter Your First Name"
               required
             />
+          </div>
+          <div className="mt-3">
+            <label className="text-lg font-semibold">Your Last Name</label>
+            <input
+              name="lastName"
+              className="border border-solid border-red-600 block rounded lg:max-w-[619px] w-full h-[40px] pl-3  text-base font-medium"
+              placeholder="Enter Your Last Name"
+              required
+            />
+          </div>
           </div>
           <div className="mt-2">
             <label className="text-lg font-semibold">Email</label>
             <input
-              {...register("email")}
-              className="border border-solid border-red-600 block rounded lg:w-[619px] w-full h-[40px] pl-3 lg:text-lg text-base font-semibold"
+              name="email"
+              className="border border-solid border-red-600 block rounded lg:max-w-[619px] w-full h-[40px] pl-3  text-base font-medium"
               defaultValue={user?.email}
               readOnly
               required
@@ -74,8 +61,8 @@ const Checkout = () => {
           <div className="mt-2">
             <label className="text-lg font-semibold">Your Phone Number</label>
             <input
-              {...register("phoneNumber")}
-              className="border border-solid border-red-600 block rounded lg:w-[619px] w-full h-[40px] pl-3 lg:text-lg text-base font-semibold"
+              name="phoneNumber"
+              className="border border-solid border-red-600 block rounded lg:max-w-[619px] w-full h-[40px] pl-3  text-base font-medium"
               placeholder="Enter Your Phone Number"
               required
             />
@@ -83,8 +70,8 @@ const Checkout = () => {
           <div className="mt-2">
             <label className="text-lg font-semibold">Your Full Address</label>
             <input
-              {...register("address")}
-              className="border border-solid border-red-600 block rounded lg:w-[619px] w-full h-[40px] pl-3 lg:text-lg text-base font-semibold"
+              name="address"
+              className="border border-solid border-red-600 block rounded lg:max-w-[619px] w-full h-[40px] pl-3  text-base font-medium"
               placeholder="House Number , Street Name And City"
               required
             />
@@ -105,11 +92,11 @@ const Checkout = () => {
               Order Notes(optional)
             </label>
             <textarea
-              name=""
+              
               id=""
-              className="lg:w-[619px] w-full h-[150px] border border-solid border-red-600 rounded pl-2 pt-2 lg:text-lg text-base font-semibold"
+              className="lg:max-w-[619px] w-full h-[150px] border border-solid border-red-600 rounded pl-2 pt-2  text-base font-medium"
               placeholder="Notes about your order , e.g. special notes for delivery"
-              {...register("orderNotes")}
+              name="orderNotes"
             ></textarea>
           </div>
 
@@ -120,20 +107,31 @@ const Checkout = () => {
       ) : (
         <div>
           <h1 className="text-2xl font-bold mt-10">Billing & Shipping</h1>
+          <div className="flex items-center gap-3">
           <div className="mt-3">
-            <label className="text-lg font-semibold">Your Name</label>
+            <label className="text-lg font-semibold">Your First Name</label>
             <input
-              {...register("name")}
-              className="border border-solid border-red-600 block rounded  w-full h-[40px] pl-3 lg:text-lg text-base font-semibold"
-              placeholder="Enter Your Name"
+              name="firstName"
+              className="border border-solid border-red-600 block rounded lg:max-w-[619px] w-full h-[40px] pl-3  text-base font-medium"
+              placeholder="Enter Your First Name"
               required
             />
+          </div>
+          <div className="mt-3">
+            <label className="text-lg font-semibold">Your Last Name</label>
+            <input
+              name="lastName"
+              className="border border-solid border-red-600 block rounded lg:max-w-[619px] w-full h-[40px] pl-3  text-base font-medium"
+              placeholder="Enter Your Last Name"
+              required
+            />
+          </div>
           </div>
           <div className="mt-2">
             <label className="text-lg font-semibold">Email</label>
             <input
-              {...register("email")}
-              className="border border-solid border-red-600 block rounded lg:w-[619px] w-full h-[40px] pl-3 lg:text-lg text-base font-semibold"
+              name="email"
+              className="border border-solid border-red-600 block rounded lg:max-w-[619px] w-full h-[40px] pl-3  text-base font-medium"
               defaultValue={user?.email}
               readOnly
               required
@@ -142,8 +140,8 @@ const Checkout = () => {
           <div className="mt-2">
             <label className="text-lg font-semibold">Your Phone Number</label>
             <input
-              {...register("phoneNumber")}
-              className="border border-solid border-red-600 block rounded lg:w-[619px] w-full h-[40px] pl-3 lg:text-lg text-base font-semibold"
+              name="phoneNumber"
+              className="border border-solid border-red-600 block rounded lg:max-w-[619px] w-full h-[40px] pl-3  text-base font-medium"
               placeholder="Enter Your Phone Number"
               required
             />
@@ -151,8 +149,8 @@ const Checkout = () => {
           <div className="mt-2">
             <label className="text-lg font-semibold">Your Full Address</label>
             <input
-              {...register("address")}
-              className="border border-solid border-red-600 block rounded lg:w-[619px] w-full h-[40px] pl-3 lg:text-lg text-base font-semibold"
+              name="address"
+              className="border border-solid border-red-600 block rounded lg:max-w-[619px] w-full h-[40px] pl-3  text-base font-medium"
               placeholder="House Number , Street Name And City"
               required
             />
@@ -173,11 +171,9 @@ const Checkout = () => {
               Order Notes(optional)
             </label>
             <textarea
-              name=""
-              id=""
-              className="lg:w-[619px] w-full h-[150px] border border-solid border-red-600 rounded pl-2 pt-2 lg:text-lg text-base font-semibold"
+              className="lg:max-w-[619px] w-full h-[150px] border border-solid border-red-600 rounded pl-2 pt-2  text-base font-medium"
               placeholder="Notes about your order , e.g. special notes for delivery"
-              {...register("orderNotes")}
+              name="orderNotes"
             ></textarea>
           </div>
 
@@ -191,53 +187,56 @@ const Checkout = () => {
       )}
 
       <div className="mt-10">
-        <h1 className="text-2xl text-green-600 font-semibold mb-4 ml-[15px] ">
-          Your Order
+        <h1 className="text-2xl text-green-600 font-semibold mb-3">
+          Order Summery
         </h1>
         <div>
-          {carts?.length ? (
-            carts.map((order) => (
-              <div className=" overflow-x-auto shadow-md sm:rounded-lg lg:mx-[16px]">
-                <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                  <tbody>
-                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                      <td className="w-[96px] h-[96px] p-4 rounded-full">
-                        <div className="lg:w-[64px] w-[64px] lg:h-[64px] h-[64px]">
-                          <img
-                            src={order?.image}
-                            alt="Apple Watch"
-                            className="rounded-full lg:w-[64px] w-[64px] lg:h-[64px] h-[64px] "
-                          />
-                        </div>
-                      </td>
+          {carts?.length  > 0 ? (
+            <div  className="bg-white border rounded-lg p-4 ">
 
-                      <td className="px-6 py-4 font-semibold text-gray-900 dark:text-white w-[160px] ">
-                        <p className="w-[160px] ">{order?.productName}</p>
-                      </td>
-                      <td className="px-6 py-4">
-                        <div className="flex items-center space-x-3">
-                          {order.quantity}
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                        {order?.recentPrice}
-                      </td>
-                      <td className="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                        {order?.recentPrice * order?.quantity}
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            ))
+            <div className="overflow-y-auto  max-h-[300px]">
+              {
+                      
+                        carts?.map(cart => <div className="block hover:bg-base-200 px-3  py-3 border-b w-full rounded" >
+                            <div className="flex justify-between w-full items-center">
+                          
+                                <Link to={`/detailsProducts/${cart?.id}`} className="flex items-center gap-2">
+                               
+                                <div className="w-16 h-16">
+                              <img src={cart?.img} alt="" className='w-16 h-16 rounded-full'/>
+                            </div>
+                            <div className="pr-16">
+                              <h2 className="text-sm font-bold">{cart?.title}</h2>
+                              <p className="text-gray-500">Item Price : {cart?.recentPrice}</p>
+                              <p className="text-sm font-semibold text-gray-500">Total Price : {cart.recentPrice} * {cart?.quantity} = ৳ {cart.recentPrice * cart?.quantity}</p>
+                            </div>
+                               
+                                </Link>
+                            <div className="hover:bg-white rounded-full p-1"onClick={() => handleDelete(cart?._id)}>
+                            <MdDeleteForever className="text-red-600 text-3xl"/>
+                            </div>
+                            </div>
+                            </div>
+                          )
+                       
+                    }
+            </div>
+
+              {
+            carts?.length > 0 && <div className=" px-3 py-1 flex justify-between p-2 text-xl   font-bold">
+            Total Price :   <span>৳{carts?.reduce((sum , cart) => sum + (cart?.recentPrice * cart?.quantity) , 0)}</span>
+          </div>
+          }
+            </div>
+
           ) : (
-            <div className=" my-20">
-              <TbShoppingCartOff className="text-7xl text-green-600  mx-[40%]" />
+            <div className="bg-white border rounded-lg mt-1 py-8">
+              <MdRemoveShoppingCart  className="text-7xl text-green-600  mx-[40%]"/>
 
-              <h2 className="text-lg font-semibold text-green-600 text-center">
-                There are no products here , please add products to the cart
+              <h2 className="text-lg my-2  font-semibold text-green-600 text-center">
+                There are no products here , <br /> please add products to the cart
               </h2>
-              <Link to="/shopallproducts">
+              <Link to="/">
                 <button className="btn bg-green-600 lg:mx-[104px] text-center mt-3 text-white lg:w-[300px] w-full hover:bg-emerald-700 mb-[4%]">
                   Back to shopping
                 </button>
@@ -245,15 +244,13 @@ const Checkout = () => {
             </div>
           )}
           
-          {
-            carts?.length > 0 && <div className="flex justify-end mr-[5%] mt-2">
-            <h2 className="text-lg font-semibold">Total : {sum}</h2>
-          </div>
-          }
+          
         </div>
       </div>
-    </div>
-  );
+    </div> 
+        </div>
+    
+    );
 };
 
 export default Checkout;
