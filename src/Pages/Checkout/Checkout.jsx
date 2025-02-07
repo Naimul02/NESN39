@@ -21,6 +21,33 @@ const Checkout = () => {
       }
    })
 
+  const handleSubmit = (e) => {
+      e.preventDefault()
+      const form = e.target;
+      const firstName = form.firstName.value;
+      const lastName = form.lastName.value;
+      const email = form.email.value;
+      const phoneNumber = form.phoneNumber.value;
+      const address = form.address.value;
+      const orderNotes = form.orderNotes.value;
+
+      const info = {
+         firstName ,
+         lastName,
+         email,
+         phoneNumber, 
+         address,
+         orderNotes
+      }
+      
+      axios.post('/orderConfirm' , info)
+      .then(res => {
+        console.log(res.data)
+      })
+      .catch(error => {
+        console.error(error.message)
+      })
+  }
    const handleDelete = (id) => {
     axios.delete(`http://localhost:5000/product?id=${id}`)
     .then(res => {
@@ -40,7 +67,7 @@ const Checkout = () => {
 <div className="flex lg:flex-row flex-col lg:gap-24 justify-center lg:px-0 px-4  pt-[130px] pb-16">
       <div>
       {carts.length ? (
-        <form>
+        <form onSubmit={handleSubmit}>
           <h1 className="text-2xl font-bold mt-10">
             Billing & Shipping
           </h1>
@@ -100,8 +127,8 @@ const Checkout = () => {
             <h3 className="text-xl font-semibold">Bangladesh</h3>
           </div>
 
-          <div className="mt-4">
-            <h1 className="text-2xl font-semibold mt-5 mb-3">
+          <div>
+            <h1 className="text-2xl font-semibold mt-4 mb-3">
               Additional Information
             </h1>
             <label className="text-lg font-semibold block">
@@ -230,7 +257,7 @@ const Checkout = () => {
                             </div>
                                
                                 </Link>
-                            <div className="hover:bg-white rounded-full p-1"onClick={() => handleDelete(cart?._id)}>
+                            <div className="hover:bg-white hover:cursor-pointer rounded-full p-1"onClick={() => handleDelete(cart?._id)}>
                             <MdDeleteForever className="text-red-600 text-3xl"/>
                             </div>
                             </div>
