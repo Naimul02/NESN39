@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 import {Link} from 'react-router-dom';
 import { MdDeleteForever, MdRemoveShoppingCart } from "react-icons/md";
+import {toast} from 'react-toastify';
 
 const Checkout = () => {
 
@@ -19,10 +20,25 @@ const Checkout = () => {
        setCarts(res.data)
       }
    })
+
+   const handleDelete = (id) => {
+    axios.delete(`http://localhost:5000/product?id=${id}`)
+    .then(res => {
+      console.log(res.data)
+      if(res.data.deletedCount > 0){
+        toast.success('Product Deleted Successfully')
+        refetch()
+      }
+    })
+    .catch(error => {
+      console.log(error.message)
+    })
+  }
     return (
         <div className="bg-slate-100">
 
 <div className="flex lg:flex-row flex-col lg:gap-24 justify-center lg:px-0 px-4  pt-[130px] pb-16">
+      <div>
       {carts.length ? (
         <form>
           <h1 className="text-2xl font-bold mt-10">
@@ -185,19 +201,21 @@ const Checkout = () => {
           </button>
         </div>
       )}
+      </div>
 
       <div className="mt-10">
+        
+        <div className="sticky top-36">
         <h1 className="text-2xl text-green-600 font-semibold mb-3">
           Order Summery
         </h1>
-        <div>
           {carts?.length  > 0 ? (
             <div  className="bg-white border rounded-lg p-4 ">
 
             <div className="overflow-y-auto  max-h-[300px]">
               {
                       
-                        carts?.map(cart => <div className="block hover:bg-base-200 px-3  py-3 border-b w-full rounded" >
+                        carts?.map(cart => <div className="block hover:bg-base-200 px-3  py-3 border-b w-full" >
                             <div className="flex justify-between w-full items-center">
                           
                                 <Link to={`/detailsProducts/${cart?.id}`} className="flex items-center gap-2">
