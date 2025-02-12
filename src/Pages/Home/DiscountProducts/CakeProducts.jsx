@@ -20,10 +20,10 @@ const CakeProducts = () => {
         <div className="bg-slate-100 pb-10">
       <div className="max-w-3xl mx-auto text-center space-y-2 mb-8">
       <h1 className="text-xl font-bold">Latest Discounted Products</h1>
-      <p className="text-gray-600">See Our latest discounted products below. Choose your daily needs from here and get a special discount with free shipping.</p>
+      <p className="text-gray-600 px-4 lg:px-0">See Our latest discounted products below. Choose your daily needs from here and get a special discount with free shipping.</p>
       </div>
 
-      <div className="grid lg:grid-cols-5 grid-cols-1 gap-4  px-4">
+      <div className="grid grid-cols-2 lg:grid-cols-5 gap-2 lg:gap-4 px-2 lg:px-4">
 
 
         {

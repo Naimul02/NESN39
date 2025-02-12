@@ -23,7 +23,7 @@ const Card = () => {
   
   <div className="px-3 space-y-1 pb-3 flex justify-between items-center">
   <div>
-  <h1 className='text-sm font-medium text-gray-600'>{productName.slice(0 , 22)}</h1>
+  <h1 className='text-sm font-medium text-gray-600'>{productName.slice(0 , 16)}</h1>
   <h1 className='text-lg font-semibold text-gray-800'>${price}</h1>
   </div>
     

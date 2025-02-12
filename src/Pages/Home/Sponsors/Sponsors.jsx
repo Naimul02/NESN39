@@ -3,8 +3,8 @@ import Marquee from 'react-fast-marquee';
 
 const Sponsors = () => {
   return (
-      <div className="bg-slate-100 py-16">
-         <div className='mx-4  bg-white shadow-md shadow-black'>
+      <div className="bg-slate-100 py-5 lg:py-16">
+         <div className='mx-2 lg:mx-4  bg-white shadow-md shadow-black'>
       <Marquee className='flex  justify-between items-center brand'>
         <img className='px-4' src="https://departmental-store-02.web.app/images/brand-01.png" alt="" />
         <img className='px-4 ' src="https://departmental-store-02.web.app/images/brand-02.png" alt="" />
