@@ -7,6 +7,7 @@ import { BiMenu, BiLockAlt } from 'react-icons/bi';
 import { FaUsers } from 'react-icons/fa';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { MdOutlineReviews } from 'react-icons/md';
+import axios from 'axios'
 
 import { Link } from 'react-router-dom';
 import useAdmin from '../../hooks/useAdmin';
@@ -19,9 +20,9 @@ const Dashboard = () => {
   const { refetch, isLoading, data: orders = [] } = useQuery({
     queryKey: ["orders", user?.email],
     queryFn: async () => {
-      const res = await fetch(`https://departmental-store-server.vercel.app/bookings?email=${user?.email}`);
-      const data = res.json()
-      // console.log(data)
+      const res = await axios.get(`http://localhost:5000/orders?email=${user?.email}`);
+      const data = res.data
+      console.log(data)
       return data
 
     }
@@ -55,7 +56,7 @@ const Dashboard = () => {
     return <Loading></Loading>
   }
   return (
-    <div className='flex'>
+    <div className='flex lg:pt-36 pb-16'>
       <div className='bg-base-200 mb-[-40px] pb-2 pt-2 w-[270px] pr-5'>
         <DashboardLeft></DashboardLeft>
       </div>

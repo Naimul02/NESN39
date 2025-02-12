@@ -5,13 +5,12 @@ import { BiUser } from 'react-icons/bi';
 import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import {toast} from 'react-toastify';
-import { GiHamburgerMenu } from 'react-icons/gi';
-import { BiSearch } from 'react-icons/bi';
+import { LuMenu } from "react-icons/lu";
 import { RxChevronDown } from "react-icons/rx";
 import { MdOutlineShoppingCart } from 'react-icons/md';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { FaShoppingBag } from "react-icons/fa";
+import { FaHome, FaShoppingBag, FaUser } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { MdDeleteForever } from "react-icons/md";
 
@@ -60,13 +59,35 @@ const Navbar = () => {
 
       <div >
       
-          <div className="flex items-center justify-between border-b py-3 mx-20">
-           <div>
-           <Link to="/"><h1 className='text-xl font-bold text-center'>NESN39</h1></Link>
+          <div className="flex items-center justify-between border-b py-3 lg:mx-20 px-3 lg:px-0">
+           <div className="flex justify-between items-center w-full lg:w-auto">
+           <Link to="/"><h1 className='text-lg lg:text-xl font-bold text-center'>NESN39</h1></Link>
+           <div className="block lg:hidden mx-2">
+          <label className="input pr-0  input-bordered rounded-full flex items-center w-auto lg:w-[370px] h-[40px]">
+  <input type="text" className="grow" placeholder="Search" />
+
+  <button className="w-10 h-10  bg-black rounded-full text-white flex justify-center items-center">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="currentColor"
+    className="h-4 w-4  text-white font-extrabold">
+    <path
+      fillRule="evenodd"
+      d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+      clipRule="evenodd" className="text-white font-bold" />
+  </svg>
+  </button>
+</label>
+          </div>
+
+           <div className="w-10 rounded-full mb-1 mr-2 block lg:hidden">
+              <img src={user?.photoURL} alt="" className="rounded-full" />
+            </div>
            </div>
 
-          <div>
-          <label className="input pr-0  input-bordered rounded-full flex items-center w-[370px] h-[40px]">
+          <div className="hidden lg:block">
+          <label className="input pr-0  input-bordered rounded-full flex items-center lg:w-[370px] h-[40px]">
   <input type="text" className="grow" placeholder="Search" />
 
   <button className="w-10 h-10  bg-black rounded-full text-white flex justify-center items-center">
@@ -90,8 +111,8 @@ const Navbar = () => {
               {
 
                 user ? <>
-                  <Link to="/login"><BiUser className="text-4xl ml-2 mr-1 " /></Link>
-                  <Link to="/login" onClick={() => handleLogOut()} className='text-lg font-bold ancor'>Logout</Link>
+                  <Link to="/login"><BiUser className="text-4xl  hidden lg:block ml-2 mr-1 " /></Link>
+                  <Link to="/login" onClick={() => handleLogOut()} className='text-lg font-bold hidden lg:block ancor'>Logout</Link>
                 </>
                   :
                   <>
@@ -106,17 +127,14 @@ const Navbar = () => {
             
 
           </div>
-          <div className="pl-3 lg:hidden block">
-            <div className='flex mr-3'>
-              <input type="text" placeholder="Search Product Here ..." className="input input-bordered" /><BiSearch className=" searchvai" />
-            </div>
-          </div>
+          
        
       </div>
-      <div className=' flex h-[52px]  justify-between items-center px-20'>
-        <div className="dropdown lg:hidden block">
-          <label tabIndex={0} className="btn m-1"><GiHamburgerMenu className='text-2xl  mt-2' /></label>
-          <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+
+      <div className="w-full fixed bottom-0 left-0  bg-[#5fa800] px-4  flex items-center justify-between py-2">
+        <div className="dropdown lg:hidden ">
+          <label tabIndex={0} className=""><LuMenu className='text-2xl text-white  mt-2' /></label>
+          <ul tabIndex={0} className="dropdown-content menu p-2  ">
             <li><Link to="/" className=' ancor  text-lg font-semibold ml-0 mr-2 border-r pr-3'>Home</Link></li>
             <li>
               <Link to="/addingservice" className='ancor  text-lg font-semibold mx-2 border-r pr-3'>Services</Link>
@@ -130,8 +148,20 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-
-        <div className="lg:block hidden">
+        <div>
+              <FaHome className="text-white text-2xl font-semibold"/>
+        </div>
+        <div>
+        <label htmlFor="my-drawer-4" onClick={refetch}className="drawer-button"><MdOutlineShoppingCart className="text-2xl hover:cursor-pointer text-white"/></label>
+        {/* <FaShoppingBag className="text-2xl text-white font-semibold" /> */}
+        </div>
+        <div>
+        <FaUser className="text-2xl text-white font-semibold" />
+        </div>
+        </div>
+      <div className='lg:h-[52px] hidden lg:flex  justify-between items-center px-20'>
+        
+      <div className="lg:block hidden">
           <Link to="/" className='border-r pr-3 ancor  text-lg font-semibold ml-0 mr-2'>Home</Link>
 <div className="dropdown dropdown-bottom  ancor  text-lg font-semibold border-r pr-3 mx-2">
   <div tabIndex={0} role="button" className="flex items-center"><span className="mr-1">Categories</span> <RxChevronDown /></div>
@@ -362,8 +392,9 @@ const Navbar = () => {
           <Link to="/contact" className=' text-lg font-semibold mx-2 ancor '>Contact</Link>
 
         </div>
+        
 
-        <div className='mb-4'>
+        <div className='mb-3'>
           <div className="avatar">
 
           </div>
@@ -372,7 +403,7 @@ const Navbar = () => {
   <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
   <div className="drawer-content w-[24px] h-[24px]">
     {/* Page content here */}
-    <label htmlFor="my-drawer-4" onClick={refetch}className="drawer-button"><MdOutlineShoppingCart className="text-2xl hover:cursor-pointer"/></label>
+    <label htmlFor="my-drawer-4" onClick={refetch}className="drawer-button hidden lg:block"><MdOutlineShoppingCart className="text-2xl hover:cursor-pointer"/></label>
   </div>
   <div className="drawer-side">
     <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
@@ -456,14 +487,20 @@ const Navbar = () => {
     </ul>
   </div>
 </div>
-            <div className="w-10 rounded-full mb-1 mr-2">
-              <img src={user?.photoURL} alt="" />
+
+            
+            
+            <div className="w-10 rounded-full mb-1 mr-2 hidden lg:block">
+              <img src={user?.photoURL} alt="" className="hidden lg:block" />
             </div>
+            
           </div>
         </div>
 
 
       </div>
+
+      
       </div>
       
     </>

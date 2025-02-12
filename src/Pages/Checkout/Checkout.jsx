@@ -1,25 +1,33 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 import {Link} from 'react-router-dom';
 import { MdDeleteForever, MdRemoveShoppingCart } from "react-icons/md";
 import {toast} from 'react-toastify';
+import OurStore from '../Home/OurStore/OurStore'
+import Loading from '../Loading/Loading';
 
 const Checkout = () => {
 
-    const { user, } = useContext(AuthContext);
-    const [carts , setCarts] = useState([]);
-    // console.log("carts" , carts)
+    const { user} = useContext(AuthContext);
+    
   
-    const {data , refetch  , isLoading } = useQuery({
-      queryKey : ['carts' , user?.email],
-      queryFn : async() => {
-       const res = await axios.get(`http://localhost:5000/carts?email=${user?.email}`)
-       console.log('carts' , carts)
-       setCarts(res.data)
-      }
-   })
+    const { data: carts = [], refetch, isLoading } = useQuery({
+      queryKey: ['carts', user?.email],
+      queryFn: async () => {
+        const res = await axios.get(`http://localhost:5000/carts?email=${user?.email}`);
+        console.log(res?.data);
+        
+        return res.data;
+      },
+      
+    });
+   
+   if(isLoading){
+      return <Loading></Loading>
+
+    }
 
   const handleSubmit = (e) => {
       e.preventDefault()
@@ -40,9 +48,12 @@ const Checkout = () => {
          orderNotes
       }
       
-      axios.post('/orderConfirm' , info)
+      axios.post('http://localhost:5000/orderConfirm' , info)
       .then(res => {
         console.log(res.data)
+        if(res.data?.insertedId){
+          toast.success("Your Order has been successful")
+        }
       })
       .catch(error => {
         console.error(error.message)
@@ -293,6 +304,8 @@ const Checkout = () => {
         </div>
       </div>
     </div> 
+
+          <OurStore></OurStore>
         </div>
     
     );
