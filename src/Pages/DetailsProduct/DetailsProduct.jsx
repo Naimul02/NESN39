@@ -113,14 +113,14 @@ const DetailsProducts = () => {
   return (
     
     <>
-    <div className="bg-slate-100 py-[200px]">
+    <div className="bg-slate-100 py-28 lg:py-[200px]">
 
-    <div className="container mx-auto p-12 rounded  bg-white">
+    <div className="container mx-2 lg:mx-auto p-3 lg:p-12 rounded  bg-white">
 
-      <div className="flex justify-between">
+      <div className="flex flex-col lg:flex-row justify-between">
         
 
-        <div className="lg:w-[351px] lg:h-[351px]">
+        <div className="w-full lg:w-[351px] lg:h-[351px]">
         <Swiper
         style={{
           '--swiper-navigation-color': '#fff',
@@ -132,12 +132,12 @@ const DetailsProducts = () => {
           clickable: true,
         }}
         modules={[Zoom, Navigation, Pagination]}
-        className="mySwiper lg:w-[351px] lg:h-[351px]"
+        className="mySwiper w-full lg:w-[351px] lg:h-[351px]"
         // lg:w-[650px] lg:h-[550px]
       >
-        <SwiperSlide className="lg:w-[351px] lg:h-[351px]">
-          <div className="swiper-zoom-container lg:w-[351px] lg:h-[351px]">
-            <img src={data?.img}  className="lg:w-[351px] lg:h-[351px]" />
+        <SwiperSlide className="w-full lg:w-[351px] lg:h-[351px]">
+          <div className="swiper-zoom-container w-full lg:w-[351px] lg:h-[351px]">
+            <img src={data?.img}  className="w-full lg:w-[351px] lg:h-[351px]" />
           </div>
         </SwiperSlide>
         
@@ -147,8 +147,8 @@ const DetailsProducts = () => {
 
         </div>
         {/* lg:w-[425px] */}
-        <div className="px-4 max-w-[500px]">
-          <h2 className="card-title lg:text-3xl text-xl font-bold mb-3">
+        <div className="lg:px-4 max-w-[500px]">
+          <h2 className="lg:text-3xl text-xl font-bold mb-3">
             {data?.productName}
           </h2>
           <span className="bg-base-200 rounded px-2 font-semibold  text-[#5fa800]">Stock : Available </span>
@@ -241,7 +241,7 @@ const DetailsProducts = () => {
             </div>
           </div>
         </div>
-        <div className="bg-base-200 lg:max-w-[300px] p-8 rounded space-y-7">
+        <div className="bg-base-200 lg:max-w-[300px] mt-4 lg:mt-0 p-8 rounded space-y-7">
           <div className="flex  items-center gap-3">
           <span><LiaShippingFastSolid className="text-2xl"/></span>
           <p className="text-sm text-gray-600">
