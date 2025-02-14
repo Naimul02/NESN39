@@ -285,7 +285,7 @@ const CategoriesProducts = () => {
           </div>
 
           <div className="w-full">
-            <div className="flex flex-col  lg:flex-row justify-center items-center md:justify-between mx-3 md:mx-0 px-6 py-3 rounded  lg:bg-white  mb-10">
+            <div className="flex flex-col  lg:flex-row justify-center items-center md:justify-between  md:mx-0 px-6 py-3 rounded  lg:bg-white  mb-10">
               <div className="hidden lg:block  w-full">
                 <div className="flex justify-between items-center w-full">
                   <h1 className="text-xl  font-bold  text-[#4A4A4A]">
@@ -334,12 +334,12 @@ const CategoriesProducts = () => {
                 </div>
               </div>
             </div>
-            <div className="mx-4 lg:mx-0">
+            <div className="">
               {data?.length > 0 ? (
                 <div
                   className={`grid grid-cols-1 ${menuValue === '4' ? "md:grid-cols-4" :
     menuValue === '3' ? "md:grid-cols-3" : menuValue === '2' ? "md:grid-cols-2"  : "md:grid-cols-1"
-  } gap-8 -z-10`}
+  } gap-3 mx-2 -z-10`}
                 >
                   {data?.map(
                     (product) =>

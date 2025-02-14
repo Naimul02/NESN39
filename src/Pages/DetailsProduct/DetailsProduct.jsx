@@ -113,9 +113,9 @@ const DetailsProducts = () => {
   return (
     
     <>
-    <div className="bg-slate-100 py-28 lg:py-[200px]">
+    <div className="bg-slate-100 py-24 lg:py-[165px]">
 
-    <div className="container mx-2 lg:mx-auto p-3 lg:p-12 rounded  bg-white">
+    <div className="mx-[10px] lg:mx-8 p-3 lg:p-12 rounded  bg-white">
 
       <div className="flex flex-col lg:flex-row justify-between">
         
@@ -216,7 +216,7 @@ const DetailsProducts = () => {
             </div>
             {user ? (
               <Link to={`/checkoutBuy/${id}`}>
-                <button className="btn hover:bg-[#569700]  lg:w-[455px] w-[335px] bg-[#5fa800] text-white mt-3 lg:mr-0 mr-4">
+                <button className="btn hover:bg-[#569700]  lg:w-[455px] w-full bg-[#5fa800] text-white mt-3 lg:mr-0 mr-4">
                   <PiShoppingCartFill className="text-xl text-white"/> Buy Now
                 </button>
               </Link>
@@ -229,7 +229,7 @@ const DetailsProducts = () => {
             )}
           </div>
 
-          <div className="mt-4">
+          <div className="my-4">
             <p>Call Us To Order By Mobile Number : <span className="font-semibold text-[#5fa800]">+880 1856376102</span></p>
             <p className="font-bold my-1">Share your social network</p>
             <p>For get lots of traffic from social network share this product</p>
@@ -241,7 +241,7 @@ const DetailsProducts = () => {
             </div>
           </div>
         </div>
-        <div className="bg-base-200 lg:max-w-[300px] mt-4 lg:mt-0 p-8 rounded space-y-7">
+        <div className="bg-base-200 lg:max-w-[300px] my-4 lg:mt-0 p-8 rounded space-y-7">
           <div className="flex  items-center gap-3">
           <span><LiaShippingFastSolid className="text-2xl"/></span>
           <p className="text-sm text-gray-600">
@@ -297,7 +297,7 @@ const DetailsProducts = () => {
   </div>
 
 {/* Related Product */}
-    <div className="container mx-auto mt-16">
+    <div className="mx-[10px] lg:mx-8 mt-16">
             <RelatedProducts category={data?.category}></RelatedProducts>
       </div>
     </div>

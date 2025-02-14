@@ -35,7 +35,7 @@ const MilkProductsInfo = () => {
       <p className="text-gray-600 px-4 lg:px-0">See all our popular products in this week. You can choose your daily needs products from this list and get some special offer with free shipping.</p>
       </div>
 
-      <div className="mx-2 lg:mx-4 grid grid-cols-2 lg:grid-cols-5 gap-[10px] lg:gap-4">
+      <div className="pl-2 pr-2 lg:pl-6 lg:pr-6 grid grid-cols-2 lg:grid-cols-5 gap-[10px] lg:gap-4">
 
 
         {

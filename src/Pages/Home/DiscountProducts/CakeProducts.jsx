@@ -23,7 +23,7 @@ const CakeProducts = () => {
       <p className="text-gray-600 px-4 lg:px-0">See Our latest discounted products below. Choose your daily needs from here and get a special discount with free shipping.</p>
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-5 gap-[10px] lg:gap-4 px-2 lg:px-4">
+      <div className="grid grid-cols-2 lg:grid-cols-5 gap-[10px] lg:gap-4 px-[10px] lg:px-4">
 
 
         {
