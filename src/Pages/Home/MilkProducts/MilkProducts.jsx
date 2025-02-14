@@ -12,13 +12,7 @@ const MilkProducts = ({ product }) => {
 
   const [openModal, setopenModal] = useState(false);
 
-  const open = () => {
-    setopenModal(true)
-  }
 
-  const close = () => {
-    setopenModal(false)
-  }
 
 
 

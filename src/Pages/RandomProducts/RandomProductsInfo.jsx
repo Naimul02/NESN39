@@ -13,7 +13,7 @@ const RandomProductsInfo = () => {
 
   return (
     <div className='bg-slate-100'>
-          <div className="bg-[#5fa800] p-3 lg:p-12 mx-2 lg:mx-4 rounded-lg" >
+          <div className="bg-[#5fa800] p-4 lg:p-12 mx-[10px] lg:mx-4 rounded-lg" >
       
       <div className="flex  flex-col lg:flex-row gap-1 lg:gap-8 bg-white  items-center rounded-lg">
 

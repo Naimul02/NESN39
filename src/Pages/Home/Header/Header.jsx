@@ -4,8 +4,8 @@ import React from 'react';
 const Header = () => {
   return (
     <>
-    <div className="px-3 lg:px-6 h-[400px] pt-[85px] lg:pt-[130px] bg-white">
-      <div className='my-3  grid grid-cols-1 lg:grid-cols-2 gap-4 '>
+    <div className="px-[10px] lg:px-6 h-[400px] pt-[75px] lg:pt-[130px] bg-white">
+      <div className='my-3  grid grid-cols-1 lg:grid-cols-2 gap-4'>
         <div className='relative h-[250px] lg:h-full'>
           <img src="https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2F7c585aa4-e22b-11ea-9a3a-c45f6db42dc9.jpg?crop=4762%2C3175%2C119%2C79" className='rounded-3 h-full w-full' alt="" />
 

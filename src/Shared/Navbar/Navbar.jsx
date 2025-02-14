@@ -131,7 +131,7 @@ const Navbar = () => {
        
       </div>
 
-      <div className="w-full fixed bottom-0 left-0  bg-[#5fa800] px-4  flex items-center justify-between py-2">
+      <div className="w-full fixed block lg:hidden bottom-0 left-0  bg-[#5fa800] px-4  flex items-center justify-between py-2">
         <div className="dropdown lg:hidden ">
           <label tabIndex={0} className=""><LuMenu className='text-2xl text-white  mt-2' /></label>
           <ul tabIndex={0} className="dropdown-content menu p-2  ">
