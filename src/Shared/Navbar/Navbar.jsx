@@ -131,7 +131,7 @@ const Navbar = () => {
        
       </div>
 
-      <div className="w-full fixed block lg:hidden bottom-0 left-0  bg-[#5fa800] px-4  flex items-center justify-between py-2">
+      <div className="w-full fixed  lg:hidden bottom-0 left-0  bg-[#5fa800] px-4  flex items-center justify-between py-2">
         <div className="dropdown lg:hidden ">
           <label tabIndex={0} className=""><LuMenu className='text-2xl text-white  mt-2' /></label>
           <ul tabIndex={0} className="dropdown-content menu p-2  ">
@@ -152,7 +152,8 @@ const Navbar = () => {
               <FaHome className="text-white text-2xl font-semibold"/>
         </div>
         <div>
-        <label htmlFor="my-drawer-4" onClick={refetch}className="drawer-button"><MdOutlineShoppingCart className="text-2xl hover:cursor-pointer text-white"/></label>
+          
+        <label htmlFor="my-drawer-4" onClick={refetch} className="drawer-button"><MdOutlineShoppingCart  className="text-2xl hover:cursor-pointer drawer-button text-white"/></label>
         {/* <FaShoppingBag className="text-2xl text-white font-semibold" /> */}
         </div>
         <div>
@@ -403,14 +404,14 @@ const Navbar = () => {
   <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
   <div className="drawer-content w-[24px] h-[24px]">
     {/* Page content here */}
-    <label htmlFor="my-drawer-4" onClick={refetch}className="drawer-button hidden lg:block"><MdOutlineShoppingCart className="text-2xl hover:cursor-pointer"/></label>
+    <label htmlFor="my-drawer-4" onClick={refetch} className="drawer-button hidden lg:block"><MdOutlineShoppingCart className="text-2xl hover:cursor-pointer"/></label>
   </div>
   <div className="drawer-side">
     <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
 
 
     
-    <ul className="menu relative bg-white text-base-content min-h-full lg:w-[420px]  p-0">
+    <ul className="menu relative bg-white text-base-content min-h-full w-full lg:w-[420px]  p-0">
     <div className="flex items-center justify-between bg-slate-200 p-4">
               <div className="flex items-center gap-2">
                 <FaShoppingBag className="text-xl" />

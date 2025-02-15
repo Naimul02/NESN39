@@ -41,7 +41,7 @@ const CategoriesProducts = () => {
             Home / Category Products{" "}
           </h1>
         </div>
-        <div className="mt-10 mx-2 lg:mx-5 flex flex-col lg:flex-row lg:gap-3 pb-16">
+        <div className="mt-10 mx-[10px] lg:mx-5 flex flex-col lg:flex-row lg:gap-3 pb-16">
           <div>
             <div className="sticky lg:top-36">
               <div className="bg-white   lg:w-[300px]  rounded">
@@ -285,7 +285,7 @@ const CategoriesProducts = () => {
           </div>
 
           <div className="w-full">
-            <div className="flex flex-col  lg:flex-row justify-center items-center md:justify-between  md:mx-0 px-6 py-3 rounded  lg:bg-white  mb-10">
+            <div className="flex flex-col  lg:flex-row justify-center items-center md:justify-between   lg:mx-5 px-6 py-3 rounded  lg:bg-white  lg:mb-10">
               <div className="hidden lg:block  w-full">
                 <div className="flex justify-between items-center w-full">
                   <h1 className="text-xl  font-bold  text-[#4A4A4A]">
@@ -334,12 +334,12 @@ const CategoriesProducts = () => {
                 </div>
               </div>
             </div>
-            <div className="">
+            <div className="md:mx-5">
               {data?.length > 0 ? (
                 <div
-                  className={`grid grid-cols-1 ${menuValue === '4' ? "md:grid-cols-4" :
+                  className={`grid grid-cols-2 ${menuValue === '4' ? "md:grid-cols-4" :
     menuValue === '3' ? "md:grid-cols-3" : menuValue === '2' ? "md:grid-cols-2"  : "md:grid-cols-1"
-  } gap-3 mx-2 -z-10`}
+  } gap-[10px] md:gap-4  -z-10`}
                 >
                   {data?.map(
                     (product) =>
@@ -369,7 +369,7 @@ const CategoriesProducts = () => {
               )}
             </div>
           </div>
-          <div className="mx-4 mt-4 block lg:hidden">
+          <div className=" mt-4 block lg:hidden">
             <h1 className="text-2xl rounded heebo bg-white py-4 font-bold px-3 mb-3">
               Sponsors
             </h1>

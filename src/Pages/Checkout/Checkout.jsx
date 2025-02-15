@@ -75,28 +75,28 @@ const Checkout = () => {
     return (
         <div className="bg-slate-100">
 
-<div className="flex lg:flex-row flex-col lg:gap-24 justify-center lg:px-0 px-4  pt-[130px] pb-16">
+<div className="flex lg:flex-row flex-col lg:gap-24 justify-center lg:px-0 px-4  pt-[80px] md:pt-[130px] pb-16">
       <div>
       {carts.length ? (
         <form onSubmit={handleSubmit}>
           <h1 className="text-2xl font-bold mt-10">
             Billing & Shipping
           </h1>
-          <div className="flex items-center gap-3">
-          <div className="mt-3">
+          <div className="flex  flex-col lg:flex-row items-center md:gap-3">
+          <div className="mt-2 w-full">
             <label className="text-lg font-semibold">Your First Name</label>
             <input
               name="firstName"
-              className="border border-solid border-red-600 block rounded lg:max-w-[619px] w-full h-[40px] pl-3  text-base font-medium"
+              className="border border-solid border-red-600 block rounded w-full lg:max-w-[619px]  h-[40px] pl-3  text-base font-medium"
               placeholder="Enter Your First Name"
               required
             />
           </div>
-          <div className="mt-3">
+          <div className="mt-2 w-full">
             <label className="text-lg font-semibold">Your Last Name</label>
             <input
               name="lastName"
-              className="border border-solid border-red-600 block rounded lg:max-w-[619px] w-full h-[40px] pl-3  text-base font-medium"
+              className="border border-solid  border-red-600 block rounded lg:max-w-[619px] w-full h-[40px] pl-3  text-base font-medium"
               placeholder="Enter Your Last Name"
               required
             />
