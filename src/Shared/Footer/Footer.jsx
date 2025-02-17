@@ -2,7 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
-    <footer className="footer p-10 text-base-content bg-[#5fa800]">
+
+
+    <div>
+
+
+    <footer className="footer p-10 text-base-content bg-slate-300">
       <div>
         <span className="footer-title">Services</span>
         <Link className="link text-white link-hover">Branding</Link>
@@ -26,6 +31,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
+    </div>
   );
 };
 

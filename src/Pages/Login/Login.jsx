@@ -39,7 +39,7 @@ const Login = () => {
 
         <div className="hero-content flex-col gap-40 p-30  lg:flex-row">
           <div className="text-center lg:text-left max-w-lg">
-            <img className='login' src="https://irtrd.com/wp-content/uploads/2018/08/login.gif" alt="" />
+            <img className='login' src="https://i.gifer.com/IGCF.gif" alt="" />
           </div>
 
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">

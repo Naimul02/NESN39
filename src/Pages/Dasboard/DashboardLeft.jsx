@@ -11,19 +11,19 @@ const DashboardLeft = () => {
   const { user } = useContext(AuthContext);
   const [isAdmin] = useAdmin(user?.email);
   return (
-    <div className='lg:block hidden'>
-      <Link to="/dashboard"><button className="btn w-full mt-2 ml-2 btn-active  btn-secondary "><BiLockAlt className='mr-2 text-xl inline' />Orderlist</button></Link>
+    <div className='lg:flex lg:flex-col mt-3 lg:gap-3 hidden mx-3'>
+      <Link to="/dashboard" className="hover:bg-slate-200 flex items-center py-1 px-3 rounded"><BiLockAlt className='mr-2 text-xl inline' /><span>Orderlist</span></Link>
       {
         isAdmin && <>
-          <Link to="/users"><button className="btn btn-active btn-secondary w-full mt-2 ml-2"><FaUsers className='mr-2  text-xl inline' />All Users</button></Link>
+          <Link to="/users">All Users</Link>
         </>
       }
       {
         isAdmin && <>
-          <Link to="/services"><button className="btn btn-active w-full mt-2  btn-secondary ml-2 "><AiOutlinePlus className='mr-2 text-xl inline' />Add Service</button></Link>
+          <Link to="/services"><AiOutlinePlus className='mr-2 text-xl inline' />Add Service</Link>
         </>
       }
-      <Link to="/review">    <button className="btn btn-active w-full mt-2 ml-2 btn-secondary "><MdOutlineReviews className='mr-2 text-xl inline' />Review</button></Link>
+     
 
     </div>
   );

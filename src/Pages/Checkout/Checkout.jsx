@@ -45,7 +45,9 @@ const Checkout = () => {
          email,
          phoneNumber, 
          address,
-         orderNotes
+         orderNotes,
+         orders : carts,
+         productId : carts?.map(cart => cart?._id)
       }
       
       axios.post('http://localhost:5000/orderConfirm' , info)

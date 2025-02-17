@@ -19,14 +19,15 @@ import { MdDeleteForever } from "react-icons/md";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  const [carts , setCarts] = useState([]);
+  
+  
 
-  const {data , refetch  , isLoading } = useQuery({
+  const {data: carts = [] , refetch   } = useQuery({
     queryKey : ['carts' , user?.email],
     queryFn : async() => {
      const res = await axios.get(`http://localhost:5000/carts?email=${user?.email}`)
      
-     setCarts(res.data)
+  return res.data
     }
  })
 
@@ -131,7 +132,14 @@ const Navbar = () => {
        
       </div>
 
+
+
+
+      
+     
+
       <div className="w-full fixed  lg:hidden bottom-0 left-0  bg-[#5fa800] px-4  flex items-center justify-between py-2">
+        
         <div className="dropdown lg:hidden ">
           <label tabIndex={0} className=""><LuMenu className='text-2xl text-white  mt-2' /></label>
           <ul tabIndex={0} className="dropdown-content menu p-2  ">
@@ -153,7 +161,7 @@ const Navbar = () => {
         </div>
         <div>
           
-        <label htmlFor="my-drawer-4" onClick={refetch} className="drawer-button"><MdOutlineShoppingCart  className="text-2xl hover:cursor-pointer drawer-button text-white"/></label>
+        
         {/* <FaShoppingBag className="text-2xl text-white font-semibold" /> */}
         </div>
         <div>
@@ -161,6 +169,7 @@ const Navbar = () => {
         </div>
         </div>
       <div className='lg:h-[52px] hidden lg:flex  justify-between items-center px-20'>
+        
         
       <div className="lg:block hidden">
           <Link to="/" className='border-r pr-3 ancor  text-lg font-semibold ml-0 mr-2'>Home</Link>
@@ -399,19 +408,19 @@ const Navbar = () => {
           <div className="avatar">
 
           </div>
-          <div className="avatar flex  items-center gap-3">
-          <div className="drawer w-[24px] h-[24px] drawer-end">
+          <div className="avatar flex items-center gap-3">
+          <div className="drawer  w-[24px] h-[24px] drawer-end">
   <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
   <div className="drawer-content w-[24px] h-[24px]">
-    {/* Page content here */}
-    <label htmlFor="my-drawer-4" onClick={refetch} className="drawer-button hidden lg:block"><MdOutlineShoppingCart className="text-2xl hover:cursor-pointer"/></label>
+    
+    <label htmlFor="my-drawer-4" onClick={refetch} className="drawer-button"><MdOutlineShoppingCart className="text-2xl hover:cursor-pointer"/></label>
   </div>
   <div className="drawer-side">
     <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
 
 
     
-    <ul className="menu relative bg-white text-base-content min-h-full w-full lg:w-[420px]  p-0">
+    <ul className="menu relative bg-white text-base-content min-h-full  w-[420px]  p-0">
     <div className="flex items-center justify-between bg-slate-200 p-4">
               <div className="flex items-center gap-2">
                 <FaShoppingBag className="text-xl" />
@@ -472,8 +481,10 @@ const Navbar = () => {
       </div>
 </div>
 
-<Link to={'/checkout'}>
 
+
+<Link to={'/checkout'} onClick={()=> document.getElementById('my-drawer-4').checked = false}>
+<label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay">
 <div className="hover:cursor-pointer  absolute bottom-2 w-full ">
   <div className="flex items-center justify-evenly py-2  bg-[#5fa800] mx-3 rounded-lg">
   <h2 className="text-base  text-white font-medium">Procced to checkout</h2>
@@ -483,6 +494,7 @@ const Navbar = () => {
 </div>
   </div>
 </div>
+</label>
 </Link>
       
     </ul>
@@ -494,6 +506,7 @@ const Navbar = () => {
             <div className="w-10 rounded-full mb-1 mr-2 hidden lg:block">
               <img src={user?.photoURL} alt="" className="hidden lg:block" />
             </div>
+            
             
           </div>
         </div>

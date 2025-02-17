@@ -214,19 +214,7 @@ const DetailsProducts = () => {
                 </Link>
               )}
             </div>
-            {user ? (
-              <Link to={`/checkoutBuy/${id}`}>
-                <button className="btn hover:bg-[#569700]  lg:w-[455px] w-full bg-[#5fa800] text-white mt-3 lg:mr-0 mr-4">
-                  <PiShoppingCartFill className="text-xl text-white"/> Buy Now
-                </button>
-              </Link>
-            ) : (
-              <Link to="/login">
-                <button className="btn hover:bg-[#569700]  lg:w-[455px] bg-[#5fa800] text-white mt-3 w-full lg:mr-0 mr-4">
-                  <PiShoppingCartFill className="text-xl text-white"/> Buy Now
-                </button>
-              </Link>
-            )}
+          
           </div>
 
           <div className="my-4">
