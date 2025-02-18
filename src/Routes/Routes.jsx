@@ -17,6 +17,7 @@ import Checkout from "../Pages/Checkout/Checkout";
 import { MyAccount } from "../Pages/Dasboard/MyAccount/MyAccount";
 import { MyOrders } from "../Pages/Dasboard/MyOrders/MyOrders";
 import { UpdateProfile } from "../Pages/Dasboard/UpdateProfile/UpdateProfile";
+import { ChangePassword } from "../Pages/Dasboard/ChangePassword/ChangePassword";
 const Router = createBrowserRouter([
   {
     path: '/',
@@ -95,7 +96,7 @@ const Router = createBrowserRouter([
       },
       {
         path: '/dashboard/changePassword',
-        element : <
+        element : <ChangePassword></ChangePassword>
       }
     ]
   }

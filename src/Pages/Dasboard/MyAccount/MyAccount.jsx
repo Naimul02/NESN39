@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../../../AuthProvider/AuthProvider'
 import { FaRegEdit } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 export const MyAccount = () => {
     const {user} = useContext(AuthContext);
@@ -18,7 +19,7 @@ export const MyAccount = () => {
   <div className="w-full space-y-2">
     <h2 className="font-semibold">Name : {user?.displayName}</h2>
     <p className='font-semibold'> Email : {user?.email}</p>
-    <button className='btn  bg-gradient-to-r from-emerald-500  to-emerald-700 text-white btn-sm'><FaRegEdit className="text-xl font-semibold"/>Edit</button>
+    <Link to={'/dashboard/updateProfile'}><button className='btn mt-2  px-3 bg-gradient-to-r from-emerald-500  to-emerald-700 text-white btn-sm'><FaRegEdit className="text-xl font-semibold"/>Edit</button></Link>
    
   </div>
 </div>
