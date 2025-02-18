@@ -51,11 +51,11 @@ const Dashboard = () => {
     return <Loading></Loading>
   }
   return (
-    <div className='flex lg:pt-[130px] '>
-      <div className='bg-base-200   pt-3 w-[270px] pr-5'>
+    <div className='flex flex-col lg:flex-row lg:pt-[130px]'>
+      <div className='bg-base-200  pt-3 w-full lg:w-[270px] pr-5'>
         <DashboardLeft></DashboardLeft>
       </div>
-      <div className='bg-base-200 pt-2  lg:w-full w-[340px]'>
+      <div className='bg-base-200  w-full'>
         <div className="flex justify-between">
           {
             orders[0]?.length > 0 && <h2 className="text-2xl pt-4 pb-2 text-secondary font-semibold lg:pl-0 pl-2">Orderlist</h2>
@@ -85,11 +85,12 @@ const Dashboard = () => {
 
         </div>
        {
-        orders.length > 0 ?   <div className="overflow-x-auto  bg-white">
+        orders.length > 0 ?   <div className="overflow-x-auto pt-4  bg-white">
         <table className="table w-full">
           {/* head */}
           <thead>
             <tr>
+              <th></th>
               <th></th>
               <th></th>
               <th>Name</th>
@@ -107,6 +108,13 @@ const Dashboard = () => {
               orders?.map((order, i) => <tr>
                 <td onClick={() => handleDeleteOrder(order?._id)}><TiDelete  className='text-4xl text-red-500 hover:text-red-700 hover:cursor-pointer'/></td>
                 <th>{i + 1}</th>
+                <td><div className="avatar">
+              <div className="mask mask-squircle h-12 w-12">
+                <img
+                  src={order?.img}
+                  alt="Avatar Tailwind CSS Component" />
+              </div>
+            </div></td>
                 <td>{user.displayName}</td>
                 <td>{user?.email}</td>
                 <td>{order?.title}</td>

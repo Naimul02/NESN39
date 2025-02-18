@@ -4,8 +4,9 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
-import { toast } from 'react-hot-toast';
+
 import useToken from '../hooks/useToken';
+import { toast } from 'react-toastify';
 const Signup = () => {
   const { createUser, profileUpdate, emailVerification } = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
@@ -26,7 +27,7 @@ const Signup = () => {
       email: data.email,
       photourl: data.photourl
     }
-    fetch('https://departmental-store-server.vercel.app/users', {
+    fetch('http:localhost:5000/users', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -43,7 +44,7 @@ const Signup = () => {
         const user = result.user;
         console.log("USER", user)
 
-        toast.success('user created successfully')
+        toast.success('User Created successful!')
 
         const userInfo = {
           displayName: data.name,
@@ -78,7 +79,7 @@ const Signup = () => {
 
       <div className="hero-content flex-col lg:gap-40 lg:flex-row">
       <div className="text-center lg:text-left max-w-lg">
-            <img className='login' src="https://irtrd.com/wp-content/uploads/2018/08/login.gif" alt="" />
+            <img className='login' src="https://i.gifer.com/IGCF.gif" alt="" />
           </div>
 
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">

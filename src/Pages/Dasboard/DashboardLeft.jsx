@@ -1,18 +1,21 @@
 import React, { useContext } from 'react';
 import { BiLockAlt } from 'react-icons/bi';
 import { AiOutlinePlus } from 'react-icons/ai';
-import { MdOutlineReviews } from 'react-icons/md';
+import { MdOutlineAccountCircle, MdOutlineReviews } from 'react-icons/md';
 import { FaUsers } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 import useAdmin from '../../hooks/useAdmin';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { TfiMenuAlt } from 'react-icons/tfi';
 
 const DashboardLeft = () => {
   const { user } = useContext(AuthContext);
   const [isAdmin] = useAdmin(user?.email);
   return (
     <div className='lg:flex lg:flex-col mt-3 lg:gap-3 hidden mx-3'>
-      <Link to="/dashboard" className="hover:bg-slate-200 flex items-center py-1 px-3 rounded"><BiLockAlt className='mr-2 text-xl inline' /><span>Orderlist</span></Link>
+      <Link to="/dashboard" className="hover:bg-slate-200 flex items-center py-1 px-3 rounded"><TfiMenuAlt className='mr-2 text-lg inline' /><span>My Orders</span></Link>
+      <Link to="/dashboard" className="hover:bg-slate-200 flex items-center py-1 px-3 rounded"><MdOutlineAccountCircle className='mr-2 text-xl inline'/><span>My Account</span></Link>
+
       {
         isAdmin && <>
           <Link to="/users">All Users</Link>
