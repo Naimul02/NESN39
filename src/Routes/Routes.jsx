@@ -14,6 +14,9 @@ import Contact from "../Pages/Contact/Contact";
 import DetailsProducts from "../Pages/DetailsProduct/DetailsProduct";
 import CategoriesProducts from "../Pages/CategoriesProducts/CategoriesProducts"
 import Checkout from "../Pages/Checkout/Checkout";
+import { MyAccount } from "../Pages/Dasboard/MyAccount/MyAccount";
+import { MyOrders } from "../Pages/Dasboard/MyOrders/MyOrders";
+import { UpdateProfile } from "../Pages/Dasboard/UpdateProfile/UpdateProfile";
 const Router = createBrowserRouter([
   {
     path: '/',
@@ -35,10 +38,7 @@ const Router = createBrowserRouter([
         path: '/cart',
         element: <AddToCart></AddToCart>
       },
-      {
-        path: '/dashboard',
-        element: <Dashboard></Dashboard>
-      },
+      
       {
         path: '/services',
         element: <AdminRoute><AddService></AddService></AdminRoute>
@@ -66,8 +66,37 @@ const Router = createBrowserRouter([
       {
         path : '/checkout',
         element : <Checkout></Checkout>
+      },
+      {
+        path: '/account',
+        element : <MyAccount></MyAccount>
       }
 
+    ]
+  }
+,
+// dashboard
+  {
+    path: '/dashboard',
+    element : <Dashboard></Dashboard>,
+    children : [
+      {
+        path: '/dashboard/orders',
+        element : <MyOrders></MyOrders>
+      },
+      ,
+      {
+        path : '/dashboard/account',
+        element : <MyAccount></MyAccount>
+      },
+      {
+        path: '/dashboard/updateProfile',
+        element: <UpdateProfile></UpdateProfile>
+      },
+      {
+        path: '/dashboard/changePassword',
+        element : <
+      }
     ]
   }
 

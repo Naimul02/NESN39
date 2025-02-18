@@ -150,7 +150,7 @@ const Navbar = () => {
             <li>
               <Link to="/home" className='border-r pr-3 ancor  text-lg font-semibold mx-2'>Blogs</Link>
             </li>
-            <li><Link to="/dashboard" className='border-r pr-3 ancor  text-lg font-semibold mx-2'>Dashboard</Link></li>
+            <li><Link to="/dashboard/orders" className='border-r pr-3 ancor  text-lg font-semibold mx-2'>Dashboard</Link></li>
             <li>
               <Link to="/contact" className='text-black text-lg font-semibold mx-2 ancor '>Contact</Link>
             </li>
@@ -398,7 +398,7 @@ const Navbar = () => {
   </div>
 </div>
           <Link to="/home" className=' ancor  text-lg font-semibold border-r pr-3 mx-2'>Blogs</Link>
-          <Link to="/dashboard" className=' ancor border-r pr-3  text-lg font-semibold mx-2'>Dashboard</Link>
+          <Link to="/dashboard/orders" className=' ancor border-r pr-3  text-lg font-semibold mx-2'>Dashboard</Link>
           <Link to="/contact" className=' text-lg font-semibold mx-2 ancor '>Contact</Link>
 
         </div>

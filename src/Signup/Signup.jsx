@@ -21,13 +21,14 @@ const Signup = () => {
   }
 
   const handleSignUp = (data) => {
-    // console.log("data", data)
+    console.log("data", data)
     const users = {
       name: data.name,
       email: data.email,
-      photourl: data.photourl
+      photourl: data.photourl,
+      password : data?.password
     }
-    fetch('http:localhost:5000/users', {
+    fetch('http://localhost:5000/users', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
