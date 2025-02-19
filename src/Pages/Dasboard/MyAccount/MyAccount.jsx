@@ -11,7 +11,7 @@ export const MyAccount = () => {
         <h1 className="text-xl mb-2">My Account</h1>
 
         <div className="card flex items-center gap-3 card-side bg-base-100 rounded-md shadow-xl max-w-[390px] h-[200px]">
-  <figure>
+  <figure className='rounded-full'>
     <img
       src={user?.photoURL}
       alt="User Photo" className='max-w-44 max-h-44 rounded-full pl-3'/>

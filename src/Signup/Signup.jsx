@@ -34,6 +34,7 @@ const Signup = () => {
         'content-type' : 'multipart/form-data'
       }
     })
+    console.log(res.data.data.url)
     
     const users = {
       name: data.name,
@@ -62,7 +63,7 @@ const Signup = () => {
 
         const userInfo = {
           displayName: data.name,
-          photoURL: data.photourl
+          photoURL: res.data.data.url
         }
 
         console.log("userinfo", userInfo)

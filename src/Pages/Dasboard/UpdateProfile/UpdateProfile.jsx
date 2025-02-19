@@ -3,6 +3,7 @@ import { AuthContext } from '../../../AuthProvider/AuthProvider'
 import { RxUpdate } from 'react-icons/rx'
 
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import { toast } from 'react-toastify';
 
 export const UpdateProfile = () => {
     const {user} = useContext(AuthContext);
@@ -38,9 +39,12 @@ export const UpdateProfile = () => {
            photoURL : res?.data?.data?.url
         }
         
-      axiosPublic.put('/users' , info)
+      axiosPublic.put(`/users/${user?.email}` , info)
       .then(res => {
         console.log(res.data)
+        if(res.data.modifiedCount > 0){
+          toast.success('Your Profile updated successful!')
+        }
       })
       .catch(error => {
         console.error(error.message)
@@ -55,7 +59,7 @@ export const UpdateProfile = () => {
           </h1>
           <div className="mt-3 w-full">
             <label className="text-lg font-semibold block mb-1">Photo</label>
-            <input type="file" className="file-input file-input-bordered h-[200px] p-10 w-full hover:cursor-pointer"name="image" />
+            <input type="file" className="file-input file-input-bordered h-[200px] p-8 w-full hover:cursor-pointer"name="image"required />
           </div>
           <div className="flex  flex-col lg:flex-row items-center md:gap-3">
           <div className="mt-3 w-full">
