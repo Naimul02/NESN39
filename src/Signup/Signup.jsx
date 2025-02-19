@@ -7,7 +7,12 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 
 import useToken from '../hooks/useToken';
 import { toast } from 'react-toastify';
+import useAxiosPublic from '../hooks/useAxiosPublic';
+
 const Signup = () => {
+  const axiosPublic = useAxiosPublic();
+  const imgBB_API_KEY = 'a115c1fc301ae82139c471c0406d9a62';
+    const image_hosting = `https://api.imgbb.com/1/upload?key=${imgBB_API_KEY}`
   const { createUser, profileUpdate, emailVerification } = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
   const [creactedUserEmail, setCreatedUserEmail] = useState("");
@@ -20,12 +25,20 @@ const Signup = () => {
     navigate('/');
   }
 
-  const handleSignUp = (data) => {
-    console.log("data", data)
+  const handleSignUp = async(data) => {
+    
+    const imageFile = {image : data?.photourl[0]};
+    console.log(imageFile);
+    const res = await axiosPublic.post(image_hosting , imageFile , {
+      headers : {
+        'content-type' : 'multipart/form-data'
+      }
+    })
+    
     const users = {
       name: data.name,
       email: data.email,
-      photourl: data.photourl,
+      photourl: res.data.data.url,
       password : data?.password
     }
     fetch('http://localhost:5000/users', {
@@ -93,8 +106,9 @@ const Signup = () => {
               <input {...register("name", { required: true })} type="text" placeholder="Enter Your Name" className="input input-bordered w-full" />
             </div>
             <div className="form-control" style={{ border: 'none' }}>
-
-              <input {...register('photourl', { required: true })} type="text" placeholder="Photo URL" className="input input-bordered w-full" />
+            
+            <input type="file" className="file-input file-input-bordered  w-full hover:cursor-pointer"{...register('photourl' ,  {required : true})} />
+              {/* <input {...register('photourl', { required: true })} type="text" placeholder="Photo URL" className="input input-bordered w-full" /> */}
             </div>
             <div className="form-control" style={{ border: 'none' }}>
 

@@ -1,10 +1,12 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../../../AuthProvider/AuthProvider'
 import { RxUpdate } from 'react-icons/rx'
-import axios from 'axios';
+
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
 
 export const UpdateProfile = () => {
     const {user} = useContext(AuthContext);
+    const axiosPublic = useAxiosPublic();
     const imgBB_API_KEY = 'a115c1fc301ae82139c471c0406d9a62';
     const image_hosting = `https://api.imgbb.com/1/upload?key=${imgBB_API_KEY}`
 
@@ -17,23 +19,32 @@ export const UpdateProfile = () => {
         const email = form.email.value;
         const phoneNumber = form.phoneNumber.value;
         const address = form.address.value;
-        const image = form.image.value;
+        const imageFile = form.image.files[0]
+        
+        const formData = new FormData();
+        formData.append("image", imageFile);
 
-        const res = await axios.post('http://localhost:5000' , image_hosting , image , {
+        const res = await axiosPublic.post( image_hosting , formData , {
           headers : {
             'content-type' : 'multipart/form-data'
           }
         })
-        console.log(res.data)
+        
         const info = {
           name,
           email,
            phoneNumber, 
            address,
-           image
+           photoURL : res?.data?.data?.url
         }
         
-      // console.log(info)
+      axiosPublic.put('/users' , info)
+      .then(res => {
+        console.log(res.data)
+      })
+      .catch(error => {
+        console.error(error.message)
+      })
     }
   return (
     <div className='bg-white  lg:mx-16 lg:my-10 border rounded-md'>
@@ -44,7 +55,7 @@ export const UpdateProfile = () => {
           </h1>
           <div className="mt-3 w-full">
             <label className="text-lg font-semibold block mb-1">Photo</label>
-            <input type="file" className="file-input file-input-bordered w-full"name="image" />
+            <input type="file" className="file-input file-input-bordered h-[200px] p-10 w-full hover:cursor-pointer"name="image" />
           </div>
           <div className="flex  flex-col lg:flex-row items-center md:gap-3">
           <div className="mt-3 w-full">
