@@ -57,10 +57,13 @@ export const UpdateProfile = () => {
           <h1 className="text-2xl font-bold">
             Update Profile
           </h1>
+            
+          
           <div className="mt-3 w-full">
             <label className="text-lg font-semibold block mb-1">Photo</label>
-            <input type="file" className="file-input file-input-bordered h-[200px] p-8 w-full hover:cursor-pointer"name="image"required />
+            <input type="file" className="file-input file-input-bordered h-[70px] lg:h-[180px] md:p-8  p-3  w-full hover:cursor-pointer"name="image"required />
           </div>
+
           <div className="flex  flex-col lg:flex-row items-center md:gap-3">
           <div className="mt-3 w-full">
             <label className="text-lg font-semibold mb-1">Your Full Name</label>

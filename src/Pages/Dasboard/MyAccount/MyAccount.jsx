@@ -2,18 +2,28 @@ import React, { useContext } from 'react'
 import { AuthContext } from '../../../AuthProvider/AuthProvider'
 import { FaRegEdit } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 
 export const MyAccount = () => {
     const {user} = useContext(AuthContext);
-    console.log(user)
+    const {data : userImg } = useQuery({
+      queryKey : ['user' , user?.email],
+      queryFn : async() => {
+       const res = await axios.get(`http://localhost:5000/usersImg?email=${user?.email}`)
+       
+       
+    return res.data
+      }
+   })
   return (
     <div className='bg-white  pt-4 pl-10 pb-10'>
         <h1 className="text-xl mb-2">My Account</h1>
 
-        <div className="card flex items-center gap-3 card-side bg-base-100 rounded-md shadow-xl max-w-[390px] h-[200px]">
+        <div className="card flex items-center gap-3 card-side bg-base-100 rounded-md shadow-xl max-w-[420px] px-2 h-[190px]">
   <figure className='rounded-full'>
     <img
-      src={user?.photoURL}
+      src={userImg?.photourl}
       alt="User Photo" className='max-w-44 max-h-44 rounded-full pl-3'/>
   </figure>
   <div className="w-full space-y-2">

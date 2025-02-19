@@ -1,40 +1,39 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../../../AuthProvider/AuthProvider'
 import { RxUpdate } from 'react-icons/rx'
+import axios from 'axios'
+import { toast } from 'react-toastify'
 
 export const ChangePassword = () => {
     const {user} = useContext(AuthContext)
     const handleSubmit = (e) => {
         e.preventDefault()
         const form = e.target;
-        const firstName = form.firstName.value;
-        const lastName = form.lastName.value;
         const email = form.email.value;
-        const phoneNumber = form.phoneNumber.value;
-        const address = form.address.value;
-        const orderNotes = form.orderNotes.value;
+        const currentPassword = form.currentPassword.value;
+        const newPassword = form.password.value;
+        
+        
   
         const info = {
-           firstName ,
-           lastName,
            email,
-           phoneNumber, 
-           address,
-           orderNotes,
-           orders : carts,
-           productId : carts?.map(cart => cart?._id)
+           currentPassword,
+           password : newPassword
+
         }
+        console.log(info)
         
-        axios.post('http://localhost:5000/orderConfirm' , info)
+        axios.put('http://localhost:5000/changePassword' , info)
         .then(res => {
           console.log(res.data)
-          if(res.data?.insertedId){
-            toast.success("Your Order has been successful")
+          if(res.data?.modifiedCount > 0){
+            toast.success("Your password has been successfully changed !")
+          }
+          else{
+            toast.error(res.data?.message)
           }
         })
-        .catch(error => {
-          console.error(error.message)
-        })
+        
     }
   return (
 <div className='bg-white  lg:mx-16 lg:my-10 border rounded-md'>
@@ -50,6 +49,7 @@ export const ChangePassword = () => {
               name="email"
               className="border mt-1 border-solid border-red-600 block rounded  w-full h-[40px] pl-3  text-base font-medium"
               defaultValue={user?.email}
+              readOnly
               
               required
             />
@@ -58,16 +58,17 @@ export const ChangePassword = () => {
           <div className="mt-3 w-full">
             <label className="text-lg font-semibold">Current Password</label>
             <input
-              name="displayName"
+              name="currentPassword"
               className="border mt-1 border-solid border-red-600 block rounded w-full   h-[40px] pl-3  text-base font-medium"
               placeholder="Current Password"
-              
+              type='password'
               required
             />
           </div>
           <div className="mt-3 w-full">
             <label className="text-lg font-semibold">New Password</label>
             <input
+            type='password'
               name="password"
               className="border mt-1 border-solid  border-red-600 block rounded  w-full h-[40px] pl-3  text-base font-medium"
               placeholder="New Password"

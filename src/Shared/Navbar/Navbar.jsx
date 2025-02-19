@@ -19,6 +19,7 @@ import { MdDeleteForever } from "react-icons/md";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  console.log(user)
   
   
 
@@ -26,6 +27,15 @@ const Navbar = () => {
     queryKey : ['carts' , user?.email],
     queryFn : async() => {
      const res = await axios.get(`http://localhost:5000/carts?email=${user?.email}`)
+     
+  return res.data
+    }
+ })
+  const {data : userImg } = useQuery({
+    queryKey : ['user' , user?.email],
+    queryFn : async() => {
+     const res = await axios.get(`http://localhost:5000/usersImg?email=${user?.email}`)
+     
      
   return res.data
     }
@@ -83,7 +93,7 @@ const Navbar = () => {
           </div>
 
            <div className="w-10 rounded-full mb-1 mr-2 block lg:hidden">
-              <img src={user?.photoURL} alt="" className="rounded-full" />
+              <img src={userImg?.photourl} alt="" className="rounded-full" />
             </div>
            </div>
 
@@ -504,7 +514,7 @@ const Navbar = () => {
             
             
             <div className="w-10 rounded-full mb-1 mr-2 hidden lg:block">
-              <img src={user?.photoURL} alt="" className="hidden lg:block" />
+              <img src={userImg?.photourl} alt="" className="hidden lg:block" />
             </div>
             
             
