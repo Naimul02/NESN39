@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
-import AddToCart from "../Pages/AddToCart/AddToCart";
+
 import AddService from "../Pages/Dasboard/AddService";
 import Dashboard from "../Pages/Dasboard/Dashboard";
 import Home from "../Pages/Home/Home/Home";
@@ -35,15 +35,9 @@ const Router = createBrowserRouter([
         path: '/signup',
         element: <Signup></Signup>
       },
-      {
-        path: '/cart',
-        element: <AddToCart></AddToCart>
-      },
       
-      {
-        path: '/services',
-        element: <AdminRoute><AddService></AddService></AdminRoute>
-      },
+      
+      
       {
         path: '/review',
         element: <Review></Review>
