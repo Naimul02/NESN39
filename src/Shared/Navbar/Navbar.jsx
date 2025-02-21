@@ -5,7 +5,7 @@ import { BiUser } from 'react-icons/bi';
 import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import {toast} from 'react-toastify';
-import { LuMenu } from "react-icons/lu";
+import { LuLogOut, LuMenu } from "react-icons/lu";
 import { RxChevronDown } from "react-icons/rx";
 import { MdDashboardCustomize, MdOutlineShoppingCart } from 'react-icons/md';
 import { useQuery } from '@tanstack/react-query';
@@ -94,8 +94,8 @@ const Navbar = () => {
 </label>
           </div>
 
-           <div className="w-10 rounded-full mb-1 mr-2 block lg:hidden">
-              <img src={userImg?.photourl} alt="" className="rounded-full" />
+           <div className="w-10 h-10 rounded-full  mr-2 block lg:hidden">
+              <img src={userImg?.photourl} alt="" className="rounded-full w-full h-full" />
             </div>
            </div>
 
@@ -640,7 +640,10 @@ const Navbar = () => {
         {/* <FaShoppingBag className="text-2xl text-white font-semibold" /> */}
         </div>
         <div>
-        <FaUser className="text-2xl text-white font-semibold" />
+          {
+            user ? <div className='tooltip' data-tip="Logout"><button></button><LuLogOut className="text-2xl  text-white font-semibold hover:cursor-pointer tooltip" data-tip="logout" onClick={handleLogOut}/></div> : <div className='tooltip'data-tip="Login"> <Link to="/login"><FaUser className="text-2xl text-white font-semibold" /></Link></div>
+          }
+        
         </div>
         </div>
      
