@@ -193,7 +193,7 @@ const DetailsProducts = () => {
 
               {user ? (
                 disabled ? <button
-                className="btn hover:bg-[#4d8801] lg:w-[315px] lg:ml-8 w-[195px] bg-[#5fa800] text-white flex items-center gap-3"
+                className="btn hover:bg-[#4d8801] lg:w-[315px] lg:ml-8 max-w-[195px] bg-[#5fa800] text-white flex items-center gap-3"
                 onClick={() => handleProduct()} disabled
               >
                 <FaBagShopping className="text-xl text-white"/> Add To Cart
@@ -201,14 +201,14 @@ const DetailsProducts = () => {
               :
 
                <button
-                className="btn hover:bg-[#4d8801] lg:w-[315px] w-[195px] bg-[#5fa800] text-white flex items-center lg:ml-8 gap-3"
+                className="btn hover:bg-[#4d8801] lg:w-[315px] max-w-[195px] bg-[#5fa800] text-white flex items-center lg:ml-8 gap-3"
                 onClick={() => handleProduct()}
               >
                 <FaBagShopping className="text-xl text-white"/> Add To Cart
               </button>
               ) : (
                 <Link to="/login">
-                  <button className="btn hover:bg-[#4d8801] lg:w-[315px] ml-8 bg-[#5fa800] text-white w-[195px] flex items-center gap-3">
+                  <button className="btn hover:bg-[#4d8801] lg:w-[315px] ml-8 bg-[#5fa800] text-white max-w-[195px] flex items-center gap-3">
                     <FaBagShopping className="text-xl text-white"/> Add To Cart
                   </button>
                 </Link>
