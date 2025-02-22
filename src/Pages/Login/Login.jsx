@@ -35,9 +35,9 @@ const Login = () => {
   return (
     <>
 
-      <form onSubmit={handleSubmit(handleSignIn)} className="hero min-h-screen pt-[200px] pb-[50px]">
+      <form onSubmit={handleSubmit(handleSignIn)} className="hero min-h-screen pt-[100px] lg:pt-[150px] pb-[20px] lg:pb-[50px]">
 
-        <div className="hero-content flex-col gap-40 p-30  lg:flex-row">
+        <div className="hero-content flex-col gap-16 lg:gap-40 p-30  lg:flex-row">
           <div className="text-center lg:text-left max-w-lg">
             <img className='login' src="https://i.gifer.com/IGCF.gif" alt="" />
           </div>

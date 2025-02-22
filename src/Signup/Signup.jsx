@@ -42,7 +42,7 @@ const Signup = () => {
       photourl: res.data.data.url,
       password : data?.password
     }
-    fetch('http://localhost:5000/users', {
+    fetch('https://nesn-39-store-server.vercel.app/users', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -90,9 +90,9 @@ const Signup = () => {
 
   }
   return (
-    <form onSubmit={handleSubmit(handleSignUp)} className="hero pt-[200px] pb-[50px] min-h-screen ">
+    <form onSubmit={handleSubmit(handleSignUp)} className="hero pt-[150px] pb-[50px] min-h-screen ">
 
-      <div className="hero-content flex-col lg:gap-40 lg:flex-row">
+      <div className="hero-content flex-col gap-20 lg:gap-40 lg:flex-row">
       <div className="text-center lg:text-left max-w-lg">
             <img className='login' src="https://i.gifer.com/IGCF.gif" alt="" />
           </div>

@@ -6,7 +6,7 @@ const CakeProducts = () => {
   const { isLoading, refetch, data: products = [] } = useQuery({
     queryKey: ["cakes"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/products")
+      const res = await fetch("https://nesn-39-store-server.vercel.app/products")
       const data = await res.json();
       console.log("data : " , data);
       const result = data?.slice(10)

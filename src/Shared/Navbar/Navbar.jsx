@@ -15,6 +15,9 @@ import { RxCross2 } from "react-icons/rx";
 import { MdDeleteForever } from "react-icons/md";
 import { IoIosContact } from 'react-icons/io';
 import { FaMicroblog } from 'react-icons/fa6';
+import 'react-tooltip/dist/react-tooltip.css';
+import { Tooltip } from 'react-tooltip'
+import { FiUserX } from 'react-icons/fi';
 
 
 
@@ -28,7 +31,7 @@ const Navbar = () => {
   const {data: carts = [] , refetch   } = useQuery({
     queryKey : ['carts' , user?.email],
     queryFn : async() => {
-     const res = await axios.get(`http://localhost:5000/carts?email=${user?.email}`)
+     const res = await axios.get(`https://nesn-39-store-server.vercel.app/carts?email=${user?.email}`)
      
   return res.data
     }
@@ -36,7 +39,7 @@ const Navbar = () => {
   const {data : userImg } = useQuery({
     queryKey : ['user' , user?.email],
     queryFn : async() => {
-     const res = await axios.get(`http://localhost:5000/usersImg?email=${user?.email}`)
+     const res = await axios.get(`https://nesn-39-store-server.vercel.app/usersImg?email=${user?.email}`)
      
      
   return res.data
@@ -44,7 +47,7 @@ const Navbar = () => {
  })
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:5000/product?id=${id}`)
+    axios.delete(`https://nesn-39-store-server.vercel.app/product?id=${id}`)
     .then(res => {
       console.log(res.data)
       if(res.data.deletedCount > 0){
@@ -94,9 +97,12 @@ const Navbar = () => {
 </label>
           </div>
 
-           <div className="w-10 h-10 rounded-full  mr-2 block lg:hidden">
-              <img src={userImg?.photourl} alt="" className="rounded-full w-full h-full" />
-            </div>
+        {
+          user ? <div className="w-10 h-10 rounded-full  mr-2 block lg:hidden">
+          <img src={userImg?.photourl} alt="" className="rounded-full w-full h-full" />
+        </div> : <div className='mr-2 block lg:hidden'><FiUserX className='text-2xl'/></div>
+        }
+           
            </div>
 
           <div className="hidden lg:block">
@@ -218,12 +224,12 @@ const Navbar = () => {
 
             
             
-            <div className="w-10 rounded-full  hidden lg:block">
-              <img src={userImg?.photourl} alt="" className="hidden lg:block" />
+            
+              {user ? <div className="w-10 rounded-full  hidden"><img src={userImg?.photourl} alt="" className="hidden lg:block" /></div> : <FiUserX className='text-2xl' />}
             </div>
             
             
-          </div>
+          
         </div>
 
 
@@ -514,7 +520,7 @@ const Navbar = () => {
       <li><Link to="/" className='ancor  font-semibold mt-2 border-r pr-3 flex items-center'><FaHome className='text-xl'/>Home </Link></li>
             
             <li>
-              <Link to="/home" className='border-r pr-3 ancor flex-items-center  font-semibold'><FaMicroblog className="text-xl" /> Blogs</Link>
+              <Link to="/" className='border-r pr-3 ancor flex-items-center  font-semibold'><FaMicroblog className="text-xl" /> Blogs</Link>
             </li>
             <li><Link to="/dashboard/orders" className='border-r pr-3 ancor  font-semibold flex items-center'><MdDashboardCustomize className='text-xl' /> Dashboard</Link></li>
             <li>
@@ -638,10 +644,20 @@ const Navbar = () => {
         </div>
 
         {/* <FaShoppingBag className="text-2xl text-white font-semibold" /> */}
+        
         </div>
         <div>
+          
+
+<Tooltip id="my-tooltip" />
+
           {
-            user ? <div className='tooltip' data-tip="Logout"><button></button><LuLogOut className="text-2xl  text-white font-semibold hover:cursor-pointer tooltip" data-tip="logout" onClick={handleLogOut}/></div> : <div className='tooltip'data-tip="Login"> <Link to="/login"><FaUser className="text-2xl text-white font-semibold" /></Link></div>
+            user ?
+            <a data-tooltip-id="my-tooltip" data-tooltip-content="Logout"className='inline-block'>
+       <span><LuLogOut className="text-2xl  text-white font-semibold hover:cursor-pointer" onClick={handleLogOut}/></span>
+    </a> :    <Link to={'/login'} data-tooltip-id="my-tooltip" data-tooltip-content="Login"className='inline-block'>
+       <span><FaUser className="text-2xl  text-white font-semibold hover:cursor-pointer"/></span>
+    </Link>
           }
         
         </div>
@@ -877,7 +893,7 @@ const Navbar = () => {
   </ul>
   </div>
 </div>
-          <Link to="/home" className=' ancor  text-lg font-semibold border-r pr-3 mx-2'>Blogs</Link>
+          <Link to="/" className=' ancor  text-lg font-semibold border-r pr-3 mx-2'>Blogs</Link>
           <Link to="/dashboard/orders" className=' ancor border-r pr-3  text-lg font-semibold mx-2'>Dashboard</Link>
           <Link to="/contact" className=' text-lg font-semibold mx-2 ancor '>Contact</Link>
 

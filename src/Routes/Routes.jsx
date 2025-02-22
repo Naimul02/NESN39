@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 
-import AddService from "../Pages/Dasboard/AddService";
+
 import Dashboard from "../Pages/Dasboard/Dashboard";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -18,6 +18,7 @@ import { MyAccount } from "../Pages/Dasboard/MyAccount/MyAccount";
 import { MyOrders } from "../Pages/Dasboard/MyOrders/MyOrders";
 import { UpdateProfile } from "../Pages/Dasboard/UpdateProfile/UpdateProfile";
 import { ChangePassword } from "../Pages/Dasboard/ChangePassword/ChangePassword";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 const Router = createBrowserRouter([
   {
     path: '/',
@@ -73,24 +74,24 @@ const Router = createBrowserRouter([
 // dashboard
   {
     path: '/dashboard',
-    element : <Dashboard></Dashboard>,
+    element : <PrivateRoute> <Dashboard></Dashboard></PrivateRoute>,
     children : [
       {
         path: '/dashboard/orders',
-        element : <MyOrders></MyOrders>
+        element : <PrivateRoute><MyOrders></MyOrders></PrivateRoute>
       },
       ,
       {
         path : '/dashboard/account',
-        element : <MyAccount></MyAccount>
+        element : <PrivateRoute><MyAccount></MyAccount></PrivateRoute>
       },
       {
         path: '/dashboard/updateProfile',
-        element: <UpdateProfile></UpdateProfile>
+        element: <PrivateRoute><UpdateProfile></UpdateProfile></PrivateRoute>
       },
       {
         path: '/dashboard/changePassword',
-        element : <ChangePassword></ChangePassword>
+        element : <PrivateRoute><ChangePassword></ChangePassword></PrivateRoute>
       }
     ]
   }

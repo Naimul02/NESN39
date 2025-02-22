@@ -26,7 +26,7 @@ const Dashboard = () => {
     <div>
       <Navbar></Navbar>
 
-    <div className='flex flex-col lg:flex-row lg:pt-[130px] min-h-[500px]'>
+    <div className='flex flex-col lg:flex-row lg:pt-[116px] min-h-[500px]'>
       <div className='bg-base-200  pt-3 w-full lg:w-[290px] pr-5'>
         <DashboardLeft></DashboardLeft>
       </div>
