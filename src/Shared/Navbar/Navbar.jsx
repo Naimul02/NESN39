@@ -520,7 +520,7 @@ const Navbar = () => {
       <li><Link to="/" className='ancor  font-semibold mt-2 border-r pr-3 flex items-center'><FaHome className='text-xl'/>Home </Link></li>
             
             <li>
-              <Link to="/" className='border-r pr-3 ancor flex-items-center  font-semibold'><FaMicroblog className="text-xl" /> Blogs</Link>
+              <Link to="/blogs" className='border-r pr-3 ancor flex-items-center  font-semibold'><FaMicroblog className="text-xl" /> Blogs</Link>
             </li>
             <li><Link to="/dashboard/orders" className='border-r pr-3 ancor  font-semibold flex items-center'><MdDashboardCustomize className='text-xl' /> Dashboard</Link></li>
             <li>
@@ -893,7 +893,7 @@ const Navbar = () => {
   </ul>
   </div>
 </div>
-          <Link to="/" className=' ancor  text-lg font-semibold border-r pr-3 mx-2'>Blogs</Link>
+          <Link to="/blogs" className=' ancor  text-lg font-semibold border-r pr-3 mx-2'>Blogs</Link>
           <Link to="/dashboard/orders" className=' ancor border-r pr-3  text-lg font-semibold mx-2'>Dashboard</Link>
           <Link to="/contact" className=' text-lg font-semibold mx-2 ancor '>Contact</Link>
 

@@ -19,6 +19,7 @@ import { MyOrders } from "../Pages/Dasboard/MyOrders/MyOrders";
 import { UpdateProfile } from "../Pages/Dasboard/UpdateProfile/UpdateProfile";
 import { ChangePassword } from "../Pages/Dasboard/ChangePassword/ChangePassword";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import { Blogs } from "../Pages/Blogs/Blogs";
 const Router = createBrowserRouter([
   {
     path: '/',
@@ -37,7 +38,10 @@ const Router = createBrowserRouter([
         element: <Signup></Signup>
       },
       
-      
+      {
+        path : '/blogs',
+        element : <Blogs></Blogs>
+      },
       
       {
         path: '/review',
