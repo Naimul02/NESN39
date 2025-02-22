@@ -208,7 +208,7 @@ const DetailsProducts = () => {
               </button>
               ) : (
                 <Link to="/login">
-                  <button className="btn hover:bg-[#4d8801] lg:w-[315px] ml-8 bg-[#5fa800] text-white max-w-[195px] flex items-center gap-3">
+                  <button className="btn hover:bg-[#4d8801] lg:w-[315px] lg:ml-8 bg-[#5fa800] text-white max-w-[195px] flex items-center gap-3">
                     <FaBagShopping className="text-xl text-white"/> Add To Cart
                   </button>
                 </Link>
