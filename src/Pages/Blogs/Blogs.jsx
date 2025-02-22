@@ -6,7 +6,7 @@ export const Blogs = () => {
     <div className='lg:pt-[9%] pt-[15%]'>
         <div className="bg-[url('https://res.cloudinary.com/ahossain/image/upload/v1697439245/settings/yw3cd2xupqwqpqcbxv9l.jpg')] h-[100px] lg:h-[200px] bg-cover bg-no-repeat bg-center">
                 <div className='flex justify-center items-center h-full'>
-                    <h1 className="text-2xl font-bold">Blogs</h1>
+                    <h1 className="text-2xl lg:text-3xl font-bold">Blogs</h1>
                 </div>
         </div>
 
