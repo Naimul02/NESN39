@@ -4,7 +4,7 @@ import './Section2.css'
 const Section2 = () => {
   return (
     <>
-      <div className='mt-[970px] lg:mt-[200px] bg-base-200 pt-3 pb-10 px-4'>
+      <div className='bg-base-200 pt-3 pb-10 px-4'>
         <div className='flex justify-between gap-3 px-3 flex-wrap mt-4'>
           <div className='flex justify-between items-center gap-3'>
             <img src="https://departmental-store-02.web.app/images/service.png" alt="" />

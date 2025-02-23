@@ -60,6 +60,7 @@ const Signup = () => {
         console.log("USER", user)
 
         toast.success('User Created successful!')
+        navigate('/')
 
         const userInfo = {
           displayName: data.name,
@@ -69,7 +70,7 @@ const Signup = () => {
         console.log("userinfo", userInfo)
         profileUpdate(userInfo)
           .then(() => { })
-          .catch(() => { })
+          .catch(() => {})
 
 
 

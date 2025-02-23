@@ -65,7 +65,7 @@ const Router = createBrowserRouter([
       },
       {
         path : '/checkout',
-        element : <Checkout></Checkout>
+        element : <PrivateRoute><Checkout></Checkout></PrivateRoute>
       },
       {
         path: '/account',

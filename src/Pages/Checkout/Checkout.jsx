@@ -77,7 +77,7 @@ const Checkout = () => {
     return (
         <div className="bg-slate-100">
 
-<div className="flex lg:flex-row flex-col lg:gap-24 justify-center lg:px-0 px-4  pt-[80px] md:pt-[130px] pb-16">
+<div className="flex lg:flex-row flex-col lg:gap-24 justify-center lg:px-0 px-3  pt-[80px] md:pt-[130px] pb-16">
       <div>
       {carts.length ? (
         <form onSubmit={handleSubmit}>
@@ -250,12 +250,12 @@ const Checkout = () => {
           Order Summery
         </h1>
           {carts?.length  > 0 ? (
-            <div  className="bg-white border rounded-lg p-4 ">
+            <div  className="bg-white border rounded-lg p-1 lg:p-4 ">
 
             <div className="overflow-y-auto  max-h-[300px]">
               {
                       
-                        carts?.map(cart => <div className="block hover:bg-base-200 px-3  py-3 border-b w-full" >
+                        carts?.map(cart => <div className="block hover:bg-base-200 px-2 lg:px-3  py-3 border-b w-full" >
                             <div className="flex justify-between w-full items-center">
                           
                                 <Link to={`/detailsProducts/${cart?.id}`} className="flex items-center gap-2">
@@ -263,7 +263,7 @@ const Checkout = () => {
                                 <div className="w-16 h-16">
                               <img src={cart?.img} alt="" className='w-16 h-16 rounded-full'/>
                             </div>
-                            <div className="pr-16">
+                            <div className="pr-2 lg:pr-16">
                               <h2 className="text-sm font-bold">{cart?.title}</h2>
                               <p className="text-gray-500">Item Price : {cart?.recentPrice}</p>
                               <p className="text-sm font-semibold text-gray-500">Total Price : {cart.recentPrice} * {cart?.quantity} = ৳ {cart.recentPrice * cart?.quantity}</p>
@@ -281,7 +281,7 @@ const Checkout = () => {
             </div>
 
               {
-            carts?.length > 0 && <div className=" px-3 py-1 flex justify-between p-2 text-xl   font-bold">
+            carts?.length > 0 && <div className="px-2 lg:px-3 py-1 flex justify-between p-2 text-xl   font-bold">
             Total Price :   <span>৳{carts?.reduce((sum , cart) => sum + (cart?.recentPrice * cart?.quantity) , 0)}</span>
           </div>
           }

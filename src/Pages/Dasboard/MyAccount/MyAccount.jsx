@@ -17,7 +17,7 @@ export const MyAccount = () => {
       }
    })
   return (
-    <div className='bg-white  pt-4 pl-10 pb-10'>
+    <div className='bg-white px-3 lg:px-10 pt-4  pb-10'>
         <h1 className="text-xl mb-2">My Account</h1>
 
         <div className="card flex items-center gap-3 card-side bg-base-100 rounded-md shadow-xl max-w-[420px] px-2 h-[190px]">

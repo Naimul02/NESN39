@@ -131,7 +131,7 @@ export const MyOrders = () => {
       <div className="px-8 py-6 flex justify-center text-center max-h-[500px] w-full bg-white">
       <div>
         <h1 className="text-xl font-bold my-2">
-        You have not ordered any products yet. <br /> Please order the product of your choice 
+        You have not ordered any products yet. <br /> <span className='hidden lg:inline'>Please order the product of your choice </span>
         </h1>
        <div className='animate-bounce'>
        <Link to={'/'} className="underline">Back to Shopping</Link>

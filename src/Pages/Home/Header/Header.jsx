@@ -1,38 +1,39 @@
 import React from 'react';
+import { Carousel } from './Carousel';
 
 
 const Header = () => {
   return (
     <>
-    <div className="px-[10px] lg:px-6 h-[400px] pt-[75px] lg:pt-[130px] bg-white">
-      <div className='my-3  grid grid-cols-1 lg:grid-cols-2 gap-4'>
-        <div className='relative h-[250px] lg:h-full'>
-          <img src="https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2F7c585aa4-e22b-11ea-9a3a-c45f6db42dc9.jpg?crop=4762%2C3175%2C119%2C79" className='rounded-3 h-full w-full' alt="" />
+    <div>
 
-          
-        </div>
-        <div className='grid lg:grid-cols-2 grid-cols-1 h-full  gap-2 '>
-          <div className=' p-0 relative'>
-            <img src="https://www.shutterstock.com/image-photo/honey-jar-honeycomb-on-black-260nw-1173412054.jpg" className='rounded-3 h-full' alt="" />
+    <div className="px-[10px] lg:px-6  pt-[60px] lg:pt-[130px] bg-white">
+      <div className='my-3  grid grid-cols-1 lg:grid-cols-2 lg:h-[405px] gap-3'>
+       
+        <Carousel></Carousel>
+        <div className='grid lg:grid-cols-2 grid-cols-1  gap-3 '>
+          <div className=''>
+            <img src="https://img1.10bestmedia.com/Images/Photos/406808/The-Fresh-Market_55_660x440.jpg" className='rounded-lg h-full' alt="" />
             
           </div>
-          <div className=" p-0 relative">
-            <img src="https://www.shutterstock.com/image-photo/honey-bee-honeycomb-dipper-dry-260nw-1356483455.jpg
+          <div className="">
+            <img src="https://imgstaticcontent.lbb.in/lbbnew/wp-content/uploads/sites/1/2018/05/09131032/090518lemarch.jpg
 " alt="" className='rounded-3 h-full' />
            
           </div>
-          <div className=" p-0 relative">
-            <img src="https://img.freepik.com/premium-photo/honey-drips-from-spoon-into-jar-black-background_222185-1240.jpg" alt="" className='rounded-3 h-full' />
+          <div className="hidden lg:block">
+            <img src="https://res.cloudinary.com/hz3gmuqw6/image/upload/c_fill,q_auto,w_750/f_auto/saving-money-on-groceries-phpf0594m" alt="" className='rounded-3 h-full' />
             
           </div>
-          <div className=" p-0 relative">
-            <img src="https://img.freepik.com/premium-photo/honeycombs-jar-with-honey-dipper_185193-17672.jpg" alt="" className='rounded-3  h-full' />
+          <div className="hidden lg:block">
+            <img src="https://www.foodandwine.com/thmb/Xl9Rxl5Aq8wWQSO-1g1_W05YDjY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Whats-Really-Going-on-With-Food-Prices-FT-BLOG0324-02-b2a25858f5b54e4190a0bdd96e2e0974.jpg" alt="" className='rounded-3  h-full' />
             
           </div>
 
         </div>
 
       </div >
+    </div>
     </div>
     </>
   );
