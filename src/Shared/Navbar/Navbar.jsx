@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import Marquee from 'react-fast-marquee';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BiUser } from 'react-icons/bi';
 import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
@@ -18,28 +17,40 @@ import { FaMicroblog } from 'react-icons/fa6';
 import 'react-tooltip/dist/react-tooltip.css';
 import { Tooltip } from 'react-tooltip'
 import { FiUserX } from 'react-icons/fi';
+import Loading from '../../Pages/Loading/Loading';
 
 
 
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user)
-  
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
   
 
+
+ 
+ const handleSearch = (e) => {
+  console.log(e.key)
+      if(e.key === 'Enter' && searchQuery.trim()){
+            navigate(`/searchProducts/${searchQuery}`)
+      }
+
+ }
+
+ 
   const {data: carts = [] , refetch   } = useQuery({
     queryKey : ['carts' , user?.email],
     queryFn : async() => {
-     const res = await axios.get(`https://nesn-39-store-server.vercel.app/carts?email=${user?.email}`)
+     const res = await axios.get(`http://localhost:5000/carts?email=${user?.email}`)
      
   return res.data
     }
  })
-  const {data : userImg } = useQuery({
+  const {data : userImg , isLoading } = useQuery({
     queryKey : ['user' , user?.email],
     queryFn : async() => {
-     const res = await axios.get(`https://nesn-39-store-server.vercel.app/usersImg?email=${user?.email}`)
+     const res = await axios.get(`http://localhost:5000/usersImg?email=${user?.email}`)
      
      
   return res.data
@@ -47,7 +58,7 @@ const Navbar = () => {
  })
 
   const handleDelete = (id) => {
-    axios.delete(`https://nesn-39-store-server.vercel.app/product?id=${id}`)
+    axios.delete(`http://localhost:5000/product?id=${id}`)
     .then(res => {
       console.log(res.data)
       if(res.data.deletedCount > 0){
@@ -80,9 +91,9 @@ const Navbar = () => {
            <Link to="/"><h1 className='text-lg lg:text-xl font-bold text-center'>NESN39</h1></Link>
            <div className="block lg:hidden mx-2">
           <label className="input pr-0  input-bordered rounded-full flex items-center max-w-[370px] h-[40px]">
-  <input type="text" className="grow" placeholder="Search" />
+  <input type="text" className="grow" placeholder="Search"onChange={(e) => setSearchQuery(e.target.value)}onKeyDown={handleSearch} />
 
-  <button className="w-10 h-10  bg-black rounded-full text-white flex justify-center items-center">
+  <button onClick={handleSearch} className="w-10 h-10  bg-black rounded-full text-white flex justify-center items-center">
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 16 16"
@@ -103,9 +114,9 @@ const Navbar = () => {
 
           <div className="hidden lg:block">
           <label className="input pr-0  input-bordered rounded-full flex items-center lg:w-[370px] h-[40px]">
-  <input type="text" className="grow" placeholder="Search" />
+  <input type="text" className="grow" placeholder="Search" onChange={(e) => setSearchQuery(e.target.value)} onKeyDown={handleSearch}/>
 
-  <button className="w-10 h-10  bg-black rounded-full text-white flex justify-center items-center">
+  <button className="w-10 h-10  bg-black rounded-full text-white flex justify-center items-center"onClick={handleSearch}>
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 16 16"
@@ -652,15 +663,28 @@ const Navbar = () => {
 
           {
             user ?
-            <Link to={'/dashboard'}>
-               <div className="w-[24px] h-[24px] rounded-full   block lg:hidden">
-          <img src={userImg?.photourl} alt="" className="rounded-full w-full h-full" />
+            <Link to={'/dashboard/orders'}>
+               <div className="w-[28px] h-[28px] rounded-full   block lg:hidden">
+         { isLoading ? <div className="spinner-border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div> : <img src={userImg?.photourl} alt="" className="rounded-full w-full h-full" />}
         </div> 
         
        {/* <span><LuLogOut className="text-2xl  text-white font-semibold hover:cursor-pointer" onClick={handleLogOut}/></span> */}
-    </Link> :    <Link to={'/login'} data-tooltip-id="my-tooltip" data-tooltip-content="Login"className='inline-block'>
-       <span><FaUser className="text-2xl  text-white font-semibold hover:cursor-pointer"/></span>
-    </Link>
+    </Link> :   
+    
+    
+    <Link to={'/login'} data-tooltip-id="my-tooltip" data-tooltip-content="Login"className='inline-block'>
+    {
+      isLoading ? <div className="spinner-border" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </div> : 
+    <span><FaUser className="text-2xl  text-white font-semibold hover:cursor-pointer"/></span>
+    }
+    
+ </Link>
+   
+    
           }
         
         </div>

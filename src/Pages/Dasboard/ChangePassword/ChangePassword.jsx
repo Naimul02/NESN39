@@ -23,7 +23,7 @@ export const ChangePassword = () => {
         }
         console.log(info)
         
-        axios.put('https://nesn-39-store-server.vercel.app/changePassword' , info)
+        axios.put('http://localhost:5000/changePassword' , info)
         .then(res => {
           console.log(res.data)
           if(res.data?.modifiedCount > 0){

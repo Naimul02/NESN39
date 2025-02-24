@@ -19,7 +19,7 @@ export const MyOrders = () => {
     const { refetch, isLoading, data: orders = [] } = useQuery({
         queryKey: ["orders", user?.email],
         queryFn: async () => {
-          const res = await axios.get(`https://nesn-39-store-server.vercel.app/orders?email=${user?.email}`);
+          const res = await axios.get(`http://localhost:5000/orders?email=${user?.email}`);
           console.log("data" , res.data)
           return res.data
     
@@ -30,7 +30,7 @@ export const MyOrders = () => {
     
         
     
-        axios.delete(`https://nesn-39-store-server.vercel.app/order/${id}`)
+        axios.delete(`http://localhost:5000/order/${id}`)
           
           .then(res => {
             console.log(res.data)
@@ -49,34 +49,7 @@ export const MyOrders = () => {
       }
   return (
     <div className='bg-base-200  w-full'>
-        <div className="flex justify-between">
-          {
-            orders[0]?.length > 0 && <h2 className="text-2xl pt-4 pb-2 text-secondary font-semibold lg:pl-0 pl-2">Orderlist</h2>
-          }
-
-          <div className="dropdown dropdown-end lg:hidden block">
-            <label tabIndex={0} className="btn m-1"><BiMenu className="text-2xl" /></label>
-            <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-              <Link to="/dashboard"><button className="btn w-full mt-2 btn-active  btn-secondary "><BiLockAlt className='mr-2 text-xl inline' />Orderlist</button></Link>
-              {
-                isAdmin && <>
-                  <Link to="/users"><button className="btn btn-active btn-secondary w-full mt-2"><FaUsers className='mr-2  text-xl inline' />All Users</button></Link>
-                </>
-              }
-              {
-                isAdmin && <>
-                  <Link to="/services"><button className="btn btn-active w-full mt-2  btn-secondary "><AiOutlinePlus className='mr-2 text-xl inline' />Add Service</button></Link>
-                </>
-              }
-              <Link to="/review">    <button className="btn btn-active w-full mt-2  btn-secondary "><MdOutlineReviews className='mr-2 text-xl inline' />Review</button></Link>
-
-            </ul>
-          </div>
-
-
-
-
-        </div>
+         
        {
         orders.length > 0 ?   <div className="overflow-x-auto pt-4  bg-white">
         <table className="table w-full">

@@ -10,7 +10,7 @@ export const MyAccount = () => {
     const {data : userImg } = useQuery({
       queryKey : ['user' , user?.email],
       queryFn : async() => {
-       const res = await axios.get(`https://nesn-39-store-server.vercel.app/usersImg?email=${user?.email}`)
+       const res = await axios.get(`http://localhost:5000/usersImg?email=${user?.email}`)
        
        
     return res.data

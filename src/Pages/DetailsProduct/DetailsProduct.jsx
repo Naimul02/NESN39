@@ -50,7 +50,7 @@ const DetailsProducts = () => {
     queryKey : ['product' , id], 
     queryFn : async()=> {
           // const res = await axiosSecure(`/especipicproduct/${id}`);
-            const res = await axios.get(`https://nesn-39-store-server.vercel.app/product/${id}`)
+            const res = await axios.get(`http://localhost:5000/product/${id}`)
             console.log(res.data);
             return res.data
     }
@@ -95,7 +95,7 @@ const DetailsProducts = () => {
     // const totalPrice = info.quantity * info.recentPrice;
     // setTotal(totalPrice);
     console.log("information : ", cartItem);
-    axios.post('https://nesn-39-store-server.vercel.app/carts' , cartItem)
+    axios.post('http://localhost:5000/carts' , cartItem)
     .then(res => {
       console.log(res.data)
       if(res.data.insertedId){
@@ -113,9 +113,9 @@ const DetailsProducts = () => {
   return (
     
     <>
-    <div className="bg-slate-100 py-24 lg:py-[165px]">
+    <div className="bg-slate-100 py-26 lg:py-[165px]">
 
-    <div className="mx-[10px] lg:mx-8 p-3 lg:p-12 rounded  bg-white">
+    <div className="mx-[10px] lg:mx-8 p-3 lg:p-14 rounded  bg-white">
 
       <div className="flex flex-col lg:flex-row justify-between">
         
@@ -148,8 +148,8 @@ const DetailsProducts = () => {
         </div>
         {/* lg:w-[425px] */}
         <div className="lg:px-4 max-w-[500px]">
-          <h2 className="lg:text-3xl text-xl font-bold mb-3">
-            {data?.productName}
+          <h2 className="lg:text-2xl text-xl font-bold mb-3">
+            {data?.productName || data?.title}
           </h2>
           <span className="bg-base-200 rounded px-2 font-semibold  text-[#5fa800]">Stock : Available </span>
           <div className="flex items-center gap-2  mt-2">

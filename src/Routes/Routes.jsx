@@ -20,6 +20,9 @@ import { UpdateProfile } from "../Pages/Dasboard/UpdateProfile/UpdateProfile";
 import { ChangePassword } from "../Pages/Dasboard/ChangePassword/ChangePassword";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import { Blogs } from "../Pages/Blogs/Blogs";
+import { SearchProducts } from "../Pages/SearchProducts/SearchProducts";
+
+
 const Router = createBrowserRouter([
   {
     path: '/',
@@ -41,6 +44,10 @@ const Router = createBrowserRouter([
       {
         path : '/blogs',
         element : <Blogs></Blogs>
+      },
+      {
+        path: '/searchProducts/:query',
+        element : <SearchProducts></SearchProducts>
       },
       
       {
