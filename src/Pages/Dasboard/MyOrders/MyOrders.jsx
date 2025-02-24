@@ -51,6 +51,7 @@ export const MyOrders = () => {
     <div className='bg-base-200  w-full'>
          
        {
+        
         orders.length > 0 ?   <div className="overflow-x-auto pt-4  bg-white">
         <table className="table w-full">
           {/* head */}
@@ -95,8 +96,10 @@ export const MyOrders = () => {
 
           </tbody>
           
+
+
         </table>
-        <div className="bg-white flex justify-between p-2 text-lg m-2 text-secondary font-semibold  rounded-lg">
+        <div className="bg-white  flex justify-between p-2 text-lg m-2 text-secondary font-semibold  rounded-lg">
               <div className='text-xl font-bold'>Total Cost : </div>
 <span className="text-xl font-bold  pr-3 md:pr-[3%]">৳ {orders?.reduce((sum , order )=> sum + (order?.recentPrice * order?.quantity) , 0)}</span>
 </div>

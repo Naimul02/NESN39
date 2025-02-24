@@ -3,10 +3,12 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 import {Link} from 'react-router-dom';
-import { MdDeleteForever, MdRemoveShoppingCart } from "react-icons/md";
+import { MdDeleteForever, MdOutlineShoppingCart, MdRemoveShoppingCart } from "react-icons/md";
 import {toast} from 'react-toastify';
 import OurStore from '../Home/OurStore/OurStore'
 import Loading from '../Loading/Loading';
+import { CgShoppingBag } from 'react-icons/cg';
+import { FaShoppingBag } from 'react-icons/fa';
 
 const Checkout = () => {
 
@@ -288,15 +290,15 @@ const Checkout = () => {
             </div>
 
           ) : (
-            <div className="bg-white border rounded-lg mt-1 py-8">
+            <div className="bg-white border rounded-lg mt-1 py-8 flex flex-col items-center">
               <MdRemoveShoppingCart  className="text-7xl text-green-600  mx-[40%]"/>
 
               <h2 className="text-lg my-2  font-semibold text-green-600 text-center">
                 There are no products here , <br /> please add products to the cart
               </h2>
               <Link to="/">
-                <button className="btn bg-green-600 lg:mx-[104px] text-center mt-3 text-white lg:w-[300px] w-full hover:bg-emerald-700 mb-[4%]">
-                  Back to shopping
+                <button className="btn bg-green-600  lg:mx-[104px] text-center mt-3 text-white lg:w-[300px]  hover:bg-emerald-700 mb-[4%]">
+                <FaShoppingBag className='text-xl' /> Back to shopping
                 </button>
               </Link>
             </div>

@@ -4,12 +4,14 @@ import { RxUpdate } from 'react-icons/rx'
 
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { toast } from 'react-toastify';
+import { useUserProfileImg } from '../../../hooks/useUserProfileImg';
 
 export const UpdateProfile = () => {
     const {user} = useContext(AuthContext);
     const axiosPublic = useAxiosPublic();
     const imgBB_API_KEY = 'a115c1fc301ae82139c471c0406d9a62';
-    const image_hosting = `https://api.imgbb.com/1/upload?key=${imgBB_API_KEY}`
+    const image_hosting = `https://api.imgbb.com/1/upload?key=${imgBB_API_KEY}`;
+    const [, , refetch] = useUserProfileImg()
 
 
     const handleSubmit = async(e) => {
@@ -44,6 +46,7 @@ export const UpdateProfile = () => {
         console.log(res.data)
         if(res.data.modifiedCount > 0){
           toast.success('Your Profile updated successful!')
+          refetch()
         }
       })
       .catch(error => {

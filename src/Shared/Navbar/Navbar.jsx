@@ -17,13 +17,15 @@ import { FaMicroblog } from 'react-icons/fa6';
 import 'react-tooltip/dist/react-tooltip.css';
 import { Tooltip } from 'react-tooltip'
 import { FiUserX } from 'react-icons/fi';
-import Loading from '../../Pages/Loading/Loading';
+import { useUserProfileImg } from '../../hooks/useUserProfileImg';
 
 
 
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [userImg , isLoading] = useUserProfileImg();
+  console.log("userImg"  ,userImg)
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
   
@@ -47,15 +49,7 @@ const Navbar = () => {
   return res.data
     }
  })
-  const {data : userImg , isLoading } = useQuery({
-    queryKey : ['user' , user?.email],
-    queryFn : async() => {
-     const res = await axios.get(`http://localhost:5000/usersImg?email=${user?.email}`)
-     
-     
-  return res.data
-    }
- })
+
 
   const handleDelete = (id) => {
     axios.delete(`http://localhost:5000/product?id=${id}`)
@@ -232,7 +226,7 @@ const Navbar = () => {
             
             
             
-              {user ? <div className="w-10 rounded-full  hidden"><img src={userImg?.photourl} alt="" className="hidden lg:block" /></div> : <FiUserX className='text-2xl' />}
+            {user ? <div className="w-10 rounded-full  hidden"><Link to={'/dashboard/orders'}><img src={userImg?.photourl} alt="" className="hidden lg:block" /></Link></div> : <FiUserX className='text-2xl' />}
             </div>
             
             
@@ -645,9 +639,9 @@ const Navbar = () => {
 
             
             
-            <div className="w-10 rounded-full mb-1 mr-2 hidden lg:block">
+           <Link to={'/dashboard/orders'}> <div className="w-10 rounded-full mb-1 mr-2 hidden lg:block">
               <img src={userImg?.photourl} alt="" className="hidden lg:block" />
-            </div>
+            </div></Link>
             
             
         
