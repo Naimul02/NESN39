@@ -44,7 +44,7 @@ const Navbar = () => {
   const {data: carts = [] , refetch   } = useQuery({
     queryKey : ['carts' , user?.email],
     queryFn : async() => {
-     const res = await axios.get(`http://localhost:5000/carts?email=${user?.email}`)
+     const res = await axios.get(`https://nesn-39-store-server.vercel.app/carts?email=${user?.email}`)
      
   return res.data
     }
@@ -52,7 +52,7 @@ const Navbar = () => {
 
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:5000/product?id=${id}`)
+    axios.delete(`https://nesn-39-store-server.vercel.app/product?id=${id}`)
     .then(res => {
       console.log(res.data)
       if(res.data.deletedCount > 0){
