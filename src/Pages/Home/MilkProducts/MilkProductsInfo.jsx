@@ -15,7 +15,7 @@ const MilkProductsInfo = () => {
   const { isLoading, data: milkProducts = [] } = useQuery({
     queryKey: ["milkproducts"],
     queryFn: async () => {
-      const res = await fetch("https://nesn-39-store-server.vercel.app/products")
+      const res = await fetch("http://localhost:5000/products")
       const result = await res.json()
       const data = result?.slice(0 , 10)
       return data

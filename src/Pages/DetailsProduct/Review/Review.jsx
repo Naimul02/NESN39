@@ -35,7 +35,7 @@
 //         const {data : reviews = [] , refetch} = useQuery({
 //                 queryKey : ['rating'],
 //                 queryFn : async() => {
-//                    const res = await axios.get(`https://nesn-39-store-server.vercel.app/ratings/${id}`)
+//                    const res = await axios.get(`http://localhost:5000/ratings/${id}`)
 //                     console.log("review " , res.data);
 //                     return res.data;
 //                 }

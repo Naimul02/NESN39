@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 const MilkProducts = ({ product }) => {
-  console.log("product : " , product)
+  
 
   const { img, title,  recentPrice , category} = product;
 

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import MilkProducts from '../Home/MilkProducts/MilkProducts';
 import { AiOutlineAppstore } from "react-icons/ai";
+import { GoTriangleDown } from 'react-icons/go';
 
 
 
@@ -13,18 +14,35 @@ const CategoriesProducts = () => {
     console.log(menuValue)
 
     const {category} = useParams();
-    console.log("category : " , category)
+    
+
+    const [products , setProducts] = useState([]);
+    // console.log("productssssss: " , products);
+
+    const handleLowToHighPrice = () => {
+        const sorted = [...products].sort((a ,b) => Number(a.recentPrice) - Number(b.recentPrice))
+        console.log("sorted :" , sorted)
+        setProducts(sorted);
+    }
+    const handleHighToLowPrice = () => {
+        const sorted = [...products].sort((a , b) => Number(b.recentPrice) - Number(a.recentPrice))
+        console.log("sorted :" , sorted)
+        setProducts(sorted);
+    }
+
     const {data } = useQuery({
         queryKey : [ 'CategoriesProducts' , category ], 
         queryFn : async() => {
-            const res = await axios.get(`https://nesn-39-store-server.vercel.app/categoryProducts/${category}`)
-            console.log(res.data);
+            const res = await axios.get(`http://localhost:5000/categoryProducts/${category}`)
+            
             const result = res.data;
-            console.log("result " , result)
+            setProducts(result)
             return result;
             
         }
     })
+
+    
 
 
     const handleMenu = (value) => {
@@ -291,12 +309,13 @@ const CategoriesProducts = () => {
                   <h1 className="text-xl  font-bold  text-[#4A4A4A]">
                     Products
                   </h1>
-
-                  <select className="select font-semibold select-bordered w-full max-w-xs">
-  <option disabled selected className='font-semibold'>Price Range</option>
-  <option className="font-semibold">Low to high</option>
-  <option className='font-semibold'>High to low</option>
-</select>
+                  <div className="dropdown dropdown-bottom">
+  <div tabIndex={0} role="button" className="m-1 border border-green-500 hover:border-green-600 px-4 py-1 flex items-center gap-4 rounded-sm font-medium">Price Range  <span><GoTriangleDown className="text-2xl"/></span></div>
+  <ul tabIndex={0} className="dropdown-content menu bg-base-100 border  z-[1] lg:w-52 p-2 shadow">
+    <li onClick={handleLowToHighPrice}><a>Low To High</a></li>
+    <li onClick={handleHighToLowPrice}><a>High To low</a></li>
+  </ul>
+</div>
 
                   <div className="flex flex-row-reverse md:flex-row lg:gap-10 items-center">
                     <div className="flex items-center gap-4">
@@ -334,6 +353,21 @@ const CategoriesProducts = () => {
                 </div>
               </div>
             </div>
+
+
+            <div className="flex lg:hidden items-center justify-between mb-3">
+            <h1 className="text-lg  font-bold  text-[#4A4A4A]">
+                    Products
+                  </h1>
+                  <div className="dropdown dropdown-end">
+  <div tabIndex={0} role="button" className="m-1 border border-green-500 bg-white text-black hover:border-green-600 px-4 py-1 flex items-center gap-4 w-48 rounded-sm font-medium">Price Range  <span><GoTriangleDown className="text-2xl"/></span></div>
+  <ul tabIndex={0} className="dropdown-content menu bg-base-100 border  z-[1] w-52 p-2 shadow">
+    <li onClick={handleLowToHighPrice}><a>Low To High</a></li>
+    <li onClick={handleHighToLowPrice}><a>High To low</a></li>
+  </ul>
+</div>
+
+            </div>
             <div className="md:mx-5">
               {data?.length > 0 ? (
                 <div
@@ -341,7 +375,7 @@ const CategoriesProducts = () => {
     menuValue === '3' ? "md:grid-cols-3" : menuValue === '2' ? "md:grid-cols-2"  : "md:grid-cols-1"
   } gap-[10px] md:gap-4  -z-10`}
                 >
-                  {data?.map(
+                  {products?.map(
                     (product) =>
                       
                       <Link to={`/detailsProducts/${product?._id}`}>

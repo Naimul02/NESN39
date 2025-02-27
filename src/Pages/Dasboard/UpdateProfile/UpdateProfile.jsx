@@ -3,8 +3,8 @@ import { AuthContext } from '../../../AuthProvider/AuthProvider'
 import { RxUpdate } from 'react-icons/rx'
 
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
-import { toast } from 'react-toastify';
 import { useUserProfileImg } from '../../../hooks/useUserProfileImg';
+import { toast } from 'react-toastify';
 
 export const UpdateProfile = () => {
     const {user} = useContext(AuthContext);
@@ -41,7 +41,7 @@ export const UpdateProfile = () => {
            photoURL : res?.data?.data?.url
         }
         
-      axiosPublic.put(`/users/${user?.email}` , info)
+      axiosPublic.patch(`/users/${user?.email}` , info)
       .then(res => {
         console.log(res.data)
         if(res.data.modifiedCount > 0){

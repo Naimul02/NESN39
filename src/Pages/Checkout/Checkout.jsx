@@ -1,13 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext} from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 import {Link} from 'react-router-dom';
-import { MdDeleteForever, MdOutlineShoppingCart, MdRemoveShoppingCart } from "react-icons/md";
+import { MdDeleteForever,  MdRemoveShoppingCart } from "react-icons/md";
 import {toast} from 'react-toastify';
 import OurStore from '../Home/OurStore/OurStore'
 import Loading from '../Loading/Loading';
-import { CgShoppingBag } from 'react-icons/cg';
 import { FaShoppingBag } from 'react-icons/fa';
 
 const Checkout = () => {
@@ -18,7 +17,7 @@ const Checkout = () => {
     const { data: carts = [], refetch, isLoading } = useQuery({
       queryKey: ['carts', user?.email],
       queryFn: async () => {
-        const res = await axios.get(`https://nesn-39-store-server.vercel.app/carts?email=${user?.email}`);
+        const res = await axios.get(`http://localhost:5000/carts?email=${user?.email}`);
         console.log(res?.data);
         
         return res.data;
@@ -52,7 +51,7 @@ const Checkout = () => {
          productId : carts?.map(cart => cart?._id)
       }
       
-      axios.post('https://nesn-39-store-server.vercel.app/orderConfirm' , info)
+      axios.post('http://localhost:5000/orderConfirm' , info)
       .then(res => {
         console.log(res.data)
         if(res.data?.insertedId){
@@ -64,7 +63,7 @@ const Checkout = () => {
       })
   }
    const handleDelete = (id) => {
-    axios.delete(`https://nesn-39-store-server.vercel.app/product?id=${id}`)
+    axios.delete(`http://localhost:5000/product?id=${id}`)
     .then(res => {
       console.log(res.data)
       if(res.data.deletedCount > 0){

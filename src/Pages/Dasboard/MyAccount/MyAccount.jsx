@@ -10,22 +10,25 @@ export const MyAccount = () => {
     const {data : userImg } = useQuery({
       queryKey : ['user' , user?.email],
       queryFn : async() => {
-       const res = await axios.get(`https://nesn-39-store-server.vercel.app/usersImg?email=${user?.email}`)
+       const res = await axios.get(`http://localhost:5000/usersImg?email=${user?.email}`)
        
        
     return res.data
       }
    })
   return (
-    <div className='bg-white px-3 lg:px-10 pt-4  pb-10'>
+    <div className='bg-white px-3 lg:px-10 pt-8  pb-10'>
         <h1 className="text-xl mb-2">My Account</h1>
 
-        <div className="card flex items-center gap-3 card-side bg-base-100 rounded-md shadow-xl max-w-[420px] px-2 h-[190px]">
-  <figure className='rounded-full'>
-    <img
+        <div className="card flex items-center gap-3 card-side bg-base-100 rounded-md shadow-xl max-w-[450px] px-2 h-[190px]">
+        <div className="avatar px-3">
+  <div className="ring-primary ring-offset-base-100 w-32 rounded-full ring ring-offset-2">
+  <img
       src={userImg?.photourl}
-      alt="User Photo" className='max-w-44 max-h-44 rounded-full pl-3'/>
-  </figure>
+      alt="User Photo"/>
+  </div>
+</div>
+  
   <div className="w-full space-y-2">
     <h2 className="font-semibold">Name : {user?.displayName}</h2>
     <p className='font-semibold'> Email : {user?.email}</p>

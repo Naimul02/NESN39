@@ -27,6 +27,7 @@ const Login = () => {
         // console.log(user)
         setLoginUserEmail(data.email)
         toast.success('sign in successfully !')
+        navigate('/')
 
       })
       .catch(error => {

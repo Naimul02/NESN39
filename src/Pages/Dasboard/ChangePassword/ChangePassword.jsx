@@ -3,36 +3,29 @@ import { AuthContext } from '../../../AuthProvider/AuthProvider'
 import { RxUpdate } from 'react-icons/rx'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { updatePassword } from 'firebase/auth'
 
 export const ChangePassword = () => {
     const {user} = useContext(AuthContext)
     const handleSubmit = (e) => {
         e.preventDefault()
         const form = e.target;
-        const email = form.email.value;
-        const currentPassword = form.currentPassword.value;
+        
         const newPassword = form.password.value;
         
         
   
-        const info = {
-           email,
-           currentPassword,
-           password : newPassword
-
-        }
-        console.log(info)
-        
-        axios.put('https://nesn-39-store-server.vercel.app/changePassword' , info)
-        .then(res => {
-          console.log(res.data)
-          if(res.data?.modifiedCount > 0){
-            toast.success("Your password has been successfully changed !")
-          }
-          else{
-            toast.error(res.data?.message)
-          }
+       
+        updatePassword(user , newPassword)
+        .then(() => {
+          toast.success("Your password has been successfully changed !")
         })
+        .catch((error) => {
+          toast.error(error?.message)
+        })
+
+        
+       
         
     }
   return (
