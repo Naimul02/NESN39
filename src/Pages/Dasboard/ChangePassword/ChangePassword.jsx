@@ -1,27 +1,44 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../../../AuthProvider/AuthProvider'
 import { RxUpdate } from 'react-icons/rx'
-import axios from 'axios'
 import { toast } from 'react-toastify'
 import { updatePassword } from 'firebase/auth'
+import { useUserProfileImg } from '../../../hooks/useUserProfileImg'
+import useAxiosPublic from '../../../hooks/useAxiosPublic'
 
 export const ChangePassword = () => {
-    const {user} = useContext(AuthContext)
+    const {user} = useContext(AuthContext);
+    const [userImg , , refetch] = useUserProfileImg();
+    const axiosPublic = useAxiosPublic();
+
+    
+    console.log("userImg:::::" , userImg)
     const handleSubmit = (e) => {
         e.preventDefault()
         const form = e.target;
         
+        const email = form.email.value;
         const newPassword = form.password.value;
+        const info = {
+          email,
+          password : newPassword
+        }
         
         
   
        
         updatePassword(user , newPassword)
         .then(() => {
-          toast.success("Your password has been successfully changed !")
+          axiosPublic.patch('/changePassword' , info)
+          .then(() => {
+
+            toast.success("Your password has been successfully changed !")
+            refetch()
+          })
         })
         .catch((error) => {
-          toast.error(error?.message)
+          console.log(error.message)
+          toast.error(error.message)
         })
 
         
@@ -53,7 +70,8 @@ export const ChangePassword = () => {
             <input
               name="currentPassword"
               className="border mt-1 border-solid border-red-600 block rounded w-full   h-[40px] pl-3  text-base font-medium"
-              placeholder="Current Password"
+              defaultValue={userImg?.password}
+              readOnly
               type='password'
               required
             />

@@ -13,7 +13,7 @@ export const useUserProfileImg = () => {
             if (!user?.email) return null; 
 
             try {
-                const res = await axios.get(`http://localhost:5000/usersImg?email=${user.email}`);
+                const res = await axios.get(`https://nesn-39-store-server.vercel.app/usersImg?email=${user?.email}`);
                 console.log("userImg:", res.data);
                 return res.data;
             } catch (error) {

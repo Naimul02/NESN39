@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import toast from "react-hot-toast";
+
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { GoArrowSwitch } from "react-icons/go";
@@ -35,6 +35,7 @@ import { MdOutlineBrowserNotSupported } from "react-icons/md";
 import OurStore from "../Home/OurStore/OurStore";
 import Review from "../Services/Review/Review";
 import RelatedProducts from "./RelatedProducts/RelatedProducts";
+import { toast } from "react-toastify";
 
 
 const DetailsProducts = () => {
@@ -50,7 +51,7 @@ const DetailsProducts = () => {
     queryKey : ['product' , id], 
     queryFn : async()=> {
           // const res = await axiosSecure(`/especipicproduct/${id}`);
-            const res = await axios.get(`http://localhost:5000/product/${id}`)
+            const res = await axios.get(`https://nesn-39-store-server.vercel.app/product/${id}`)
             console.log(res.data);
             return res.data
     }
@@ -95,7 +96,7 @@ const DetailsProducts = () => {
     // const totalPrice = info.quantity * info.recentPrice;
     // setTotal(totalPrice);
     console.log("information : ", cartItem);
-    axios.post('http://localhost:5000/carts' , cartItem)
+    axios.post('https://nesn-39-store-server.vercel.app/carts' , cartItem)
     .then(res => {
       console.log(res.data)
       if(res.data.insertedId){

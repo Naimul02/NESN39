@@ -4,10 +4,11 @@ import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 import {Link} from 'react-router-dom';
 import { MdDeleteForever,  MdRemoveShoppingCart } from "react-icons/md";
-import {toast} from 'react-toastify';
+
 import OurStore from '../Home/OurStore/OurStore'
 import Loading from '../Loading/Loading';
 import { FaShoppingBag } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 const Checkout = () => {
 
@@ -17,7 +18,7 @@ const Checkout = () => {
     const { data: carts = [], refetch, isLoading } = useQuery({
       queryKey: ['carts', user?.email],
       queryFn: async () => {
-        const res = await axios.get(`http://localhost:5000/carts?email=${user?.email}`);
+        const res = await axios.get(`https://nesn-39-store-server.vercel.app/carts?email=${user?.email}`);
         console.log(res?.data);
         
         return res.data;
@@ -48,22 +49,25 @@ const Checkout = () => {
          address,
          orderNotes,
          orders : carts,
-         productId : carts?.map(cart => cart?._id)
+         
+         cartsId : carts?.map(cart => cart._id),
       }
       
-      axios.post('http://localhost:5000/orderConfirm' , info)
+      axios.post('https://nesn-39-store-server.vercel.app/orderConfirm' , info)
       .then(res => {
         console.log(res.data)
-        if(res.data?.insertedId){
-          toast.success("Your Order has been successful")
+        if(res.data?.result?.insertedId){
+          toast.success("Your Order has been successful");
+          refetch()
         }
       })
       .catch(error => {
+        toast.error(error.message)
         console.error(error.message)
       })
   }
    const handleDelete = (id) => {
-    axios.delete(`http://localhost:5000/product?id=${id}`)
+    axios.delete(`https://nesn-39-store-server.vercel.app/product?id=${id}`)
     .then(res => {
       console.log(res.data)
       if(res.data.deletedCount > 0){
@@ -72,6 +76,7 @@ const Checkout = () => {
       }
     })
     .catch(error => {
+      toast.error(error.message)
       console.log(error.message)
     })
   }
@@ -251,7 +256,7 @@ const Checkout = () => {
           Order Summery
         </h1>
           {carts?.length  > 0 ? (
-            <div  className="bg-white border rounded-lg p-1 lg:p-4 ">
+            <div  className="bg-white border rounded-lg pl-1 pr-1 pt-1 pb-1 lg:pl-4 lg:pr-4 lg:pt-4 lg:pb-4 ">
 
             <div className="overflow-y-auto  max-h-[300px]">
               {

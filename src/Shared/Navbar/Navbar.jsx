@@ -44,7 +44,7 @@ const Navbar = () => {
   const {data: carts = [] , refetch   } = useQuery({
     queryKey : ['carts' , user?.email],
     queryFn : async() => {
-     const res = await axios.get(`http://localhost:5000/carts?email=${user?.email}`)
+     const res = await axios.get(`https://nesn-39-store-server.vercel.app/carts?email=${user?.email}`)
      
   return res.data
     }
@@ -52,7 +52,7 @@ const Navbar = () => {
 
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:5000/product?id=${id}`)
+    axios.delete(`https://nesn-39-store-server.vercel.app/product?id=${id}`)
     .then(res => {
       console.log(res.data)
       if(res.data.deletedCount > 0){
@@ -254,7 +254,10 @@ const Navbar = () => {
   <input id="my-drawer" type="checkbox" className="drawer-toggle" />
   <div className="drawer-content">
     {/* Page content here */}
-    <label htmlFor="my-drawer" className="drawer-button"><LuMenu className='text-2xl text-white' /></label>
+    
+    <label htmlFor="my-drawer" className="drawer-button"><LuMenu className='text-2xl text-white' />
+    
+    </label>
   </div>
   <div className="drawer-side">
     <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
@@ -548,17 +551,20 @@ const Navbar = () => {
           <div className="drawer   drawer-end">
   <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
   <div className="drawer-content w-[24px] h-[24px]">
-    
+  <div className="indicator">
+  <span className="indicator-item badge bg-red-600 text-white rounded-full border-none z-0">{carts?.length}</span>
     <label htmlFor="my-drawer-2" onClick={refetch} className="drawer-button"><MdOutlineShoppingCart className="text-2xl hover:cursor-pointer text-white"/></label>
+    </div>
   </div>
   <div className="drawer-side">
     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
 
 
     
-    <ul className="menu relative bg-white text-base-content min-h-full w-screen  lg:max-w-[420px]  p-0">
+    <ul className="menu relative bg-white text-base-content min-h-full w-screen z-20 lg:max-w-[420px]  p-0">
     <div className="flex items-center justify-between bg-slate-200 p-4">
               <div className="flex items-center gap-2">
+                
                 <FaShoppingBag className="text-xl" />
               
               <h1 className="text-xl font-bold">Shopping Cart</h1></div>

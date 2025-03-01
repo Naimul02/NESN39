@@ -12,7 +12,7 @@ export const SearchProducts = () => {
   const {data : searchProducts = []} = useQuery({
           queryKey : ['searchProducts'] , 
           queryFn  : async() => {
-              const res = await axios.get('http://localhost:5000/products');
+              const res = await axios.get('https://nesn-39-store-server.vercel.app/products');
               const result = res.data;
               console.log("result : " , result)
               return result;

@@ -19,7 +19,7 @@ export const MyOrders = () => {
     const { refetch, isLoading, data: orders = [] } = useQuery({
         queryKey: ["orders", user?.email],
         queryFn: async () => {
-          const res = await axios.get(`http://localhost:5000/orders?email=${user?.email}`);
+          const res = await axios.get(`https://nesn-39-store-server.vercel.app/orders?email=${user?.email}`);
           console.log("data" , res.data)
           return res.data
     
@@ -30,7 +30,7 @@ export const MyOrders = () => {
     
         
     
-        axios.delete(`http://localhost:5000/order/${id}`)
+        axios.delete(`https://nesn-39-store-server.vercel.app/order/${id}`)
           
           .then(res => {
             console.log(res.data)
@@ -52,7 +52,7 @@ export const MyOrders = () => {
          
        {
         
-        orders.length > 0 ?   <div className="overflow-x-auto pt-4  bg-white">
+        orders.length > 0 ?   <div className="overflow-x-auto pt-4 max-h-[400px] overflow-y-auto  bg-white">
         <table className="table w-full">
           {/* head */}
           <thead>
@@ -61,7 +61,8 @@ export const MyOrders = () => {
               <th></th>
               <th></th>
               <th>Name</th>
-              <th>Email</th>
+              <th>Date</th>
+              <th>Time</th>
               <th>Product Name</th>
               <th>Quantity</th>
               <th>Price</th>
@@ -83,7 +84,8 @@ export const MyOrders = () => {
               </div>
             </div></td>
                 <td>{user.displayName}</td>
-                <td>{user?.email}</td>
+                <td>{new Date().toLocaleDateString()}</td>
+                <td>{new Date().toLocaleTimeString()}</td>
                 <td>{order?.title}</td>
                 <td>{order?.quantity}</td>
                 <td>{order?.recentPrice}</td>

@@ -1,21 +1,24 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Modal from './BookingModal/Modal';
 import { FaShoppingCart } from 'react-icons/fa';
 import './MilkProducts.css';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../AuthProvider/AuthProvider';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 
-const MilkProducts = ({ product }) => {
+const MilkProducts = ({ product  }) => {
+  const { img, title,  recentPrice } = product;
+
+
   
 
-  const { img, title,  recentPrice , category} = product;
-
-  const [openModal, setopenModal] = useState(false);
+  
 
 
 
-
-
+ 
 
 
 
@@ -27,18 +30,11 @@ const MilkProducts = ({ product }) => {
 
       {/* Put this part before </body> tag */}
 
+<div>
+     <div  className="h-[260px] rounded  bg-base-100 hover:shadow-lg border-none relative transition-all duration-500 transform hover:scale-105 overflow-hidden  shadow-gray-600 " >
+     <Link to={`/detailsProducts/${product?._id}`}>
 
-     <Link to={`/detailsProducts/${product?._id}`} className="h-[260px]">
-     <div className="rounded  bg-base-100 hover:shadow-lg border-none relative transition-all duration-500 transform hover:scale-105 overflow-hidden h-[260px] shadow-gray-600 ">
 
-<div className='absolute top-1 right-3'>
-      <img className="py-2" src="https://departmental-store-02.web.app/images/wish.svg" alt="" />
-      <div className='many-icon'>
-        <img className="py-2" src="../../images/prodcompare.svg" alt="" />
-        <img className="py-2" src="../../images/view.svg" alt="" />
-        <img className="py-2" src="../../images/add-cart.svg" alt="" />
-      </div>
-    </div>
   <div className="absolute bg-base-200  px-3 top-2 left-2 rounded">
     <h1 className="text-sm text-[#5fa800] font-medium">Stock : Available </h1>
   </div>
@@ -47,20 +43,21 @@ const MilkProducts = ({ product }) => {
   <figure><img  src={img} alt="Shoes" className="w-[176px] h-[176px]" /></figure>
   </div>
   
-  <div className="px-3 space-y-1 pb-3 flex justify-between items-center">
+  
+</Link>
+     <div className="px-3 space-y-1 pb-3 flex justify-between items-center">
   <div>
-  <h1 className='text-sm  font-medium text-gray-600'>{title.slice(0 , 22)}..</h1>
+  <h1 className='text-sm  font-medium text-gray-600'>{title.slice(0 , 22)}</h1>
   {/* <h1 className='text-sm  font-medium text-gray-600'>{category}</h1> */}
   <h1 className='text-lg font-semibold text-gray-800'>${recentPrice}</h1>
   </div>
     
-    <div className='border rounded-md hover:text-white  hover:bg-[#5fa800] w-[36px] h-[36px] flex justify-center items-center text-[#5fa800]'>
-    <FaShoppingCart className='text-lg font-semibold '/>
-    </div>
+ 
   
   </div>
+     </div>
+
 </div>
-     </Link>
 
     </>
 
