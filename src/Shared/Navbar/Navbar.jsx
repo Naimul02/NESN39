@@ -251,7 +251,7 @@ const [carts , refetch] = useCart()
   <div className="drawer-content">
     {/* Page content here */}
     
-    <label htmlFor="my-drawer" className="drawer-button"><LuMenu className='text-2xl text-white' />
+    <label htmlFor="my-drawer" className="drawer-button hover:cursor-pointer"><LuMenu className='text-2xl text-white' />
     
     </label>
   </div>
