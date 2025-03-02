@@ -47,7 +47,7 @@ const Navbar = () => {
 const [carts , refetch] = useCart()
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:5000/product?id=${id}`)
+    axios.delete(`https://nesn-39-store-server.vercel.app/product?id=${id}`)
     .then(res => {
       
       if(res.data.deletedCount > 0){

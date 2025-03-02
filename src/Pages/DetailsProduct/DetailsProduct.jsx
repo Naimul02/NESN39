@@ -52,7 +52,7 @@ const DetailsProducts = () => {
     queryKey : ['product' , id], 
     queryFn : async()=> {
           // const res = await axiosSecure(`/especipicproduct/${id}`);
-            const res = await axios.get(`http://localhost:5000/product/${id}`)
+            const res = await axios.get(`https://nesn-39-store-server.vercel.app/product/${id}`)
             console.log(res.data);
             return res.data
     }
@@ -97,7 +97,7 @@ const DetailsProducts = () => {
     // const totalPrice = info.quantity * info.recentPrice;
     // setTotal(totalPrice);
     console.log("information : ", cartItem);
-    axios.post('http://localhost:5000/carts' , cartItem)
+    axios.post('https://nesn-39-store-server.vercel.app/carts' , cartItem)
     .then(res => {
       console.log(res.data)
       if(res.data.insertedId){
