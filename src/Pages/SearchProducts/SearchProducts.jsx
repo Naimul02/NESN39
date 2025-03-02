@@ -38,8 +38,8 @@ export const SearchProducts = () => {
       {
         filteredData?.length > 0 && <div className='flex flex-col pl-2 pr-2 lg:pl-0 lg:pr-0 items-center pt-24 lg:pt-10'>
         <h1 className="text-xl lg:text-2xl font-bold">Your search products</h1>
-        <p className='lg:hidden text-base text-center mt-1'>Sir I have found <span className='text-xl font-bold text-[#5fa800]'>{filteredData?.length} </span> for you among  the  <br />  products you are looking for.</p>
-        <p className='lg:block text-lg text-center mt-1'>Sir I have found <span className='text-xl font-bold text-[#5fa800]'>{filteredData?.length} </span> for you among  the  products<br />   you are looking for.</p>
+        <p className='block lg:hidden text-base text-center mt-1'>Sir I have found <span className='text-xl font-bold text-[#5fa800]'>{filteredData?.length} </span> for you among  the  <br />  products you are looking for.</p>
+        <p className='hidden lg:block text-lg text-center mt-1'>Sir I have found <span className='text-xl font-bold text-[#5fa800]'>{filteredData?.length} </span> for you among  the  products<br />   you are looking for.</p>
     </div>
       }
     {
@@ -51,9 +51,9 @@ export const SearchProducts = () => {
         product={product}
         ></MilkProducts>)
       }
-    </div> : <div className="px-8 py-10  flex justify-center text-center  w-full bg-white">
+    </div> : <div className="px-8 py-20 lg:py-12  flex justify-center text-center  w-full bg-white">
       <div>
-        <h1 className="text-xl text-center font-bold my-2">
+        <h1 className="text-base lg:text-lg lg:font-bold text-center font-medium my-2">
         Sorry sir, we don't have the product you are <br /> looking for right now.
         </h1>
        <div className='animate-bounce'>

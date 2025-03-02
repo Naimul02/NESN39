@@ -18,6 +18,7 @@ import 'react-tooltip/dist/react-tooltip.css';
 import { Tooltip } from 'react-tooltip'
 import { FiUserX } from 'react-icons/fi';
 import { useUserProfileImg } from '../../hooks/useUserProfileImg';
+import { useCart } from '../../hooks/useCart';
 
 
 
@@ -25,36 +26,30 @@ import { useUserProfileImg } from '../../hooks/useUserProfileImg';
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [userImg , isLoading] = useUserProfileImg();
-  console.log("userImg"  ,userImg)
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
+
+  
   
 
 
  
  const handleSearch = (e) => {
   console.log(e.key)
-      if(e.key === 'Enter' && searchQuery.trim()){
+      if((e.key === "Enter" || e.type === "click") && searchQuery.trim()){
             navigate(`/searchProducts/${searchQuery}`)
       }
 
  }
 
  
-  const {data: carts = [] , refetch   } = useQuery({
-    queryKey : ['carts' , user?.email],
-    queryFn : async() => {
-     const res = await axios.get(`http://localhost:5000/carts?email=${user?.email}`)
-     
-  return res.data
-    }
- })
-
+  
+const [carts , refetch] = useCart()
 
   const handleDelete = (id) => {
     axios.delete(`http://localhost:5000/product?id=${id}`)
     .then(res => {
-      console.log(res.data)
+      
       if(res.data.deletedCount > 0){
         toast.success('Product Deleted Successfully')
         refetch()
@@ -136,6 +131,7 @@ const Navbar = () => {
   <div className="drawer-content w-[24px] h-[24px]">
     
     <label htmlFor="my-drawer-4" onClick={refetch} className="drawer-button"><MdOutlineShoppingCart className="text-2xl hover:cursor-pointer"/></label>
+    
   </div>
   <div className="drawer-side">
     <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
@@ -249,8 +245,8 @@ const Navbar = () => {
 
       <div className="w-full fixed  lg:hidden bottom-0 left-0  bg-[#5fa800] px-4  flex items-center justify-between py-3">
         
-        <div className='flex justify-between items-center  w-full'>
-        <div className="drawer w-[24px] h-[24px]">
+        <div className='flex justify-between items-center   w-full'>
+        <div className="drawer w-[24px] h-[24px] ">
   <input id="my-drawer" type="checkbox" className="drawer-toggle" />
   <div className="drawer-content">
     {/* Page content here */}
@@ -259,7 +255,7 @@ const Navbar = () => {
     
     </label>
   </div>
-  <div className="drawer-side">
+  <div className="drawer-side z-50">
     <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
 
     
@@ -282,7 +278,7 @@ const Navbar = () => {
     </div>
 
     
-    <ul className="menu bg-base-200 text-base-content min-h-full w-screen lg:max-w-80 p-4">
+    <ul className="menu bg-base-200 text-base-content min-h-full    w-screen lg:max-w-80 p-4">
       {/* Sidebar content here */}
        
  
@@ -545,15 +541,15 @@ const Navbar = () => {
         </div>
         <div>
           
-        <div className='block lg:hidden'>
+        <div className='block z-0 lg:hidden'>
           
       
-          <div className="drawer   drawer-end">
+          <div className="drawer z-40  drawer-end ">
   <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
   <div className="drawer-content w-[24px] h-[24px]">
-  <div className="indicator">
-  <span className="indicator-item badge bg-red-600 text-white rounded-full border-none z-0">{carts?.length}</span>
-    <label htmlFor="my-drawer-2" onClick={refetch} className="drawer-button"><MdOutlineShoppingCart className="text-2xl hover:cursor-pointer text-white"/></label>
+  <div className="indicator z-0">
+  <span className="indicator-item badge bg-red-600 text-white rounded-full border-none ">{carts?.length}</span>
+    <label htmlFor="my-drawer-2" onClick={refetch} className="drawer-button "><MdOutlineShoppingCart className="text-2xl hover:cursor-pointer text-white"/></label>
     </div>
   </div>
   <div className="drawer-side">
@@ -608,7 +604,7 @@ const Navbar = () => {
                 </div>
               </li>)
            : 
-          <div className="flex justify-center pt-[70px]">
+          <div className="flex justify-center pt-[50px] lg:pt-[70px]">
            <div className=''>
            <img src="https://img.freepik.com/free-vector/removing-goods-from-basket-refusing-purchase-changing-decision-item-deletion-emptying-trash-online-shopping-app-laptop-user-cartoon-character_335657-2566.jpg" className="max-w-[200px] mx-auto max-h-[200px]" alt=""/>
 

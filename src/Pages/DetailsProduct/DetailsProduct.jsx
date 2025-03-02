@@ -36,6 +36,7 @@ import OurStore from "../Home/OurStore/OurStore";
 import Review from "../Services/Review/Review";
 import RelatedProducts from "./RelatedProducts/RelatedProducts";
 import { toast } from "react-toastify";
+import { useCart } from "../../hooks/useCart";
 
 
 const DetailsProducts = () => {
@@ -43,11 +44,11 @@ const DetailsProducts = () => {
   const [value, setValue] = useState(1);
   // const axiosSecure = useAxiosSecure();
   const {id} = useParams();
-//   const [ , refetch] = useCart();
+  const [ , refetch] = useCart();
   const [disabled , setDisabled] = useState(false);
   const navigate = useNavigate()
   
-  const {data : data  , isLoading , refetch } = useQuery({
+  const {data : data  , isLoading } = useQuery({
     queryKey : ['product' , id], 
     queryFn : async()=> {
           // const res = await axiosSecure(`/especipicproduct/${id}`);
@@ -148,7 +149,7 @@ const DetailsProducts = () => {
 
         </div>
         {/* lg:w-[425px] */}
-        <div className="lg:px-4 max-w-[500px]">
+        <div className="lg:px-4 mt-2 max-w-[500px]">
           <h2 className="lg:text-2xl text-xl font-bold mb-3">
             {data?.productName || data?.title}
           </h2>
