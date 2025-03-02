@@ -33,7 +33,7 @@ const CategoriesProducts = () => {
     const {data } = useQuery({
         queryKey : [ 'CategoriesProducts' , category ], 
         queryFn : async() => {
-            const res = await axios.get(`https://nesn-39-store-server.vercel.app/categoryProducts/${category}`)
+            const res = await axios.get(`http://localhost:5000/categoryProducts/${category}`)
             
             const result = res.data;
             setProducts(result)

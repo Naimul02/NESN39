@@ -42,7 +42,7 @@ const Signup = () => {
       photourl: res.data.data.url,
       password : data?.password
     }
-    fetch('https://nesn-39-store-server.vercel.app/users', {
+    fetch('http://localhost:5000/users', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

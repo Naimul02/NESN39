@@ -5,10 +5,11 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 import useToken from '../../hooks/useToken';
 import { toast } from 'react-toastify';
+import { FcGoogle } from 'react-icons/fc';
 
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext)
+  const { signIn , signInWithGoogle} = useContext(AuthContext)
   const { register, handleSubmit } = useForm();
   const [loginUserEmail, setLoginUserEmail] = useState('')
   // console.log(loginUserEmail)
@@ -34,6 +35,19 @@ const Login = () => {
         console.error(error.message)
         toast.error(error.message)
       })
+  }
+  const handleSignInWithGoogle = () => {
+      signInWithGoogle()
+      .then((result) => {
+        console.log(result.user)
+        toast.success('sign in successfully !')
+        navigate('/')
+
+      })
+      .catch(error => {
+        toast.error(error.message)
+      })
+
   }
   return (
     <>
@@ -66,6 +80,10 @@ const Login = () => {
               </div>
               <div className="form-control" style={{ border: 'none', width: '100%' }}>
                 <button className="btn btn-active text-white bg-[#65ad07] hover:bg-[#549401] w-full">Login</button>
+
+                <div className='flex justify-center hover:cursor-pointer hover:underline mt-3'onClick={handleSignInWithGoogle}>
+                <div className='flex items-center gap-1 font-medium'><FcGoogle className='text-4xl' /> <span>Login With Google</span> </div>
+                </div>
               </div>
             </div>
           </div>

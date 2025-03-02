@@ -19,7 +19,7 @@ export const MyOrders = () => {
     const { refetch, isLoading, data: orders = [] } = useQuery({
         queryKey: ["orders", user?.email],
         queryFn: async () => {
-          const res = await axios.get(`https://nesn-39-store-server.vercel.app/orders?email=${user?.email}`);
+          const res = await axios.get(`http://localhost:5000/orders?email=${user?.email}`);
           console.log("data" , res.data)
           return res.data
     
@@ -30,7 +30,7 @@ export const MyOrders = () => {
     
         
     
-        axios.delete(`https://nesn-39-store-server.vercel.app/order/${id}`)
+        axios.delete(`http://localhost:5000/order/${id}`)
           
           .then(res => {
             console.log(res.data)
@@ -105,7 +105,8 @@ export const MyOrders = () => {
               <div className='text-xl font-bold'>Total Cost : </div>
 <span className="text-xl font-bold  pr-3 md:pr-[3%]">৳ {orders?.reduce((sum , order )=> sum + (order?.recentPrice * order?.quantity) , 0)}</span>
 </div>
-      </div>: 
+      </div>
+      : 
       <div className="px-8 py-6 flex justify-center text-center max-h-[500px] w-full bg-white">
       <div>
         <h1 className="text-xl font-bold my-2">
