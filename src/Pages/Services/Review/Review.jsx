@@ -5,7 +5,7 @@ import '@smastrom/react-rating/style.css'
 import { useState , useContext} from 'react';
 // import useAxiosPublic from '../../../hooks/useAxiosPublic/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
-import toast from 'react-hot-toast';
+
 import './Review.css';
 
 import "slick-carousel/slick/slick.css";
@@ -15,9 +15,18 @@ import { FaCircleUser } from "react-icons/fa6";
 import { IoIosStar } from "react-icons/io";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Review = ({id}) => {
-  const {user} = useContext(AuthContext)
+  const {user} = useContext(AuthContext);
+  
+
+  
+
+  
+
+
+
     const settings = {
         dots: true,
         infinite: true,
@@ -32,15 +41,24 @@ const Review = ({id}) => {
   
   
 
-        const {data : reviews = [] , refetch} = useQuery({
+        const {data : reviews = [] } = useQuery({
                 queryKey : ['rating'],
                 queryFn : async() => {
-                   const res = await axios.get(`https://nesn-39-store-server.vercel.app/reviews/${id}`)
+                   const res = await axios.get(`http://localhost:5000/reviews/${id}`)
                     console.log("review " , res.data);
                     return res.data;
                 }
         })
+        const {data : review  , refetch} = useQuery({
+          queryKey : ['review', user?.email , id ],
+          queryFn : async() => {
+            const res = await axios.get(`http://localhost:5000/review/${user?.email}/${id}`)
+            console.log("review" , res.data.reviewed);
+            return res.data.reviewed
+          }
+        })
 
+        
     const handleReview = (e) => {
             e.preventDefault();
             const form = e.target;
@@ -51,16 +69,19 @@ const Review = ({id}) => {
             
             console.log( name ,  review , ratings);
             const info = {
+                    email : user?.email,
                     name,
                     review,
                     ratings,
                     productId : id
             }
-            axios.post('https://nesn-39-store-server.vercel.app/reviews' , info)
+            axios.post('http://localhost:5000/reviews' , info)
             .then((res) => {
                 console.log(res.data);
                 if(res.data.insertedId){
                     toast.success("Your review has been successful!");
+                    window.location.reload();
+                    
                     refetch();
                 }
 
@@ -175,7 +196,14 @@ const Review = ({id}) => {
         
         </div>
         <div className="form-control border-none p-0 mt-3">
-          <button className="btn rounded-none bg-[#5fa800] hover:bg-[#4f8606] text-white">Submit</button>
+          {
+            review ?
+            
+            <button className="btn rounded-none bg-[#5fa800] hover:bg-[#4f8606] text-white"disabled>Submit</button>
+            :
+            <button className="btn rounded-none bg-[#5fa800] hover:bg-[#4f8606] text-white">Submit</button>
+
+          }
         </div>
       </form>
             </div>

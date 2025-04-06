@@ -18,7 +18,7 @@ const Checkout = () => {
     const { data: carts = [], refetch, isLoading } = useQuery({
       queryKey: ['carts', user?.email],
       queryFn: async () => {
-        const res = await axios.get(`https://nesn-39-store-server.vercel.app/carts?email=${user?.email}`);
+        const res = await axios.get(`http://localhost:5000/carts?email=${user?.email}`);
         console.log(res?.data);
         
         return res.data;
@@ -53,7 +53,7 @@ const Checkout = () => {
          cartsId : carts?.map(cart => cart._id),
       }
       
-      axios.post('https://nesn-39-store-server.vercel.app/orderConfirm' , info)
+      axios.post('http://localhost:5000/orderConfirm' , info)
       .then(res => {
         console.log(res.data)
         if(res.data?.result?.insertedId){
@@ -67,7 +67,7 @@ const Checkout = () => {
       })
   }
    const handleDelete = (id) => {
-    axios.delete(`https://nesn-39-store-server.vercel.app/product?id=${id}`)
+    axios.delete(`http://localhost:5000/product?id=${id}`)
     .then(res => {
       console.log(res.data)
       if(res.data.deletedCount > 0){

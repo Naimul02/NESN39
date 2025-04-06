@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
@@ -12,9 +12,10 @@ const Login = () => {
   const { signIn , signInWithGoogle} = useContext(AuthContext)
   const { register, handleSubmit } = useForm();
   const [loginUserEmail, setLoginUserEmail] = useState('')
-  // console.log(loginUserEmail)
   const [token] = useToken(loginUserEmail)
   const navigate = useNavigate();
+  const pathname = useLocation();
+  
 
   if (token) {
     navigate('/')
@@ -25,10 +26,9 @@ const Login = () => {
     signIn(data.email, data.password)
       .then(result => {
         const user = result.user;
-        // console.log(user)
         setLoginUserEmail(data.email)
         toast.success('sign in successfully !')
-        navigate('/')
+        navigate(pathname?.state ? pathname?.state : '/')
 
       })
       .catch(error => {
@@ -39,9 +39,9 @@ const Login = () => {
   const handleSignInWithGoogle = () => {
       signInWithGoogle()
       .then((result) => {
-        console.log(result.user)
+        console.log("user koi" , result.user)
         toast.success('sign in successfully !')
-        navigate('/')
+        navigate(pathname?.state ? pathname?.state : '/')
 
       })
       .catch(error => {

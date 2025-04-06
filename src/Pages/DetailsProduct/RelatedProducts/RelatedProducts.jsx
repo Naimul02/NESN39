@@ -8,7 +8,7 @@ const RelatedProducts = ({category}) => {
     const {data  } = useQuery({
         queryKey : ['relatedProducts' , category],
         queryFn : async() => {
-            const res = await axios.get(`https://nesn-39-store-server.vercel.app/relatedProducts/${category}`)
+            const res = await axios.get(`http://localhost:5000/relatedProducts/${category}`)
             const data = res.data;
             console.log("relatedProducts" , data)
             return data;

@@ -47,7 +47,7 @@ const Navbar = () => {
 const [carts , refetch] = useCart()
 
   const handleDelete = (id) => {
-    axios.delete(`https://nesn-39-store-server.vercel.app/product?id=${id}`)
+    axios.delete(`http://localhost:5000/product?id=${id}`)
     .then(res => {
       
       if(res.data.deletedCount > 0){
@@ -204,8 +204,8 @@ const [carts , refetch] = useCart()
 <Link to={'/checkout'} onClick={()=> document.getElementById('my-drawer-4').checked = false}>
 <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay">
 <div className="hover:cursor-pointer  absolute bottom-2 w-full ">
-  <div className="flex items-center justify-evenly py-2  bg-[#5fa800] mx-3 rounded-lg">
-  <h2 className="text-base  text-white font-medium">Procced to checkout</h2>
+  <div className="flex items-center justify-evenly py-2  bg-[#5fa800] hover:bg-[#618c29] mx-3 rounded-lg">
+  <h2 className="text-base  text-white font-medium">Proceed to checkout</h2>
 
 <div className="bg-white p-2 text-lg m-2 text-[#5fa800] font-semibold  rounded-lg">
   Total Price : <span className="text-lg font-semibold">৳</span> {carts?.reduce((sum , cart) => sum + (cart?.recentPrice * cart?.quantity) , 0)}

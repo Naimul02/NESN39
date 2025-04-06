@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useLocation, useParams } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { GoArrowSwitch } from "react-icons/go";
 import { BsBrightnessHigh } from "react-icons/bs";
@@ -46,13 +46,14 @@ const DetailsProducts = () => {
   const {id} = useParams();
   const [ , refetch] = useCart();
   const [disabled , setDisabled] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const location = useLocation();
   
   const {data : data  , isLoading } = useQuery({
     queryKey : ['product' , id], 
     queryFn : async()=> {
           // const res = await axiosSecure(`/especipicproduct/${id}`);
-            const res = await axios.get(`https://nesn-39-store-server.vercel.app/product/${id}`)
+            const res = await axios.get(`http://localhost:5000/product/${id}`)
             console.log(res.data);
             return res.data
     }
@@ -97,7 +98,7 @@ const DetailsProducts = () => {
     // const totalPrice = info.quantity * info.recentPrice;
     // setTotal(totalPrice);
     console.log("information : ", cartItem);
-    axios.post('https://nesn-39-store-server.vercel.app/carts' , cartItem)
+    axios.post('http://localhost:5000/carts' , cartItem)
     .then(res => {
       console.log(res.data)
       if(res.data.insertedId){
@@ -209,7 +210,7 @@ const DetailsProducts = () => {
                 <FaBagShopping className="text-xl text-white"/> Add To Cart
               </button>
               ) : (
-                <Link to="/login">
+                <Link to="/login" state={location?.pathname}>
                   <button className="btn hover:bg-[#4d8801] lg:w-[315px] lg:ml-8 bg-[#5fa800] text-white max-w-[195px] flex items-center gap-3">
                     <FaBagShopping className="text-xl text-white"/> Add To Cart
                   </button>
