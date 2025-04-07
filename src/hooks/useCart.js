@@ -5,11 +5,14 @@ import { AuthContext } from '../AuthProvider/AuthProvider'
 
 export const useCart = () => {
     const {user} = useContext(AuthContext)
+    const id = localStorage.getItem('id')
+    
 
     const {data: carts = [] , refetch   } = useQuery({
-        queryKey : ['carts' , user?.email],
+        queryKey : ['cart' , user?.email],
         queryFn : async() => {
          const res = await axios.get(`http://localhost:5000/carts?email=${user?.email}`)
+         console.log("cartsss : " , res.data)
          
       return res.data
         }

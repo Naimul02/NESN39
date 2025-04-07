@@ -44,7 +44,8 @@ const Navbar = () => {
 
  
   
-const [carts , refetch] = useCart()
+const [carts , refetch] = useCart();
+console.log("cartssssss : " , carts);
 
   const handleDelete = (id) => {
     axios.delete(`http://localhost:5000/product?id=${id}`)

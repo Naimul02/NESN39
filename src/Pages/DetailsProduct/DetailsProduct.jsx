@@ -45,15 +45,18 @@ const DetailsProducts = () => {
   // const axiosSecure = useAxiosSecure();
   const {id} = useParams();
   const [ , refetch] = useCart();
+
+  
   const [disabled , setDisabled] = useState(false);
+
   const navigate = useNavigate();
   const location = useLocation();
   
   const {data : data  , isLoading } = useQuery({
     queryKey : ['product' , id], 
     queryFn : async()=> {
-          // const res = await axiosSecure(`/especipicproduct/${id}`);
-            const res = await axios.get(`http://localhost:5000/product/${id}`)
+          
+      const res = await axios.get(`http://localhost:5000/product/${id}`)
             console.log(res.data);
             return res.data
     }
@@ -75,44 +78,95 @@ const DetailsProducts = () => {
     }
   };
 
-  const handleProduct = () => {
+  // const handleProduct = () => {
+  //   const userInfo = {
+  //     userName: user?.displayName,
+  //     email: user?.email,
+  //   };
+
+  //   const cartItem = {
+  //     img: data?.img,
+  //     title: data?.title,
+  //     description : data?.description,
+  //     category : data?.category,
+  //     unit : data?.unit,
+  //     quantity: value,
+  //     id : data?._id,
+  //     recentPrice: data?.recentPrice,
+  //     previousPrice: data?.previousPrice,
+  //     userName: userInfo.userName,
+  //     email: userInfo.email,
+  //   };
+
+    
+  //   console.log("information : ", cartItem);
+  //   axios.post('http://localhost:5000/carts' , cartItem)
+  //   .then(res => {
+  //     console.log(res.data)
+  //     if(res.data.insertedId){
+  //       toast.success("add to cart successful");
+  //       refetch();
+  //       // setDisabled(true);
+
+      
+  //     }
+  //   })
+  //   .catch((error) => {
+  //     toast.error(error.message)
+  //   })
+  // };
+
+
+  const handleProduct = async () => {
     const userInfo = {
       userName: user?.displayName,
       email: user?.email,
     };
-
+  
     const cartItem = {
       img: data?.img,
       title: data?.title,
-      description : data?.description,
-      category : data?.category,
-      unit : data?.unit,
+      description: data?.description,
+      category: data?.category,
+      unit: data?.unit,
       quantity: value,
-      id : data?._id,
+      id: data?._id,
       recentPrice: data?.recentPrice,
       previousPrice: data?.previousPrice,
       userName: userInfo.userName,
       email: userInfo.email,
     };
-
-    // const totalPrice = info.quantity * info.recentPrice;
-    // setTotal(totalPrice);
-    console.log("information : ", cartItem);
-    axios.post('http://localhost:5000/carts' , cartItem)
-    .then(res => {
-      console.log(res.data)
-      if(res.data.insertedId){
-        toast.success("add to cart successful");
+  
+    try {
+      
+      const response = await axios.get(`http://localhost:5000/cart?email=${user?.email}&id=${id}`);
+      console.log("resonse data" , response?.data , id)
+      
+      if (response.data.length > 0) {
+        
+        const existingItem = response.data[0];
+        const updatedQuantity = existingItem.quantity + value;
+        localStorage.setItem('id' , id)
+        
+        await axios.patch(`http://localhost:5000/carts/${existingItem._id}`, {
+          quantity: updatedQuantity
+        });
+        
+        toast.success("The quantity of products in the cart has been increased");
+        refetch()
+      } else {
+        
+        await axios.post('http://localhost:5000/carts', cartItem);
+        toast.success("Product added to cart");
+        localStorage.setItem('id' , id)
         refetch();
-        setDisabled(true);
-        // navigate('/orders')
       }
-    })
-    .catch((error) => {
-      toast.error(error.message)
-    })
-  };
-
+      
+      
+    } catch (error) {
+      toast.error( error.message);
+    }
+  }
   return (
     
     <>
