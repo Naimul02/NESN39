@@ -15,9 +15,9 @@ const MilkProductsInfo = () => {
   const { isLoading, data: milkProducts = [] , refetch } = useQuery({
     queryKey: ["milkproducts"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/products")
+      const res = await fetch("https://nesn-39-store-server.vercel.app/products")
       const result = await res.json()
-      const data = result?.slice(0 , 10)
+      
       return data
 
     }
@@ -40,7 +40,7 @@ const MilkProductsInfo = () => {
 
         {
           milkProducts &&
-          milkProducts?.map(milkProduct => <MilkProducts
+          milkProducts?.slice(8 , 18).map(milkProduct => <MilkProducts
             key={milkProduct._id}
             product={milkProduct}
             setProducts={setProducts}

@@ -11,7 +11,7 @@ export const useCart = () => {
     const {data: carts = [] , refetch   } = useQuery({
         queryKey : ['cart' , user?.email],
         queryFn : async() => {
-         const res = await axios.get(`http://localhost:5000/carts?email=${user?.email}`)
+         const res = await axios.get(`https://nesn-39-store-server.vercel.app/carts?email=${user?.email}`)
          console.log("cartsss : " , res.data)
          
       return res.data

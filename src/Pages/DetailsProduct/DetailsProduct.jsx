@@ -56,7 +56,7 @@ const DetailsProducts = () => {
     queryKey : ['product' , id], 
     queryFn : async()=> {
           
-      const res = await axios.get(`http://localhost:5000/product/${id}`)
+      const res = await axios.get(`https://nesn-39-store-server.vercel.app/product/${id}`)
             console.log(res.data);
             return res.data
     }
@@ -100,7 +100,7 @@ const DetailsProducts = () => {
 
     
   //   console.log("information : ", cartItem);
-  //   axios.post('http://localhost:5000/carts' , cartItem)
+  //   axios.post('https://nesn-39-store-server.vercel.app/carts' , cartItem)
   //   .then(res => {
   //     console.log(res.data)
   //     if(res.data.insertedId){
@@ -139,7 +139,7 @@ const DetailsProducts = () => {
   
     try {
       
-      const response = await axios.get(`http://localhost:5000/cart?email=${user?.email}&id=${id}`);
+      const response = await axios.get(`https://nesn-39-store-server.vercel.app/cart?email=${user?.email}&id=${id}`);
       console.log("resonse data" , response?.data , id)
       
       if (response.data.length > 0) {
@@ -148,7 +148,7 @@ const DetailsProducts = () => {
         const updatedQuantity = existingItem.quantity + value;
         localStorage.setItem('id' , id)
         
-        await axios.patch(`http://localhost:5000/carts/${existingItem._id}`, {
+        await axios.patch(`https://nesn-39-store-server.vercel.app/carts/${existingItem._id}`, {
           quantity: updatedQuantity
         });
         
@@ -156,7 +156,7 @@ const DetailsProducts = () => {
         refetch()
       } else {
         
-        await axios.post('http://localhost:5000/carts', cartItem);
+        await axios.post('https://nesn-39-store-server.vercel.app/carts', cartItem);
         toast.success("Product added to cart");
         localStorage.setItem('id' , id)
         refetch();

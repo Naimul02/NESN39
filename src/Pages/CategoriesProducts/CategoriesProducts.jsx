@@ -5,6 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 import MilkProducts from '../Home/MilkProducts/MilkProducts';
 import { AiOutlineAppstore } from "react-icons/ai";
 import { GoTriangleDown } from 'react-icons/go';
+import Loading from '../../../src/Pages/Loading/Loading'
 
 
 
@@ -30,10 +31,10 @@ const CategoriesProducts = () => {
         setProducts(sorted);
     }
 
-    const {data } = useQuery({
+    const {data  , isLoading} = useQuery({
         queryKey : [ 'CategoriesProducts' , category ], 
         queryFn : async() => {
-            const res = await axios.get(`http://localhost:5000/categoryProducts/${category}`)
+            const res = await axios.get(`https://nesn-39-store-server.vercel.app/categoryProducts/${category}`)
             
             const result = res.data;
             setProducts(result)
@@ -41,6 +42,9 @@ const CategoriesProducts = () => {
             
         }
     })
+    if(isLoading){
+      return <Loading></Loading>
+    }
 
     
 

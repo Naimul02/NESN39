@@ -1,7 +1,18 @@
 import React from 'react';
 import './Section2.css'
+import { useQuery } from '@tanstack/react-query';
+import { Link } from 'react-router-dom';
 
 const Section2 = () => {
+  const { isLoading, data: products = [] , refetch } = useQuery({
+    queryKey: ["milkproducts"],
+    queryFn: async () => {
+      const res = await fetch("https://nesn-39-store-server.vercel.app/products")
+      const result = await res.json()
+      return result
+
+    }
+  })
   return (
     <>
       <div className='bg-base-200 pt-3 pb-10 px-4'>
@@ -45,62 +56,18 @@ const Section2 = () => {
 
 
         <div className='grid grid-cols-2 lg:grid-cols-4   bg-white shadow39 mt-16 '>
-          <div className='lg:flex block  items-center border-r border-b'>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkgoNwi4xN1Dq4n6EdMofwvoJ9VrYnGR_vZNi2dWWx-CICFgS8uviFxYXbTLI17xZb5sY&usqp=CAU" alt="" className='py-2 w-[130px] h-[131px]' />
-            <div className='mx-2 mb-2'>
-              <h1 className='text-sm lg:text-lg font-bold'>Lays</h1>
-              <p className=" font-semibold">Price : 15 tk</p>
+          {
+            products?.slice(0 , 8).map(product =>  <Link to={`/detailsProducts/${product?._id}`}><div className='lg:flex block  items-center border-r border-b'>
+              <img src={product?.img} alt="" className='py-2 pl-4 w-[130px] h-[131px]' />
+              <div className='mx-2 mb-2'>
+                <h1 className='text-sm lg:text-base font-semibold'>{product?.title}</h1>
+                <p className=" font-semibold">Price : {product?.recentPrice} tk</p>
+              </div>
             </div>
-          </div>
-          <div className='lg:flex block items-center  border-r border-b'>
-            <img src="https://dokanpat.com.bd/wp-content/uploads/2022/03/bombay-sweets-potato-crackers.jpg" className='py-2 w-[130px] h-[131px] object-cover' alt="" />
-            <div className="mx-2 mb-2">
-              <h1 className='text-sm lg:text-lg font-bold'>Photato Crackers</h1>
-              <p className=" font-semibold ">Price : 10 tk</p>
-            </div>
-          </div>
-          <div className='lg:flex block  items-center  border-r border-b'>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm9tV5U2zTU2xuCl5TNir-znJb-D83AJ1FsQ&usqp=CAU" alt="" className='py-2 w-[130px] h-[131px] object-cover' />
-            <div className='mx-2 mb-2'>
-              <h1 className='text-sm lg:text-lg font-bold'>Tom's</h1>
-              <p className=" font-semibold">Price : 15 tk</p>
-            </div>
-          </div>
-          <div className='lg:flex block  items-center  border-r border-b'>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT2It2mNxBkqO5St5hP8WU5GgSwG66DuQZWA&usqp=CAU" alt="" className='py-2 w-[130px] h-[131px] object-cover' />
-            <div className="ml-2">
-              <h1 className='text-sm lg:text-lg font-bold'>Buffalo Chicken Dip</h1>
-              <p className=" font-semibold">Price : 20 tk</p>
-            </div>
-          </div>
-          <div className='lg:flex block  items-center  border-r border-b'>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNnlgrC-V-G1BhgVQKoUeDBRgtTBUVrZ_8Qw&usqp=CAU" alt="" className='py-2 w-[130px] h-[131px] object-cover' />
-            <div className="ml-2">
-              <h1 className='text-sm lg:text-lg font-bold'>Cape Code </h1>
-              <p className=" font-semibold">Price : 15 tk</p>
-            </div>
-          </div>
-          <div className='lg:flex block  items-center  border-r border-b'>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOJzbQub6i8sz5ew6DyEyGuG_StjTjYxPe_w&s" alt="" className='py-2 w-[130px] h-[131px] object-cover' />
-            <div className='mx-2 mb-2'>
-              <h1 className='text-sm lg:text-lg font-bold'>UTZ Red Hot</h1>
-              <p className=" font-semibold">Price : 15 tk</p>
-            </div>
-          </div>
-          <div className='lg:flex block  items-center  border-r border-b'>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7AiqZVSKdikKsc1iu2SlHddkW9YuesEflrQ&usqp=CAU" alt="" className='py-2 w-[130px] h-[131px] object-cover' />
-            <div className='mx-2 mb-2'>
-              <h1 className='text-sm lg:text-lg font-bold'>Hawailan</h1>
-              <p className=" font-semibold">Price : 15 tk</p>
-            </div>
-          </div>
-          <div className='lg:flex block  items-center  border-r border-b'>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaFT0Dk12UrjZkhk6Wsa-zpechtoKo9WkkDw&usqp=CAU" alt="" className='py-2 w-[130px] h-[131px] object-cover ' />
-            <div className='mx-2 mb-2'>
-              <h1 className='text-sm lg:text-lg font-bold'>Ruffles</h1>
-              <p className=" font-semibold">Price : 15 tk</p>
-            </div>
-          </div>
+            </Link> )
+          }
+          
+          
         </div>
       </div>
 
